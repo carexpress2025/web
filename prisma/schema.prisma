@@ -177,14 +177,15 @@ model UserWhatsapp {
 }
 
 model Settings {
-    id                  String        @id @default(auto()) @map("_id") @db.ObjectId
-    sendMessagesWithIA  Boolean       @default(false)
-    replyMessagesWithIA Boolean       @default(false)
+    id                  String          @id @default(auto()) @map("_id") @db.ObjectId
+    sendMessagesWithIA  Boolean         @default(false)
+    replyMessagesWithIA Boolean         @default(false)
     modelIA             String?
     apiKeyIA            String?
-    createdAt           DateTime      @default(now())
-    updatedAt           DateTime      @updatedAt
+    createdAt           DateTime        @default(now())
+    updatedAt           DateTime        @updatedAt
     UserSettings        UserSettings?
+    SettingPrompts      SettingPrompts?
 
     @@map("settings")
 }
@@ -202,13 +203,26 @@ model UserSettings {
 }
 
 model Prompts {
-    id            String   @id @default(auto()) @map("_id") @db.ObjectId
-    settingsReply Prompt
-    settingsSend  Prompt
-    createdAt     DateTime @default(now())
-    updatedAt     DateTime @updatedAt
+    id             String          @id @default(auto()) @map("_id") @db.ObjectId
+    settingsReply  Prompt
+    settingsSend   Prompt
+    createdAt      DateTime        @default(now())
+    updatedAt      DateTime        @updatedAt
+    SettingPrompts SettingPrompts?
 
     @@map("prompts")
+}
+
+model SettingPrompts {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    settingsId String   @unique @db.ObjectId
+    settings   Settings @relation(fields: [settingsId], references: [id])
+    promptId   String   @unique @db.ObjectId
+    prompt     Prompts  @relation(fields: [promptId], references: [id])
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    @@map("settings_prompts")
 }
 
 enum SCHEDULINGS_STATUS {
