@@ -14,11 +14,12 @@ datasource db {
 }
 
 model Users {
-    id           String        @id @default(auto()) @map("_id") @db.ObjectId
-    name         String
-    createdAt    DateTime      @default(now())
-    updatedAt    DateTime      @updatedAt
-    UserAccounts UserAccounts?
+    id              String           @id @default(auto()) @map("_id") @db.ObjectId
+    name            String
+    createdAt       DateTime         @default(now())
+    updatedAt       DateTime         @updatedAt
+    UserAccounts    UserAccounts?
+    UserSchedulings UserSchedulings?
 
     @@map("users")
 }
@@ -40,22 +41,35 @@ model UserAccounts {
     user      Users?    @relation(fields: [userId], references: [id])
     accountId String?   @unique @db.ObjectId
     account   Accounts? @relation(fields: [accountId], references: [id])
-    createdAt DateTime           @default(now())
-    updatedAt DateTime           @updatedAt
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
 
     @@map("users_accounts")
 }
 
 model Schedulings {
-    id        String             @id @default(auto()) @map("_id") @db.ObjectId
-    name      String
-    filters   Json
-    message   String
-    status    SCHEDULINGS_STATUS @default(PENDING)
-    createdAt DateTime           @default(now())
-    updatedAt DateTime           @updatedAt
+    id              String             @id @default(auto()) @map("_id") @db.ObjectId
+    name            String
+    filters         Json
+    message         String
+    status          SCHEDULINGS_STATUS @default(PENDING)
+    createdAt       DateTime           @default(now())
+    updatedAt       DateTime           @updatedAt
+    UserSchedulings UserSchedulings?
 
     @@map("schedulings")
+}
+
+model UserSchedulings {
+    id           String      @id @default(auto()) @map("_id") @db.ObjectId
+    userId       String      @unique @db.ObjectId
+    user         Users       @relation(fields: [userId], references: [id])
+    schedulingId String      @unique @db.ObjectId
+    scheduling   Schedulings @relation(fields: [schedulingId], references: [id])
+    createdAt    DateTime    @default(now())
+    updatedAt    DateTime    @updatedAt
+
+    @@map("users_schedulings")
 }
 
 enum SCHEDULINGS_STATUS {
