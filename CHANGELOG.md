@@ -5,6 +5,9 @@
 - Lint de Código com Eslint
 - Formatação de Código com Prettier
 - Conexão com o Mongodb com o Prisma ORM
+- Suporte aos idiomas Português Brasileiro, Finlandês e Inglês
+- Tradução com i18n
+- Gerenciamento de estado com redux
 
 ## 0.0.2
 
