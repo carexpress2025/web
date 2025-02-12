@@ -21,6 +21,7 @@ model Users {
     UserAccounts          UserAccounts?
     UserSchedulings       UserSchedulings?
     UserSentManualMessage UserSentManualMessage?
+    UsersWhatsapp         UsersWhatsapp?
 
     @@map("users")
 }
@@ -149,15 +150,29 @@ model Cars {
     @@map("cars")
 }
 
-model Whatsapp {
-    id          String   @id @default(auto()) @map("_id") @db.ObjectId
-    number      String
-    session     String
-    noReplyList String[] @default([])
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+model Whatsapps {
+    id            String         @id @default(auto()) @map("_id") @db.ObjectId
+    number        String
+    session       String
+    noReplyList   String[]       @default([])
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+    UsersWhatsapp UsersWhatsapp?
 
     @@map("whatsapps")
+}
+
+model UsersWhatsapp {
+    id          String    @id @default(auto()) @map("_id") @db.ObjectId
+    userId      String    @unique @db.ObjectId
+    user        Users     @relation(fields: [userId], references: [id])
+    whatsappId  String    @unique @db.ObjectId
+    whatsapp    Whatsapps @relation(fields: [whatsappId], references: [id])
+    noReplyList String[]  @default([])
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
+
+    @@map("users_whatsapps")
 }
 
 enum SCHEDULINGS_STATUS {
