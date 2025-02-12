@@ -154,7 +154,7 @@ model Cars {
 
 model Whatsapps {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
-  number        String
+  number        String        @unique
   session       String
   noReplyList   String[]      @default([])
   createdAt     DateTime      @default(now())
