@@ -21,7 +21,8 @@ model Users {
     UserAccounts          UserAccounts?
     UserSchedulings       UserSchedulings?
     UserSentManualMessage UserSentManualMessage?
-    UsersWhatsapp         UsersWhatsapp?
+    UsersWhatsapp         UserWhatsapp?
+    UserSettings          UserSettings?
 
     @@map("users")
 }
@@ -151,18 +152,18 @@ model Cars {
 }
 
 model Whatsapps {
-    id            String         @id @default(auto()) @map("_id") @db.ObjectId
+    id            String        @id @default(auto()) @map("_id") @db.ObjectId
     number        String
     session       String
-    noReplyList   String[]       @default([])
-    createdAt     DateTime       @default(now())
-    updatedAt     DateTime       @updatedAt
-    UsersWhatsapp UsersWhatsapp?
+    noReplyList   String[]      @default([])
+    createdAt     DateTime      @default(now())
+    updatedAt     DateTime      @updatedAt
+    UsersWhatsapp UserWhatsapp?
 
     @@map("whatsapps")
 }
 
-model UsersWhatsapp {
+model UserWhatsapp {
     id          String    @id @default(auto()) @map("_id") @db.ObjectId
     userId      String    @unique @db.ObjectId
     user        Users     @relation(fields: [userId], references: [id])
@@ -176,15 +177,28 @@ model UsersWhatsapp {
 }
 
 model Settings {
-    id                  String   @id @default(auto()) @map("_id") @db.ObjectId
-    sendMessagesWithIA  Boolean  @default(false)
-    replyMessagesWithIA Boolean  @default(false)
+    id                  String        @id @default(auto()) @map("_id") @db.ObjectId
+    sendMessagesWithIA  Boolean       @default(false)
+    replyMessagesWithIA Boolean       @default(false)
     modelIA             String?
     apiKeyIA            String?
-    createdAt           DateTime @default(now())
-    updatedAt           DateTime @updatedAt
+    createdAt           DateTime      @default(now())
+    updatedAt           DateTime      @updatedAt
+    UserSettings        UserSettings?
 
     @@map("settings")
+}
+
+model UserSettings {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    userId     String   @unique @db.ObjectId
+    user       Users    @relation(fields: [userId], references: [id])
+    settingsId String   @unique @db.ObjectId
+    settings   Settings @relation(fields: [settingsId], references: [id])
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    @@map("users_settings")
 }
 
 model Prompts {
