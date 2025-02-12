@@ -19,6 +19,8 @@ model Users {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
+    Accounts Accounts?
+
     @@map("users")
 }
 
@@ -28,6 +30,9 @@ model Accounts {
     password  String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+
+    userId String? @unique @db.ObjectId
+    user   Users?  @relation(fields: [userId], references: [id])
 
     @@map("accounts")
 }
