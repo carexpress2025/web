@@ -1,0 +1,32 @@
+export interface ICarInteriorInterface {
+  seatHeaters: boolean;
+  rearViewCamera: boolean;
+  fuelBatteryOperatedAuxiliaryHeater: boolean;
+  parkingSensors: boolean;
+  tirePressureMonitoringSystem: boolean;
+  internalSocket: boolean;
+  startStopSystem: boolean;
+  skiHatch: boolean;
+  powerWindows: boolean;
+  electricMirrors: boolean;
+  electricallyAdjustableSeats: boolean;
+  electricallyOperatedTailgate: boolean;
+  luggageCompartmentSafetyNet: boolean;
+  sportSeats: boolean;
+  cruiseControl: boolean;
+  onBoardComputer: boolean;
+  keyless: boolean;
+  airConditionedSeating: boolean;
+  airConditioning: boolean;
+  retractableRearSeats: boolean;
+  laneDepartureWarning: boolean;
+  roofOpeningMechanism: boolean;
+  centralLocking: boolean;
+  motorHeater: boolean;
+  heatedSteeringWheel: boolean;
+  heatedWindscreen: boolean;
+  leatherInterior: boolean;
+  satelliteNavigator: boolean;
+  speedLimitSensor: boolean;
+  powerSteering: boolean;
+}
