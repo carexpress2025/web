@@ -61,26 +61,43 @@ const authOptions = {
   },
 };
 
-// Função para lidar com a solicitação POST
+// Função para lidar com a solicitação POST usando o NextAuth
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { email, password } = body;
 
-  const credentials = {
-    email,
-    password,
-  };
+  const response = await NextAuth(req, {
+    ...authOptions,
+    providers: [
+      CredentialsProvider({
+        name: 'Credentials',
+        credentials: {
+          email: { label: 'Email', type: 'email' },
+          password: { label: 'Password', type: 'password' },
+        },
+        async authorize(credentials) {
+          const user = await prisma.accounts.findUnique({
+            where: { email: credentials?.email },
+          });
 
-  const user = await prisma.accounts.findUnique({
-    where: { email: credentials.email },
+          if (
+            !user ||
+            !(await bcrypt.compare(credentials?.password, user.password))
+          ) {
+            throw new Error('Invalid credentials');
+          }
+
+          return user;
+        },
+      }),
+    ],
   });
 
-  if (!user || !(await bcrypt.compare(credentials.password, user.password))) {
-    return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+  // Caso o NextAuth tenha retornado um erro
+  if (response?.error) {
+    return NextResponse.json({ error: response.error }, { status: 401 });
   }
 
-  // Se a autenticação for bem-sucedida, retorne o usuário (ou um token)
-  return NextResponse.json({ user });
+  return NextResponse.json({ user: response?.user });
 }
 
 // Função GET caso precise
