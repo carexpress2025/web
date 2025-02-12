@@ -1,15 +1,18 @@
 module.exports = {
-  "*.{ts,tsx}": (filenames) => {
-    return [`eslint --fix ${filenames.join(" ")}`, `prettier --write ${filenames.join(" ")}`];
-  },
-  "*.json": (filenames) => {
-    return [`prettier --write ${filenames.join(" ")}`];
-  },
-  "*.spec.tsx": (filenames) => {
+  '*.{ts,tsx}': (filenames) => {
     return [
-      `eslint --fix ${filenames.join(" ")}`,
-      `prettier --write ${filenames.join(" ")}`,
-      `jest --coverage ${filenames.join(" ")}`,
+      `prettier --write ${filenames.join(' ')}`,
+      `eslint ${filenames.join(' ')}`,
+    ];
+  },
+  '*.json': (filenames) => {
+    return [`prettier --write ${filenames.join(' ')}`];
+  },
+  '*.spec.tsx': (filenames) => {
+    return [
+      `prettier --write ${filenames.join(' ')}`,
+      `eslint ${filenames.join(' ')}`,
+      `jest --coverage ${filenames.join(' ')}`,
     ];
   },
 };
