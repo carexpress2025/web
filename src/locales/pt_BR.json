@@ -127,6 +127,7 @@
   "hooks": {
     "errors": {
       "errorFetchingCars": "Não foi possível buscar os carros",
+      "carsNotFound": "Nenhum Carro foi encontrado",
       "failedLogin": "Falha ao realizar o login.",
       "login": {
         "requiredFields": "Email e senha são obrigatórios"
