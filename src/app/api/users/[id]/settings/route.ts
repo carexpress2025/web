@@ -84,3 +84,56 @@ export async function GET(
     );
   }
 }
+
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: { id: string } },
+): Promise<NextResponse> {
+  try {
+    const { id: userId } = params;
+    const {
+      sendMessagesWithIA,
+      replyMessagesWithIA,
+      replyWithGenericAnswers,
+      modelIA,
+      apiKeyIA,
+    } = await req.json();
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: 'ID do usuário é obrigatório' },
+        { status: 400 },
+      );
+    }
+
+    const updatedSettings = await prisma.userSettings.update({
+      where: { userId: userId },
+      data: {
+        settings: {
+          update: {
+            sendMessagesWithIA:
+              sendMessagesWithIA !== undefined ? sendMessagesWithIA : undefined,
+            replyMessagesWithIA:
+              replyMessagesWithIA !== undefined
+                ? replyMessagesWithIA
+                : undefined,
+            replyWithGenericAnswers:
+              replyWithGenericAnswers !== undefined
+                ? replyWithGenericAnswers
+                : undefined,
+            modelIA: modelIA || undefined,
+            apiKeyIA: apiKeyIA || undefined,
+          },
+        },
+      },
+    });
+
+    return NextResponse.json(updatedSettings, { status: 200 });
+  } catch (error) {
+    console.error('Erro ao atualizar configurações:', error);
+    return NextResponse.json(
+      { error: 'Erro interno do servidor' },
+      { status: 500 },
+    );
+  }
+}
