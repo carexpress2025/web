@@ -202,14 +202,11 @@ model UserSettings {
 }
 
 model Prompts {
-    id             String   @id @default(auto()) @map("_id") @db.ObjectId
-    instructions   String?
-    roles          String?
-    context        String?
-    language       String?
-    expectedOutput String?
-    createdAt      DateTime @default(now())
-    updatedAt      DateTime @updatedAt
+    id            String   @id @default(auto()) @map("_id") @db.ObjectId
+    settingsReply Prompt
+    settingsSend  Prompt
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
 
     @@map("prompts")
 }
@@ -226,6 +223,14 @@ enum SENT_MANUAL_MESSAGE {
     NOT_SENT
     ERROR
     ANSWERED
+}
+
+type Prompt {
+    instructions   String?
+    roles          String?
+    context        String?
+    language       String?
+    expectedOutput String?
 }
 
 type Safety {
