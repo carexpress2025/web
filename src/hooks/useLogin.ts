@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 
 export function useLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
   const { t } = useTranslation();
+
+  const searchParams = useSearchParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,21 +22,21 @@ export function useLogin() {
     }
 
     setLoading(true);
-    const response = await fetch('/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
+
+    const callbackUrl = searchParams.get('callbackUrl') || '/';
+
+    const response = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+      callbackUrl,
     });
 
-    if (response.ok) {
-      signIn('credentials', { email, password });
-    } else {
+    setLoading(false);
+
+    if (!response?.ok) {
       setError(t('hooks.errors.failedLogin'));
     }
-
-    setLoading(false);
   };
 
   return {
