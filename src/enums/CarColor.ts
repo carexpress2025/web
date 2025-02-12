@@ -1,0 +1,16 @@
+export enum CAR_COLOR {
+  BEIGE = 'Beige',
+  GRAY = 'Harmaa',
+  SILVER = 'Hopea',
+  YELLOW = 'Keltainen',
+  COPPER = 'Kupari',
+  BLACK = 'Musta',
+  ORANGE = 'Oranssi',
+  RED = 'Punainen',
+  BROWN = 'Ruskea',
+  BLUE = 'Sininen',
+  TURQUOISE = 'Turkoosi',
+  WHITE = 'Valkoinen',
+  GREEN = 'Vihreä',
+  PURPLE = 'Violetti',
+}
