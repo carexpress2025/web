@@ -177,15 +177,16 @@ model UserWhatsapp {
 }
 
 model Settings {
-    id                  String          @id @default(auto()) @map("_id") @db.ObjectId
-    sendMessagesWithIA  Boolean         @default(false)
-    replyMessagesWithIA Boolean         @default(false)
-    modelIA             String?
-    apiKeyIA            String?
-    createdAt           DateTime        @default(now())
-    updatedAt           DateTime        @updatedAt
-    UserSettings        UserSettings?
-    SettingPrompts      SettingPrompts?
+    id                      String          @id @default(auto()) @map("_id") @db.ObjectId
+    sendMessagesWithIA      Boolean         @default(false)
+    replyMessagesWithIA     Boolean         @default(false)
+    replyWithGenericAnswers Boolean         @default(false)
+    modelIA                 String?
+    apiKeyIA                String?
+    createdAt               DateTime        @default(now())
+    updatedAt               DateTime        @updatedAt
+    UserSettings            UserSettings?
+    SettingPrompts          SettingPrompts?
 
     @@map("settings")
 }
