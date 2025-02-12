@@ -4,6 +4,7 @@
 - Interface de Usuário (ui/ux) com tailwindcss e shadcn ui
 - Lint de Código com Eslint
 - Formatação de Código com Prettier
+- Conexão com o Mongodb com o Prisma ORM
 
 ## 0.0.2
 
