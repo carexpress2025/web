@@ -72,6 +72,17 @@ model UserSchedulings {
     @@map("users_schedulings")
 }
 
+model SentManualMensage {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    contact   String
+    body      String
+    usedAi    Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("sent_manual_messages")
+}
+
 model Car {
     id                    String      @id @default(auto()) @map("_id") @db.ObjectId
     idCar                 String      @unique
