@@ -13,7 +13,6 @@ import {
   Bot,
   MessageCircle,
   Star,
-  User,
 } from 'lucide-react';
 
 export const menuItemsPath = [
@@ -81,11 +80,6 @@ export const menuItemsPath = [
     key: 'stars',
     icon: Star,
     href: '/stars',
-  },
-  {
-    key: 'profile',
-    icon: User,
-    href: '/profile',
   },
 ];
 
