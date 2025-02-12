@@ -175,6 +175,19 @@ model UsersWhatsapp {
     @@map("users_whatsapps")
 }
 
+model Prompts {
+    id             String   @id @default(auto()) @map("_id") @db.ObjectId
+    instructions   String?
+    roles          String?
+    context        String?
+    language       String?
+    expectedOutput String?
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("prompts")
+}
+
 enum SCHEDULINGS_STATUS {
     RUNNING
     PENDING
