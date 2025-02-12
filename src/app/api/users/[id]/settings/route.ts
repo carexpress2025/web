@@ -13,6 +13,7 @@ export async function POST(
       modelIA,
       apiKeyIA,
     } = await req.json();
+
     const { id: userId } = params;
 
     if (!userId) {
