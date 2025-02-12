@@ -53,6 +53,7 @@ export default function FormSignin() {
             autoComplete="email"
             required
             className="w-full"
+            placeholder={t('pages.signin.placeholderEmail')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -66,6 +67,7 @@ export default function FormSignin() {
             autoComplete="current-password"
             required
             className="w-full"
+            placeholder={t('pages.signin.placeholderPassword')}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
