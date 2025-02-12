@@ -175,6 +175,18 @@ model UsersWhatsapp {
     @@map("users_whatsapps")
 }
 
+model Settings {
+    id                  String   @id @default(auto()) @map("_id") @db.ObjectId
+    sendMessagesWithIA  Boolean  @default(false)
+    replyMessagesWithIA Boolean  @default(false)
+    modelIA             String?
+    apiKeyIA            String?
+    createdAt           DateTime @default(now())
+    updatedAt           DateTime @updatedAt
+
+    @@map("settings")
+}
+
 model Prompts {
     id             String   @id @default(auto()) @map("_id") @db.ObjectId
     instructions   String?
