@@ -149,6 +149,17 @@ model Cars {
     @@map("cars")
 }
 
+model Whatsapp {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    number      String
+    session     String
+    noReplyList String[] @default([])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    @@map("whatsapps")
+}
+
 enum SCHEDULINGS_STATUS {
     RUNNING
     PENDING
