@@ -46,3 +46,41 @@ export async function POST(
     );
   }
 }
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } },
+): Promise<NextResponse> {
+  try {
+    const { id: userId } = params;
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: 'ID do usuário é obrigatório' },
+        { status: 400 },
+      );
+    }
+
+    const userSettings = await prisma.userSettings.findUnique({
+      where: { userId: userId },
+      include: {
+        settings: true,
+      },
+    });
+
+    if (!userSettings) {
+      return NextResponse.json(
+        { error: 'Configurações do usuário não encontradas' },
+        { status: 404 },
+      );
+    }
+
+    return NextResponse.json(userSettings.settings, { status: 200 });
+  } catch (error) {
+    console.error('Erro ao buscar configurações do usuário:', error);
+    return NextResponse.json(
+      { error: 'Erro interno do servidor' },
+      { status: 500 },
+    );
+  }
+}
