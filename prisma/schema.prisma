@@ -14,13 +14,13 @@ datasource db {
 }
 
 model Users {
-  id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
+  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
   name                  String
-  createdAt             DateTime               @default(now())
-  updatedAt             DateTime               @updatedAt
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
   UserAccounts          UserAccounts?
-  UserSchedulings       UserSchedulings?
-  UserSentManualMessage UserSentManualMessage?
+  UserSchedulings       UserSchedulings[]
+  UserSentManualMessage UserSentManualMessage[]
   UsersWhatsapp         UserWhatsapp?
   UserSettings          UserSettings?
   UserPrompts           UserPrompts?
@@ -66,7 +66,7 @@ model Schedulings {
 
 model UserSchedulings {
   id           String      @id @default(auto()) @map("_id") @db.ObjectId
-  userId       String      @unique @db.ObjectId
+  userId       String      @db.ObjectId
   user         Users       @relation(fields: [userId], references: [id])
   schedulingId String      @unique @db.ObjectId
   scheduling   Schedulings @relation(fields: [schedulingId], references: [id])
@@ -92,7 +92,7 @@ model SentManualMensage {
 
 model UserSentManualMessage {
   id                  String            @id @default(auto()) @map("_id") @db.ObjectId
-  userId              String            @unique @db.ObjectId
+  userId              String            @db.ObjectId
   user                Users             @relation(fields: [userId], references: [id])
   sentManualMessageId String            @unique @db.ObjectId
   sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])

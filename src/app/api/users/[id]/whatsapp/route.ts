@@ -59,3 +59,44 @@ export async function POST(
     );
   }
 }
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } },
+): Promise<NextResponse> {
+  try {
+    const { id: userId } = params;
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: 'User ID é obrigatório' },
+        { status: 400 },
+      );
+    }
+
+    const userWhatsapp = await prisma.userWhatsapp.findUnique({
+      where: { userId: userId },
+      include: {
+        whatsapp: true,
+      },
+    });
+
+    if (!userWhatsapp) {
+      return NextResponse.json(
+        { error: 'Usuário não encontrado ou WhatsApp não cadastrado' },
+        { status: 404 },
+      );
+    }
+
+    return NextResponse.json(
+      { message: 'WhatsApp encontrado com sucesso', data: userWhatsapp },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error('Erro ao buscar WhatsApp:', error);
+    return NextResponse.json(
+      { error: 'Erro interno do servidor' },
+      { status: 500 },
+    );
+  }
+}
