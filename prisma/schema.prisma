@@ -81,6 +81,7 @@ model SentManualMensage {
     createdAt             DateTime               @default(now())
     updatedAt             DateTime               @updatedAt
     UserSentManualMessage UserSentManualMessage?
+    CarSentManualMessage  CarSentManualMessage?
 
     @@map("sent_manual_messages")
 }
@@ -97,9 +98,21 @@ model UserSentManualMessage {
     @@map("users_sent_manual_messages")
 }
 
-model Car {
-    id                    String      @id @default(auto()) @map("_id") @db.ObjectId
-    idCar                 String      @unique
+model CarSentManualMessage {
+    id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+    carId               String            @unique @db.ObjectId
+    car                 Cars              @relation(fields: [carId], references: [id])
+    sentManualMessageId String            @unique @db.ObjectId
+    sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
+    createdAt           DateTime          @default(now())
+    updatedAt           DateTime          @updatedAt
+
+    @@map("cars_sent_manual_messages")
+}
+
+model Cars {
+    id                    String                @id @default(auto()) @map("_id") @db.ObjectId
+    idCar                 String                @unique
     brand                 String?
     name                  String?
     bodyType              String?
@@ -128,8 +141,9 @@ model Car {
     phone                 String?
     seller                String?
     link                  String?
-    createdAt             DateTime    @default(now())
-    updatedAt             DateTime    @updatedAt
+    createdAt             DateTime              @default(now())
+    updatedAt             DateTime              @updatedAt
+    CarSentManualMessage  CarSentManualMessage?
 
     @@map("cars")
 }
