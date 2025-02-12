@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const { name } = await req.json();
+    const { name, accountId } = await req.json();
 
     if (!name) {
       return NextResponse.json(
@@ -15,6 +15,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const newUser = await prisma.users.create({
       data: {
         name,
+        UserAccounts: {
+          create: {
+            accountId: accountId,
+          },
+        },
       },
     });
 
