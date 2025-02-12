@@ -40,4 +40,27 @@ model UserAccounts {
     user      Users?    @relation(fields: [userId], references: [id])
     accountId String?   @unique @db.ObjectId
     account   Accounts? @relation(fields: [accountId], references: [id])
+    createdAt DateTime           @default(now())
+    updatedAt DateTime           @updatedAt
+
+    @@map("users_accounts")
+}
+
+model Schedulings {
+    id        String             @id @default(auto()) @map("_id") @db.ObjectId
+    name      String
+    filters   Json
+    message   String
+    status    SCHEDULINGS_STATUS @default(PENDING)
+    createdAt DateTime           @default(now())
+    updatedAt DateTime           @updatedAt
+
+    @@map("schedulings")
+}
+
+enum SCHEDULINGS_STATUS {
+    RUNNING
+    PENDING
+    FAILED
+    STOPPED
 }
