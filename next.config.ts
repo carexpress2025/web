@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
         permanent: true, // Define como permanente (status 308)
       },
       {
-        source: '/dashboard', // Quando a rota for "/dashboard"
-        destination: '/home', // Redireciona para "/home"
+        source: '/home', // Quando a rota for "/dashboard"
+        destination: '/dashboard', // Redireciona para "/home"
         permanent: true, // Define como permanente (status 308)
       },
     ];
