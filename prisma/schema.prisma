@@ -14,12 +14,13 @@ datasource db {
 }
 
 model Users {
-    id              String           @id @default(auto()) @map("_id") @db.ObjectId
-    name            String
-    createdAt       DateTime         @default(now())
-    updatedAt       DateTime         @updatedAt
-    UserAccounts    UserAccounts?
-    UserSchedulings UserSchedulings?
+    id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
+    name                  String
+    createdAt             DateTime               @default(now())
+    updatedAt             DateTime               @updatedAt
+    UserAccounts          UserAccounts?
+    UserSchedulings       UserSchedulings?
+    UserSentManualMessage UserSentManualMessage?
 
     @@map("users")
 }
@@ -73,14 +74,27 @@ model UserSchedulings {
 }
 
 model SentManualMensage {
-    id        String   @id @default(auto()) @map("_id") @db.ObjectId
-    contact   String
-    body      String
-    usedAi    Boolean  @default(false)
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
+    contact               String
+    body                  String
+    usedAi                Boolean                @default(false)
+    createdAt             DateTime               @default(now())
+    updatedAt             DateTime               @updatedAt
+    UserSentManualMessage UserSentManualMessage?
 
     @@map("sent_manual_messages")
+}
+
+model UserSentManualMessage {
+    id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+    userId              String            @unique @db.ObjectId
+    user                Users             @relation(fields: [userId], references: [id])
+    sentManualMessageId String            @unique @db.ObjectId
+    sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
+    createdAt           DateTime          @default(now())
+    updatedAt           DateTime          @updatedAt
+
+    @@map("users_sent_manual_messages")
 }
 
 model Car {
