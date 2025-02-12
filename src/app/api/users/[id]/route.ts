@@ -19,6 +19,11 @@ export async function GET(
 
     const includeUser = searchParams.get('user') === 'true';
     const includeAccounts = searchParams.get('accounts') === 'true';
+    const includeSchedulings = searchParams.get('schedulings') === 'true';
+    const includeSentManualMessage =
+      searchParams.get('sentManualMessage') === 'true';
+    const includeWhatsapp = searchParams.get('whatsapp') === 'true';
+    const includeSettings = searchParams.get('settings') === 'true';
 
     const user = await prisma.users.findUnique({
       where: { id },
@@ -31,6 +36,10 @@ export async function GET(
               },
             }
           : false,
+        UserSchedulings: includeSchedulings,
+        UserSentManualMessage: includeSentManualMessage,
+        UsersWhatsapp: includeWhatsapp,
+        UserSettings: includeSettings,
       },
     });
 
