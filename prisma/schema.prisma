@@ -5,239 +5,324 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Users {
-    id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
-    name                  String
-    createdAt             DateTime               @default(now())
-    updatedAt             DateTime               @updatedAt
-    UserAccounts          UserAccounts?
-    UserSchedulings       UserSchedulings?
-    UserSentManualMessage UserSentManualMessage?
+  id                    String                  @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  UserAccounts          UserAccounts?
+  UserSchedulings       UserSchedulings[]
+  UserSentManualMessage UserSentManualMessage[]
+  UsersWhatsapp         UserWhatsapp?
+  UserSettings          UserSettings?
+  UserPrompts           UserPrompts?
 
-    @@map("users")
+  @@map("users")
 }
 
 model Accounts {
-    id           String        @id @default(auto()) @map("_id") @db.ObjectId
-    email        String        @unique
-    password     String
-    createdAt    DateTime      @default(now())
-    updatedAt    DateTime      @updatedAt
-    UserAccounts UserAccounts?
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  email        String        @unique
+  password     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  UserAccounts UserAccounts?
 
-    @@map("accounts")
+  @@map("accounts")
 }
 
 model UserAccounts {
-    id        String    @id @default(auto()) @map("_id") @db.ObjectId
-    userId    String?   @unique @db.ObjectId
-    user      Users?    @relation(fields: [userId], references: [id])
-    accountId String?   @unique @db.ObjectId
-    account   Accounts? @relation(fields: [accountId], references: [id])
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String?   @unique @db.ObjectId
+  user      Users?    @relation(fields: [userId], references: [id])
+  accountId String?   @unique @db.ObjectId
+  account   Accounts? @relation(fields: [accountId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
-    @@map("users_accounts")
+  @@map("users_accounts")
 }
 
 model Schedulings {
-    id              String             @id @default(auto()) @map("_id") @db.ObjectId
-    name            String
-    filters         Json
-    message         String
-    status          SCHEDULINGS_STATUS @default(PENDING)
-    createdAt       DateTime           @default(now())
-    updatedAt       DateTime           @updatedAt
-    UserSchedulings UserSchedulings?
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  filters         Json
+  message         String
+  status          SCHEDULINGS_STATUS @default(PENDING)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  UserSchedulings UserSchedulings?
 
-    @@map("schedulings")
+  @@map("schedulings")
 }
 
 model UserSchedulings {
-    id           String      @id @default(auto()) @map("_id") @db.ObjectId
-    userId       String      @unique @db.ObjectId
-    user         Users       @relation(fields: [userId], references: [id])
-    schedulingId String      @unique @db.ObjectId
-    scheduling   Schedulings @relation(fields: [schedulingId], references: [id])
-    createdAt    DateTime    @default(now())
-    updatedAt    DateTime    @updatedAt
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String      @db.ObjectId
+  user         Users       @relation(fields: [userId], references: [id])
+  schedulingId String      @unique @db.ObjectId
+  scheduling   Schedulings @relation(fields: [schedulingId], references: [id])
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 
-    @@map("users_schedulings")
+  @@map("users_schedulings")
 }
 
 model SentManualMensage {
-    id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
-    contact               String
-    body                  String
-    usedAi                Boolean                @default(false)
-    status                SENT_MANUAL_MESSAGE    @default(SENT)
-    createdAt             DateTime               @default(now())
-    updatedAt             DateTime               @updatedAt
-    UserSentManualMessage UserSentManualMessage?
-    CarSentManualMessage  CarSentManualMessage?
+  id                    String                 @id @default(auto()) @map("_id") @db.ObjectId
+  contact               String
+  body                  String
+  usedAi                Boolean                @default(false)
+  status                SENT_MANUAL_MESSAGE    @default(SENT)
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  UserSentManualMessage UserSentManualMessage?
+  CarSentManualMessage  CarSentManualMessage?
 
-    @@map("sent_manual_messages")
+  @@map("sent_manual_messages")
 }
 
 model UserSentManualMessage {
-    id                  String            @id @default(auto()) @map("_id") @db.ObjectId
-    userId              String            @unique @db.ObjectId
-    user                Users             @relation(fields: [userId], references: [id])
-    sentManualMessageId String            @unique @db.ObjectId
-    sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
-    createdAt           DateTime          @default(now())
-    updatedAt           DateTime          @updatedAt
+  id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId              String            @db.ObjectId
+  user                Users             @relation(fields: [userId], references: [id])
+  sentManualMessageId String            @unique @db.ObjectId
+  sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
-    @@map("users_sent_manual_messages")
+  @@map("users_sent_manual_messages")
 }
 
 model CarSentManualMessage {
-    id                  String            @id @default(auto()) @map("_id") @db.ObjectId
-    carId               String            @unique @db.ObjectId
-    car                 Cars              @relation(fields: [carId], references: [id])
-    sentManualMessageId String            @unique @db.ObjectId
-    sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
-    createdAt           DateTime          @default(now())
-    updatedAt           DateTime          @updatedAt
+  id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+  carId               String            @unique @db.ObjectId
+  car                 Cars              @relation(fields: [carId], references: [id])
+  sentManualMessageId String            @unique @db.ObjectId
+  sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
-    @@map("cars_sent_manual_messages")
+  @@map("cars_sent_manual_messages")
 }
 
 model Cars {
-    id                    String                @id @default(auto()) @map("_id") @db.ObjectId
-    idCar                 String                @unique
-    brand                 String?
-    name                  String?
-    bodyType              String?
-    painting              String?
-    carType               String?
-    driveType             String?
-    transmissionType      String?
-    color                 String?
-    mileage               Int?
-    engine                String?
-    engineDisplacement    Int?
-    fuelType              String?
-    safety                Safety
-    interior              Interior
-    electronics           Electronics
-    owners                String?
-    status                String?
-    year                  Int?
-    inspected             String?
-    plate                 String?
-    additionalInformation String?
-    others                String?
-    roadWorthy            String?
-    price                 Float?
-    images                String[]
-    phone                 String?
-    seller                String?
-    link                  String?
-    createdAt             DateTime              @default(now())
-    updatedAt             DateTime              @updatedAt
-    CarSentManualMessage  CarSentManualMessage?
+  id                    String                @id @default(auto()) @map("_id") @db.ObjectId
+  idCar                 String                @unique
+  brand                 String?
+  name                  String?
+  bodyType              String?
+  painting              String?
+  carType               String?
+  driveType             String?
+  transmissionType      String?
+  color                 String?
+  mileage               Int?
+  engine                String?
+  engineDisplacement    Int?
+  fuelType              String?
+  safety                Safety
+  interior              Interior
+  electronics           Electronics
+  owners                String?
+  status                String?
+  year                  Int?
+  inspected             String?
+  plate                 String?
+  additionalInformation String?
+  others                String?
+  roadWorthy            String?
+  price                 Float?
+  images                String[]
+  phone                 String?
+  seller                String?
+  link                  String?
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+  CarSentManualMessage  CarSentManualMessage?
 
-    @@map("cars")
+  @@map("cars")
+}
+
+model Whatsapps {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  number        String        @unique
+  session       String
+  noReplyList   String[]      @default([])
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  UsersWhatsapp UserWhatsapp?
+
+  @@map("whatsapps")
+}
+
+model UserWhatsapp {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String    @unique @db.ObjectId
+  user        Users     @relation(fields: [userId], references: [id])
+  whatsappId  String    @unique @db.ObjectId
+  whatsapp    Whatsapps @relation(fields: [whatsappId], references: [id])
+  noReplyList String[]  @default([])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("users_whatsapps")
+}
+
+model Settings {
+  id                      String        @id @default(auto()) @map("_id") @db.ObjectId
+  sendMessagesWithIA      Boolean       @default(false)
+  replyMessagesWithIA     Boolean       @default(false)
+  replyWithGenericAnswers Boolean       @default(false)
+  modelIA                 String?
+  apiKeyIA                String?
+  createdAt               DateTime      @default(now())
+  updatedAt               DateTime      @updatedAt
+  UserSettings            UserSettings?
+
+  @@map("settings")
+}
+
+model UserSettings {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique @db.ObjectId
+  user       Users    @relation(fields: [userId], references: [id])
+  settingsId String   @unique @db.ObjectId
+  settings   Settings @relation(fields: [settingsId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("users_settings")
+}
+
+model Prompts {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  settingsReply Prompt
+  settingsSend  Prompt
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  UserPrompts   UserPrompts?
+
+  @@map("prompts")
+}
+
+model UserPrompts {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @unique @db.ObjectId
+  user      Users    @relation(fields: [userId], references: [id])
+  promptId  String   @unique @db.ObjectId
+  prompt    Prompts  @relation(fields: [promptId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users_prompts")
 }
 
 enum SCHEDULINGS_STATUS {
-    RUNNING
-    PENDING
-    FAILED
-    STOPPED
+  RUNNING
+  PENDING
+  FAILED
+  STOPPED
 }
 
 enum SENT_MANUAL_MESSAGE {
-    SENT
-    NOT_SENT
-    ERROR
-    ANSWERED
+  SENT
+  NOT_SENT
+  ERROR
+  ANSWERED
+}
+
+type Prompt {
+  instructions   String?
+  roles          String?
+  context        String?
+  language       String?
+  expectedOutput String?
 }
 
 type Safety {
-    antiLockBrakingSystem      Boolean @default(false)
-    hillStartAssist            Boolean @default(false)
-    parkingAssistance          Boolean @default(false)
-    fogLights                  Boolean @default(false)
-    airbags                    Boolean @default(false)
-    collisionWarning           Boolean @default(false)
-    theftAlarm                 Boolean @default(false)
-    xenonHeadlights            Boolean @default(false)
-    adaptiveHeadlights         Boolean @default(false)
-    electronicStabilityControl Boolean @default(false)
-    emergencyBrakeAssist       Boolean @default(false)
-    isofixReady                Boolean @default(false)
-    corneringLights            Boolean @default(false)
-    blindSpotAssist            Boolean @default(false)
-    engineImmobilizer          Boolean @default(false)
-    ledHeadlights              Boolean @default(false)
-    tractionControlSystem      Boolean @default(false)
+  antiLockBrakingSystem      Boolean @default(false)
+  hillStartAssist            Boolean @default(false)
+  parkingAssistance          Boolean @default(false)
+  fogLights                  Boolean @default(false)
+  airbags                    Boolean @default(false)
+  collisionWarning           Boolean @default(false)
+  theftAlarm                 Boolean @default(false)
+  xenonHeadlights            Boolean @default(false)
+  adaptiveHeadlights         Boolean @default(false)
+  electronicStabilityControl Boolean @default(false)
+  emergencyBrakeAssist       Boolean @default(false)
+  isofixReady                Boolean @default(false)
+  corneringLights            Boolean @default(false)
+  blindSpotAssist            Boolean @default(false)
+  engineImmobilizer          Boolean @default(false)
+  ledHeadlights              Boolean @default(false)
+  tractionControlSystem      Boolean @default(false)
 }
 
 type Interior {
-    seatHeaters                        Boolean @default(false)
-    rearViewCamera                     Boolean @default(false)
-    fuelBatteryOperatedAuxiliaryHeater Boolean @default(false)
-    parkingSensors                     Boolean @default(false)
-    tirePressureMonitoringSystem       Boolean @default(false)
-    internalSocket                     Boolean @default(false)
-    startStopSystem                    Boolean @default(false)
-    skiHatch                           Boolean @default(false)
-    powerWindows                       Boolean @default(false)
-    electricMirrors                    Boolean @default(false)
-    electricallyAdjustableSeats        Boolean @default(false)
-    electricallyOperatedTailgate       Boolean @default(false)
-    luggageCompartmentSafetyNet        Boolean @default(false)
-    sportSeats                         Boolean @default(false)
-    cruiseControl                      Boolean @default(false)
-    onBoardComputer                    Boolean @default(false)
-    keyless                            Boolean @default(false)
-    airConditionedSeating              Boolean @default(false)
-    airConditioning                    Boolean @default(false)
-    retractableRearSeats               Boolean @default(false)
-    laneDepartureWarning               Boolean @default(false)
-    roofOpeningMechanism               Boolean @default(false)
-    centralLocking                     Boolean @default(false)
-    motorHeater                        Boolean @default(false)
-    heatedSteeringWheel                Boolean @default(false)
-    heatedWindscreen                   Boolean @default(false)
-    leatherInterior                    Boolean @default(false)
-    satelliteNavigator                 Boolean @default(false)
-    speedLimitSensor                   Boolean @default(false)
-    powerSteering                      Boolean @default(false)
+  seatHeaters                        Boolean @default(false)
+  rearViewCamera                     Boolean @default(false)
+  fuelBatteryOperatedAuxiliaryHeater Boolean @default(false)
+  parkingSensors                     Boolean @default(false)
+  tirePressureMonitoringSystem       Boolean @default(false)
+  internalSocket                     Boolean @default(false)
+  startStopSystem                    Boolean @default(false)
+  skiHatch                           Boolean @default(false)
+  powerWindows                       Boolean @default(false)
+  electricMirrors                    Boolean @default(false)
+  electricallyAdjustableSeats        Boolean @default(false)
+  electricallyOperatedTailgate       Boolean @default(false)
+  luggageCompartmentSafetyNet        Boolean @default(false)
+  sportSeats                         Boolean @default(false)
+  cruiseControl                      Boolean @default(false)
+  onBoardComputer                    Boolean @default(false)
+  keyless                            Boolean @default(false)
+  airConditionedSeating              Boolean @default(false)
+  airConditioning                    Boolean @default(false)
+  retractableRearSeats               Boolean @default(false)
+  laneDepartureWarning               Boolean @default(false)
+  roofOpeningMechanism               Boolean @default(false)
+  centralLocking                     Boolean @default(false)
+  motorHeater                        Boolean @default(false)
+  heatedSteeringWheel                Boolean @default(false)
+  heatedWindscreen                   Boolean @default(false)
+  leatherInterior                    Boolean @default(false)
+  satelliteNavigator                 Boolean @default(false)
+  speedLimitSensor                   Boolean @default(false)
+  powerSteering                      Boolean @default(false)
 }
 
 type Electronics {
-    usb                              Boolean @default(false)
-    smartphoneIntegration            Boolean @default(false)
-    audioSystem                      Boolean @default(false)
-    audioConnection                  Boolean @default(false)
-    bluetooth                        Boolean @default(false)
-    headUpDisplay                    Boolean @default(false)
-    mobilePhoneEquipment             Boolean @default(false)
-    alloyWheels                      Boolean @default(false)
-    sunroof                          Boolean @default(false)
-    multifunctionSteeringWheel       Boolean @default(false)
-    rainSensor                       Boolean @default(false)
-    trunkTemperatureControl          Boolean @default(false)
-    turbo                            Boolean @default(false)
-    sportsSuspension                 Boolean @default(false)
-    towBar                           Boolean @default(false)
-    batteryPreHeating                Boolean @default(false)
-    chassisKit                       Boolean @default(false)
-    serviceBook                      Boolean @default(false)
-    plugInChargingSocketForHybridCar Boolean @default(false)
-    airSuspension                    Boolean @default(false)
-    handicapEquipment                Boolean @default(false)
-    twoSetsOfTires                   Boolean @default(false)
-    roofHatch                        Boolean @default(false)
+  usb                              Boolean @default(false)
+  smartphoneIntegration            Boolean @default(false)
+  audioSystem                      Boolean @default(false)
+  audioConnection                  Boolean @default(false)
+  bluetooth                        Boolean @default(false)
+  headUpDisplay                    Boolean @default(false)
+  mobilePhoneEquipment             Boolean @default(false)
+  alloyWheels                      Boolean @default(false)
+  sunroof                          Boolean @default(false)
+  multifunctionSteeringWheel       Boolean @default(false)
+  rainSensor                       Boolean @default(false)
+  trunkTemperatureControl          Boolean @default(false)
+  turbo                            Boolean @default(false)
+  sportsSuspension                 Boolean @default(false)
+  towBar                           Boolean @default(false)
+  batteryPreHeating                Boolean @default(false)
+  chassisKit                       Boolean @default(false)
+  serviceBook                      Boolean @default(false)
+  plugInChargingSocketForHybridCar Boolean @default(false)
+  airSuspension                    Boolean @default(false)
+  handicapEquipment                Boolean @default(false)
+  twoSetsOfTires                   Boolean @default(false)
+  roofHatch                        Boolean @default(false)
 }

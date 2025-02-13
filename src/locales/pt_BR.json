@@ -129,7 +129,11 @@
       "errorFetchingCars": "Não foi possível buscar os carros",
       "carsNotFound": "Nenhum Carro foi encontrado",
       "failedLogin": "Falha ao realizar o login.",
+      "failedSignup": "Falha ao realizar o cadastro",
       "login": {
+        "requiredFields": "Email e senha são obrigatórios"
+      },
+      "signup": {
         "requiredFields": "Email e senha são obrigatórios"
       }
     }
@@ -198,40 +202,33 @@
     },
     "signup": {
       "titleFinland": "Veículos da Finlândia",
-      "join": "Junte-se à nossa comunidade e encontre o carro perfeito para você",
-      "create": "Crie sua conta",
-      "enter": "Insira suas informações abaixo para criar sua conta",
-      "fullName": "Nome Completo",
-      "whatsapp": "Whatsapp",
-      "email": "Email",
-      "password": "Senha",
-      "confirm": "Confirmar Senha",
-      "created": "Criar conta",
-      "creatingAccount": "Criando conta...",
-      "agree": "Ao continuar, você concorda com nossos ",
-      "termsOfService": "Termos de Serviço",
-      "privacyPolicy": "Política de Privacidade",
-      "loginButtom": "Login",
-      "erroCreated": "Falha ao criar a conta",
-      "passwordEqual": "As senhas não são iguais",
-      "placeholderWhatapp": "Digite com (358) e o código de área",
-      "placeholderFullname": "Digite seu nome completo",
+      "welcome": "Crie sua conta para começar!",
+      "register": "Cadastro",
+      "enter": "Preencha os campos abaixo para criar sua conta.",
+      "name": "Nome Completo",
+      "email": "Endereço de Email",
+      "password": "Senha de Acesso",
+      "confirmPassword": "Confirme sua Senha",
+      "signupButton": "Cadastrar",
+      "signingUp": "Criando conta...",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "loginHere": "Faça login aqui",
+      "placeholderName": "Digite seu nome completo",
       "placeholderEmail": "Digite seu email",
       "placeholderPassword": "Digite sua senha",
-      "placeholderConfirmPassword": "Digite novamente sua senha"
+      "placeholderConfirmPassword": "Confirme sua senha"
     },
     "signin": {
       "titleFinland": "Veículos da Finlândia",
       "welcome": "Bem-vindo de volta! Faça login para acessar sua conta.",
       "login": "Login",
       "enter": "Insira seu email e senha para acessar sua conta.",
-      "email": "Email",
-      "password": "Senha",
+      "email": "Endereço de Email",
+      "password": "Senha de Acesso",
       "loginButton": "Entrar",
       "loggingIn": "Entrando...",
       "noAccount": "Não tem uma conta?",
       "createAccount": "Crie uma conta",
-      "erroLogin": "Falha ao realizar o login",
       "placeholderEmail": "Digite seu email",
       "placeholderPassword": "Digite sua senha"
     }

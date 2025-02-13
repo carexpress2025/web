@@ -1,23 +1,32 @@
-## 0.0.1
+## 1.0.0
 
-- Plataforma Web com Framework Next.js
-- Interface de Usuário (ui/ux) com tailwindcss e shadcn ui
-- Lint de Código com Eslint
-- Formatação de Código com Prettier
-- Conexão com o Mongodb com o Prisma ORM
-- Suporte aos idiomas Português Brasileiro, Finlandês e Inglês
-- Tradução com i18n
-- Gerenciamento de estado com redux
-
-## 0.0.2
-
-- Listar Todos os Carros
-
-## 0.0.3
-
-- Visualizar um Carro
-
-## 0.0.4
-
-- Favoritar Carro
-- Página de carros favoritos
+- [x] Plataforma Web com Framework Next.js
+- [x] Interface de Usuário (ui/ux) com tailwindcss e shadcn ui
+- [x] Lint de Código com Eslint
+- [x] Formatação de Código com Prettier
+- [x] Padronização de Scripts com Lint Staged
+- [x] Conexão com o Mongodb com o Prisma ORM
+- [x] Prisma Studio para visualização do banco de dados
+- [ ] Página de termos de uso
+- [ ] Página de politica de privacidade
+- [ ] Página para Testar o Prompt da IA
+- [ ] Página para Configurar o Prompt da IA
+- [ ] Página para Configurar a IA
+- [ ] Página para Visualizar e Ler o QRCode
+- [ ] Página para Visualizar o Status do Whatsapp
+- [ ] Página para Visualizar as Mensagens do Chat
+- [ ] Página para Visualizar os Dados (Mensagens Enviadas, Recebidas etc)
+- [ ] Página para Criar Agendamentos
+- [ ] Página para Visualizar os Agendamentos
+- [ ] Página para Visualizar Contatos Bloqueados pela IA
+- [ ] Página para Listar/Filtrar Todos os Carros
+- [ ] Página Inicial com Todos os Carros
+- [ ] Suporte aos idiomas Português Brasileiro, Finlandês e Inglês
+- [ ] Tradução com i18n
+- [ ] Gerenciamento de estado com redux.js
+- [ ] Autenticação com Next Auth.js
+- [ ] Listar Todos os Carros
+- [ ] Visualizar um Carro
+- [ ] Favoritar Carro
+- [ ] Página de carros favoritos
+- [ ] Proteger páginas com Autenticação
