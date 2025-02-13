@@ -17,11 +17,20 @@ export default function AiSettingsView() {
   const [isGenericReplyEnabled, setIsGenericReplyEnabled] =
     useState<boolean>(false);
 
-  const handleApiKeyChange = () => {};
+  const handleApiKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setApiKeyIA(value);
+    setMaskedApiKey(value ? '********' : '');
+  };
 
-  const toggleApiKeyEdit = () => {};
+  const toggleApiKeyEdit = () => {
+    setIsEditingApiKey(!isEditingApiKey);
+    if (!isEditingApiKey) {
+      setMaskedApiKey(apiKeyIA ? '********' : '');
+    }
+  };
 
-  const handleSubmitUpdateSettings = () => {};
+  const handleSubmitUpdateSettings = async () => {};
 
   return (
     <div>
