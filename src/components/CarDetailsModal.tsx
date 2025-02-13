@@ -144,19 +144,19 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   </span>
                 </div>
               )}
-              {car.numberOfDoors && car.numberOfDoors > 0 && (
+              {car.specifications.numberOfDoors && car.specifications.numberOfDoors > 0 && (
                 <div className="flex items-center gap-2">
                   <ListChecks className="h-5 w-5" />
                   <span>
-                    {t('carModal.numberOfDoors')}: {car.numberOfDoors}
+                    {t('carModal.numberOfDoors')}: {car.specifications.numberOfDoors}
                   </span>
                 </div>
               )}
-              {car.power && (
+              {car.specifications.power && (
                 <div className="flex items-center gap-2">
                   <AlertCircle className="h-5 w-5" />
                   <span>
-                    {t('carModal.power')}: {car.power.kw} Kw {car.power.hv} Hv
+                    {t('carModal.power')}: {car.specifications.power.kw} Kw {car.specifications.power.hv} Hv
                   </span>
                 </div>
               )}
@@ -177,11 +177,11 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   </span>
                 </div>
               )}
-              {car.gearbox && (
+              {car.specifications.gearbox && (
                 <div className="flex items-center gap-2">
                   <Settings className="h-5 w-5" />
                   <span>
-                    {t('carModal.gearbox')}: {car.gearbox}
+                    {t('carModal.gearbox')}: {car.specifications.gearbox}
                   </span>
                 </div>
               )}
@@ -193,11 +193,11 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   </span>
                 </div>
               )}
-              {car.acceleration && car.acceleration > 0 && (
+              {car.specifications.acceleration && car.specifications.acceleration > 0 && (
                 <div className="flex items-center gap-2">
                   <Gauge className="h-5 w-5" />
                   <span>
-                    {t('carModal.acceleration')}: {car.acceleration}
+                    {t('carModal.acceleration')}: {car.specifications.acceleration}
                   </span>
                 </div>
               )}
