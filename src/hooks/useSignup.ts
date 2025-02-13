@@ -7,7 +7,7 @@ export function useSignup() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { t } = useTranslation('signup');
+  const { t } = useTranslation();
 
   const router = useRouter();
 
