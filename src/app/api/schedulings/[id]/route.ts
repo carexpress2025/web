@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-): Promise<NextResponse> {
+export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id: schedulingId } = params;
+    const schedulingId = req.nextUrl.searchParams.get('id');
 
     const { status } = await req.json();
 

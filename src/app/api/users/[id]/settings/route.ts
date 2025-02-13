@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export async function POST(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const {
       sendMessagesWithIA,
@@ -14,7 +11,7 @@ export async function POST(
       apiKeyIA,
     } = await req.json();
 
-    const { id: userId } = params;
+    const userId  = req.nextUrl.searchParams.get('id');
 
     if (!userId) {
       return NextResponse.json(
@@ -48,12 +45,9 @@ export async function POST(
   }
 }
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-): Promise<NextResponse> {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id: userId } = params;
+    const userId  = req.nextUrl.searchParams.get('id');
 
     if (!userId) {
       return NextResponse.json(
@@ -86,12 +80,9 @@ export async function GET(
   }
 }
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-): Promise<NextResponse> {
+export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id: userId } = params;
+    const userId  = req.nextUrl.searchParams.get('id');
     const {
       sendMessagesWithIA,
       replyMessagesWithIA,

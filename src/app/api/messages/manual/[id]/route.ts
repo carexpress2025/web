@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-): Promise<NextResponse> {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id: messageId } = params;
+    const messageId = req.nextUrl.searchParams.get('id');
 
     if (!messageId) {
       return NextResponse.json(
@@ -27,10 +24,7 @@ export async function GET(
     }
 
     return NextResponse.json(
-      {
-        message: 'Mensagem encontrada com sucesso',
-        data: message,
-      },
+      { message: 'Mensagem encontrada com sucesso', data: message },
       { status: 200 },
     );
   } catch (error) {
