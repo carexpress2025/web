@@ -2,11 +2,24 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { useState } from 'react';
+import { LanguageState } from '@/store/languageSlice';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import i18n from '../../../../../../i18n';
 
 export default function AiSettingsView() {
   const { t } = useTranslation();
+
+  const language = useSelector(
+    (state: { language: LanguageState }) => state.language.language,
+  );
+
+  useEffect(() => {
+    if (language) {
+      i18n.changeLanguage(language);
+    }
+  }, [language]);
 
   const [modelIA, setModelIA] = useState<string>('gemini-1.5-flash');
   const [apiKeyIA, setApiKeyIA] = useState<string>('');
