@@ -9,13 +9,17 @@ import { LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import { signOut } from 'next-auth/react';
 
 export default function Sidebar() {
   const { t } = useTranslation();
+
   const pathname = usePathname();
 
-  const handleSignOut = () => {
-    console.log('Usuário saiu');
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+
+    window.location.href = '/signin';
   };
 
   return (
