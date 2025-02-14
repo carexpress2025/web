@@ -92,3 +92,12 @@ model Cars {
 
   @@map("cars")
 }
+
+model Scheduling {
+  id      Int    @id @default(autoincrement())
+  name    String
+  filters Json
+  message String
+
+  @@map("schedulings")
+}
