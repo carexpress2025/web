@@ -144,19 +144,22 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   </span>
                 </div>
               )}
-              {car.specifications.numberOfDoors && car.specifications.numberOfDoors > 0 && (
-                <div className="flex items-center gap-2">
-                  <ListChecks className="h-5 w-5" />
-                  <span>
-                    {t('carModal.numberOfDoors')}: {car.specifications.numberOfDoors}
-                  </span>
-                </div>
-              )}
+              {car.specifications.numberOfDoors &&
+                car.specifications.numberOfDoors > 0 && (
+                  <div className="flex items-center gap-2">
+                    <ListChecks className="h-5 w-5" />
+                    <span>
+                      {t('carModal.numberOfDoors')}:{' '}
+                      {car.specifications.numberOfDoors}
+                    </span>
+                  </div>
+                )}
               {car.specifications.power && (
                 <div className="flex items-center gap-2">
                   <AlertCircle className="h-5 w-5" />
                   <span>
-                    {t('carModal.power')}: {car.specifications.power.kw} Kw {car.specifications.power.hv} Hv
+                    {t('carModal.power')}: {car.specifications.power.kw} Kw{' '}
+                    {car.specifications.power.hv} Hv
                   </span>
                 </div>
               )}
@@ -193,14 +196,16 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   </span>
                 </div>
               )}
-              {car.specifications.acceleration && car.specifications.acceleration > 0 && (
-                <div className="flex items-center gap-2">
-                  <Gauge className="h-5 w-5" />
-                  <span>
-                    {t('carModal.acceleration')}: {car.specifications.acceleration}
-                  </span>
-                </div>
-              )}
+              {car.specifications.acceleration &&
+                car.specifications.acceleration > 0 && (
+                  <div className="flex items-center gap-2">
+                    <Gauge className="h-5 w-5" />
+                    <span>
+                      {t('carModal.acceleration')}:{' '}
+                      {car.specifications.acceleration}
+                    </span>
+                  </div>
+                )}
               {car.bodyType && (
                 <div className="flex items-center gap-2">
                   <DoorOpen className="h-5 w-5" />

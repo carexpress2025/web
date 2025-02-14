@@ -11,7 +11,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       apiKeyIA,
     } = await req.json();
 
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
 
     if (!userId) {
       return NextResponse.json(
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
 
     if (!userId) {
       return NextResponse.json(
@@ -82,7 +82,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
     const {
       sendMessagesWithIA,
       replyMessagesWithIA,

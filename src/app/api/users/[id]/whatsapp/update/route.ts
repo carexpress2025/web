@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
 
     const { number, session } = await req.json();
 

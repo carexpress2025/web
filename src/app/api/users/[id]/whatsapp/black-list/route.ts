@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
     const { numberToAdd } = await req.json();
 
     if (!userId) {
@@ -66,7 +66,7 @@ export async function PATCH(req: NextRequest): Promise<NextResponse> {
 
 export async function DELETE(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
     const { numberToRemove } = await req.json();
 
     if (!userId) {

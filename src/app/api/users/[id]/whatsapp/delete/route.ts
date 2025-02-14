@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function DELETE(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
 
     if (!userId) {
       return NextResponse.json(
