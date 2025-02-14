@@ -5,14 +5,16 @@
   },
   "pages": {},
   "components": {
-    "language": "Idioma",
-    "languages": {
-      "en_US": "Inglês",
-      "fi_FI": "Finlandês",
-      "pt_BR": "Português Brasileiro" 
+    "language_switcher": {
+      "languages": {
+        "en_US": "Inglês Americano",
+        "fi_FI": "Finlandês",
+        "pt_BR": "Português Brasileiro"
+      }
     },
     "layout": {
       "sidebar": {
+        "language": "Idioma",
         "buttons": {
           "logout": "Sair"
         },
