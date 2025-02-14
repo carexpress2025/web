@@ -1,32 +1,55 @@
 ## 1.0.0
 
-- [x] Plataforma Web com Framework Next.js
-- [x] Interface de Usuário (ui/ux) com tailwindcss e shadcn ui
+- [x] Plataforma Web com Framework Next
+- [x] Interface de Usuário (ui/ux) com tailwindcss, Radix e shadcn ui
 - [x] Lint de Código com Eslint
 - [x] Formatação de Código com Prettier
 - [x] Padronização de Scripts com Lint Staged
-- [x] Conexão com o Mongodb com o Prisma ORM
-- [x] Prisma Studio para visualização do banco de dados
-- [ ] Página de termos de uso
-- [ ] Página de politica de privacidade
-- [ ] Página para Testar o Prompt da IA
-- [ ] Página para Configurar o Prompt da IA
-- [ ] Página para Configurar a IA
-- [ ] Página para Visualizar e Ler o QRCode
-- [ ] Página para Visualizar o Status do Whatsapp
-- [ ] Página para Visualizar as Mensagens do Chat
-- [ ] Página para Visualizar os Dados (Mensagens Enviadas, Recebidas etc)
-- [ ] Página para Criar Agendamentos
-- [ ] Página para Visualizar os Agendamentos
-- [ ] Página para Visualizar Contatos Bloqueados pela IA
-- [ ] Página para Listar/Filtrar Todos os Carros
-- [ ] Página Inicial com Todos os Carros
-- [ ] Suporte aos idiomas Português Brasileiro, Finlandês e Inglês
-- [ ] Tradução com i18n
+- [x] Git Hooks com Husky.js
+- [x] Padronização de Commits com Commitizen.js
+- [x] Lint de Commits com Commitlint
+- [x] Suporte aos idiomas Português Brasileiro, Finlandês e Inglês
+- [x] Tradução com i18n
+- [x] Reverse Proxy com Nginx
+- [x] Container Docker para Next.js
+- [x] Container Docker para Postgresql
+- [ ] Container Docker para Prisma Studio
+- [ ] Container Docker para Portainer
+- [ ] Container Docker para Grafana e Prometheus
+- [x] Docker Compose para todos os Containers Docker 
+- [x] Testes de Unidade com Jest
+- [x] Testes de Componentes com Cypress
 - [ ] Gerenciamento de estado com redux.js
 - [ ] Autenticação com Next Auth.js
-- [ ] Listar Todos os Carros
-- [ ] Visualizar um Carro
-- [ ] Favoritar Carro
-- [ ] Página de carros favoritos
 - [ ] Proteger páginas com Autenticação
+- [x] Padronização de Arquivos com Editor Config
+- [ ] Formatação de Datas com Date Fns
+- [ ] Conexão com o Postgresql com o Prisma ORM
+- [x] Prisma Studio para visualização do banco de dados
+- [ ] Página de Login
+- [ ] Página de Cadastro
+- [ ] Página de Perfil do Usuário
+- [ ] Página de Termos de Uso
+- [ ] Página de Politica de Privacidade
+- [ ] Página de Dashboard
+- [ ] Página de todos os carros
+- [ ] Página de carros favoritos
+- [ ] Página de visualizar o carro
+- [ ] Página de prompt de resposta
+- [ ] Página de prompt de envio
+- [ ] Página de testar prompt de envio
+- [ ] Página de testar prompt de resposta
+- [ ] Página de listar os agendamentos
+- [ ] Página de de criar um agendamento
+- [ ] Página de configurar a inteligencia artificial
+- [ ] Página de configurar as respostas genericas
+- [ ] Página de status do whatsapp
+- [ ] Página de listar todas as conversas
+- [ ] Página de visualizar uma conversa
+- [ ] Página de enviar mensagem manualmente
+- [ ] Página de qrcode
+- [ ] Página de preços
+- [ ] Página de assinatura
+- [ ] Página para Visualizar os Dados (Mensagens Enviadas, Recebidas etc)
+- [ ] Página para Visualizar Contatos Bloqueados pela IA
+- [ ] Favoritar um Carro
