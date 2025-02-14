@@ -3,7 +3,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { siteMetadata } from './metadata';
-import LanguageContext from '@/contexts/LanguageContext';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,6 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LanguageContext>{children}</LanguageContext>
+        {children}
       </body>
     </html>
   );

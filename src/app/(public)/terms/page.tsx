@@ -1,9 +1,9 @@
-import TermsView from './components/terms-view';
+import { JSX } from 'react';
 
-export default function Page() {
+export default function Page(): JSX.Element {
   return (
-    <main className="ml-64 flex-1 bg-gray-100 p-8">
-      <TermsView />
-    </main>
+    <>
+      <p>Hello World</p>
+    </>
   );
 }
