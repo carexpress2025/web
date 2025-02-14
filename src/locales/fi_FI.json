@@ -3,7 +3,117 @@
     "name": "Carros Expresso",
     "short_name": "Expresso"
   },
-  "pages": {},
+  "pages": {
+    "terms": {
+      "section1": {
+        "title": "1. Käyttöehtojen Hyväksyminen",
+        "content": "Pääsy ja käyttö alustalle edellyttää näiden käyttöehtojen hyväksymistä. Jos et hyväksy jotain osaa näistä ehdoista, älä käytä palvelujamme."
+      },
+      "section2": {
+        "title": "2. Rajoitettu Pääsy",
+        "content": "Alustamme on rajoitettu ja tarkoitettu vain vahvistetuille käyttäjille. Luvaton pääsy tai yritykset kiertää turvatoimiamme johtavat asianmukaisiin oikeudellisiin toimiin."
+      },
+      "section3": {
+        "title": "3. Palvelut ja Maksut",
+        "content": "Palvelumme mahdollistaa yhteydenpidon ostajien ja myyjien välillä automatisoidun viestintäjärjestelmän avulla. Jokainen lähetetty viesti maksaa 0,05 € (viisi senttiä euroa)."
+      },
+      "section4": {
+        "title": "4. Vastuuvapauslauseke",
+        "content": "Alustamme toimii vain välikätenä ostajien ja myyjien välisessä viestinnässä. Emme omista listattuja ajoneuvoja emmekä ole vastuussa:",
+        "list": {
+          "item1": "Myyjien antamien tietojen oikeellisuudesta",
+          "item2": "Listattujen ajoneuvojen kunnosta",
+          "item3": "Osapuolten välisistä neuvotteluista tai kaupoista",
+          "item4": "Ajoneuvojen teknisistä tai mekaanisista ongelmista",
+          "item5": "Riidoista tai konflikteista ostajien ja myyjien välillä"
+        }
+      },
+      "section5": {
+        "title": "5. WhatsApp Botin Käyttö",
+        "content": "Alustamme käyttää automatisoitua WhatsApp-bottia, joka mahdollistaa:",
+        "list": {
+          "item1": "Samanaikainen yhteydenpito useiden myyjien kanssa",
+          "item2": "Ajoneuvojen ja myyjien tietojen automaattinen kerääminen",
+          "item3": "Reaaliaikaisen keskustelun aloittaminen"
+        },
+        "extra": "Käyttäjät ovat vastuussa tämän työkalun asianmukaisesta käytöstä ja heidän on noudatettava WhatsAppin käyttöehtoja."
+      },
+      "section6": {
+        "title": "6. Tietosuoja",
+        "content": "Alustallamme kerätty ja käsitelty kaikki tieto on meidän Tietosuojakäytännön mukainen. Luvaton tai virheellinen tietojen käyttö johtaa oikeudellisiin seuraamuksiin."
+      },
+      "section7": {
+        "title": "7. Ehtojen Muutokset",
+        "content": "Pidätämme oikeuden muuttaa näitä ehtoja milloin tahansa. Käyttäjän vastuulla on tarkistaa säännöllisesti mahdolliset päivitykset."
+      }
+    },
+    "privacy": {
+      "title": "Tietosuojakäytäntö",
+      "section1": {
+        "title": "1. Tietojen kerääminen",
+        "content": "Alustamme kerää ja käsittelee palvelun toiminnan kannalta tarvittavat tiedot, mukaan lukien:",
+        "list": {
+          "item1": "Rekisteröinti- ja käyttäjän varmennustiedot",
+          "item2": "Ilmoitettujen ajoneuvojen tiedot",
+          "item3": "Viestien ja vuorovaikutuksen historia",
+          "item4": "Myyjien yhteystiedot"
+        }
+      },
+      "section2": {
+        "title": "2. Tietojen käyttö",
+        "content": "Kerättyjä tietoja käytetään seuraaviin tarkoituksiin:",
+        "list": {
+          "item1": "Ostajien ja myyjien välisen viestinnän helpottaminen",
+          "item2": "Käyttäjäkokemuksen parantaminen alustalla",
+          "item3": "Palvelun turvallisuuden ja eheyden varmistaminen",
+          "item4": "Maksujen ja maksujen käsittely",
+          "item5": "Lainsäädännön velvoitteiden täyttäminen"
+        }
+      },
+      "section3": {
+        "title": "3. Tietojen suojaus",
+        "content": "Otamme käyttöön teknisiä ja organisatorisia toimenpiteitä suojellaksemme tietojasi, mukaan lukien:",
+        "list": {
+          "item1": "Herkien tietojen salaaminen",
+          "item2": "Rajoitettu pääsynhallinta",
+          "item3": "Turvallisuuden valvonta",
+          "item4": "Säännölliset varmuuskopiot"
+        }
+      },
+      "section4": {
+        "title": "4. Tietojen jakaminen",
+        "content": "Tietojasi voidaan jakaa vain seuraavissa olosuhteissa:",
+        "list": {
+          "item1": "Ostajien ja myyjien välillä neuvottelujen helpottamiseksi",
+          "item2": "Alustan toiminnan kannalta välttämättömien palveluntarjoajien kanssa",
+          "item3": "Lakisella pyynnöllä tai tuomioistuimen määräyksellä"
+        }
+      },
+      "section5": {
+        "title": "5. Oikeutesi",
+        "content": "Sinulla on oikeus:",
+        "list": {
+          "item1": "Pääsy omiin henkilötietoihisi",
+          "item2": "Pyytää virheellisten tietojen oikaisemista",
+          "item3": "Pyytää tietojesi poistamista"
+        },
+        "extra": "Peruuttaa suostumus tietojen käytölle"
+      },
+      "section6": {
+        "title": "6. Tietojen säilyttäminen",
+        "content": "Säilytämme tietojasi vain sen ajan, joka on tarpeen:",
+        "list": {
+          "item1": "Kerättyjen tietojen käyttötarkoitusten täyttämiseksi",
+          "item2": "Lainsäädännöllisten vaatimusten täyttämiseksi",
+          "item3": "Riitojen ratkaisemiseksi"
+        }
+      },
+      "section7": {
+        "title": "7. Yhteystiedot",
+        "content": "Yksityisyyteen liittyvissä huolenaiheissa ota yhteyttä meihin virallisten kanavien kautta, jotka ovat saatavilla alustallamme."
+      }
+    }
+  },
   "components": {
     "language_switcher": {
       "languages": {

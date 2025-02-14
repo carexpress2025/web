@@ -3,7 +3,117 @@
     "name": "Carros Expresso",
     "short_name": "Expresso"
   },
-  "pages": {},
+  "pages": {
+    "terms": {
+      "section1": {
+        "title": "1. Aceitação dos Termos",
+        "content": "Ao acessar e usar a plataforma, você concorda com estes termos de uso. Se discordar de qualquer parte destes termos, não use nossos serviços."
+      },
+      "section2": {
+        "title": "2. Acesso Restrito",
+        "content": "Nossa plataforma é restrita e exclusiva para usuários verificados. O acesso não autorizado ou tentativas de burlar nossos sistemas de segurança resultarão em ações legais apropriadas."
+      },
+      "section3": {
+        "title": "3. Serviços e Taxas",
+        "content": "Nosso serviço facilita a comunicação entre compradores e vendedores de veículos por meio de um sistema automatizado de mensagens. Cada mensagem enviada custa €0,05 (cinco centavos de euro)."
+      },
+      "section4": {
+        "title": "4. Isenção de Responsabilidade",
+        "content": "Nossa plataforma atua apenas como intermediária na comunicação entre compradores e vendedores. Não possuímos os veículos listados e não somos responsáveis por:",
+        "list": {
+          "item1": "A precisão das informações fornecidas pelos vendedores",
+          "item2": "A condição dos veículos listados",
+          "item3": "As negociações ou transações realizadas entre as partes",
+          "item4": "Problemas técnicos ou mecânicos dos veículos",
+          "item5": "Disputas ou conflitos entre compradores e vendedores"
+        }
+      },
+      "section5": {
+        "title": "5. Uso do Bot do WhatsApp",
+        "content": "Nossa plataforma usa um bot automatizado do WhatsApp que permite:",
+        "list": {
+          "item1": "Comunicação simultânea com vários vendedores",
+          "item2": "Coleta automatizada de dados dos veículos e dos vendedores",
+          "item3": "Iniciar conversas em tempo real"
+        },
+        "extra": "Os usuários são responsáveis pelo uso adequado dessa ferramenta e devem cumprir as políticas de uso do WhatsApp."
+      },
+      "section6": {
+        "title": "6. Proteção de Dados",
+        "content": "Todas as informações coletadas e processadas através da nossa plataforma estão sujeitas à nossa Política de Privacidade. O uso não autorizado ou inadequado dos dados resultará em penalidades legais."
+      },
+      "section7": {
+        "title": "7. Alterações nos Termos",
+        "content": "Reservamo-nos o direito de modificar estes termos a qualquer momento. É responsabilidade do usuário verificar periodicamente se houve atualizações."
+      }
+    },
+    "privacy": {
+      "title": "Política de Privacidade",
+      "section1": {
+        "title": "1. Coleta de Dados",
+        "content": "Nossa plataforma coleta e processa dados necessários para a operação do serviço, incluindo:",
+        "list": {
+          "item1": "Informações de registro e verificação do usuário",
+          "item2": "Dados dos veículos anunciados",
+          "item3": "Histórico de mensagens e interações",
+          "item4": "Informações de contato dos vendedores"
+        }
+      },
+      "section2": {
+        "title": "2. Uso dos Dados",
+        "content": "Os dados coletados são usados para:",
+        "list": {
+          "item1": "Facilitar a comunicação entre compradores e vendedores",
+          "item2": "Melhorar a experiência do usuário na plataforma",
+          "item3": "Garantir a segurança e integridade do serviço",
+          "item4": "Processar cobranças e pagamentos",
+          "item5": "Cumprir com obrigações legais"
+        }
+      },
+      "section3": {
+        "title": "3. Proteção de Dados",
+        "content": "Implementamos medidas técnicas e organizacionais para proteger seus dados, incluindo:",
+        "list": {
+          "item1": "Criptografia de dados sensíveis",
+          "item2": "Controle de acesso restrito",
+          "item3": "Monitoramento de segurança",
+          "item4": "Backups regulares"
+        }
+      },
+      "section4": {
+        "title": "4. Compartilhamento de Dados",
+        "content": "Seus dados podem ser compartilhados apenas nas seguintes circunstâncias:",
+        "list": {
+          "item1": "Entre compradores e vendedores para facilitar a negociação",
+          "item2": "Com prestadores de serviços necessários para a operação da plataforma",
+          "item3": "Por solicitação legal ou ordem judicial"
+        }
+      },
+      "section5": {
+        "title": "5. Seus Direitos",
+        "content": "Você tem o direito de:",
+        "list": {
+          "item1": "Acessar seus dados pessoais",
+          "item2": "Solicitar a correção de dados incorretos",
+          "item3": "Solicitar a exclusão dos seus dados"
+        },
+        "extra": "Revogar o consentimento para o uso dos dados"
+      },
+      "section6": {
+        "title": "6. Retenção de Dados",
+        "content": "Retemos seus dados apenas pelo tempo necessário para:",
+        "list": {
+          "item1": "Cumprir os propósitos para os quais foram coletados",
+          "item2": "Atender aos requisitos legais",
+          "item3": "Resolver disputas"
+        }
+      },
+      "section7": {
+        "title": "7. Contato",
+        "content": "Para preocupações relacionadas à privacidade, entre em contato conosco pelos canais oficiais disponíveis em nossa plataforma."
+      }
+    }
+  },
   "components": {
     "language_switcher": {
       "languages": {
