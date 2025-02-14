@@ -14,10 +14,10 @@ datasource db {
 }
 
 model User {
-  id               Int                @id @default(autoincrement())
+  id               Int               @id @default(autoincrement())
   name             String
   UserAccounts     UserAccount?
-  UserSubscription UserSubscription[]
+  UserSubscription UserSubscription?
 
   @@map("users")
 }
@@ -53,7 +53,7 @@ model Subscription {
 
 model UserSubscription {
   id             Int          @id @default(autoincrement())
-  userId         Int
+  userId         Int          @unique
   user           User         @relation(fields: [userId], references: [id])
   subscriptionId Int
   subscription   Subscription @relation(fields: [subscriptionId], references: [id])
