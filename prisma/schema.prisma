@@ -39,3 +39,12 @@ model UserAccounts {
 
   @@map("users_accounts")
 }
+
+model Subscription {
+  id        Int      @id @default(autoincrement())
+  name      String
+  startDate DateTime
+  endDate   DateTime
+
+  @@map("subscriptions")
+}
