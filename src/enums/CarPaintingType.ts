@@ -1,5 +1,5 @@
 export enum CAR_PAINTING_TYPE {
-  Metallic = 'metalliväri',
-  Matte = 'Mattaväri',
-  NormalCar = 'Normaali väri',
+  METALLIC = 'metalliväri',
+  MATTE = 'Mattaväri',
+  NORMAL_CAR = 'Normaali väri',
 }
