@@ -18,6 +18,7 @@ model User {
   name             String
   UserAccounts     UserAccount?
   UserSubscription UserSubscription?
+  UserScheduling   UserScheduling[]
 
   @@map("users")
 }
@@ -94,10 +95,21 @@ model Cars {
 }
 
 model Scheduling {
-  id      Int    @id @default(autoincrement())
-  name    String
-  filters Json
-  message String
+  id             Int             @id @default(autoincrement())
+  name           String
+  filters        Json
+  message        String
+  UserScheduling UserScheduling?
 
   @@map("schedulings")
+}
+
+model UserScheduling {
+  id           Int        @id @default(autoincrement())
+  userId       Int
+  user         User       @relation(fields: [userId], references: [id])
+  schedulingId Int        @unique
+  scheduling   Scheduling @relation(fields: [schedulingId], references: [id])
+
+  @@map("users_schedulings")
 }
