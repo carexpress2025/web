@@ -3,6 +3,7 @@ module.exports = {
     return [
       `prettier --write ${filenames.join(' ')}`,
       `eslint ${filenames.join(' ')}`,
+      'npx tsc --noEmit --pretty',
     ];
   },
   '*.json': (filenames) => {
