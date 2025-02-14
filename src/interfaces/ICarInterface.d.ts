@@ -4,14 +4,13 @@ import type { CAR_COLOR } from '../enums/CarColor';
 import type { CAR_FUELTYPE } from '../enums/CarFuelType';
 import type { CAR_PAINTING_TYPE } from '../enums/CarPaintingType';
 import type { CAR_TRANSMISSION_TYPE } from '../enums/CarTransmissionType';
+import type { IBaseInterface } from './base/IBaseInterface';
 import type { ICarElectronicsInterface } from './ICarElectronicsInterface';
 import type { ICarInteriorInterface } from './ICarInteriorInterface';
 import type { ICarSafetyInterface } from './ICarSafetyInterface';
 import type { ICarSpecificationsInterface } from './ICarSpecificationsInterface';
 
-export interface ICarInterface {
-  _id: string;
-  idCar: string;
+export interface ICarInterface extends IBaseInterface {
   brand: CAR_BRAND;
   name: string;
   bodyType: CAR_BODY_TYPE;
@@ -41,6 +40,4 @@ export interface ICarInterface {
   phone: string;
   seller: string;
   link: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
