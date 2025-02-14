@@ -14,16 +14,28 @@ datasource db {
 }
 
 model User {
-  id   Int    @id @default(autoincrement())
-  name String
+  id           Int           @id @default(autoincrement())
+  name         String
+  UserAccounts UserAccounts?
 
   @@map("users")
 }
 
 model Account {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  UserAccounts UserAccounts?
 
   @@map("accounts")
+}
+
+model UserAccounts {
+  id        Int      @id @default(autoincrement())
+  userId    Int?     @unique
+  user      User?    @relation(fields: [userId], references: [id])
+  accountId Int?     @unique
+  account   Account? @relation(fields: [accountId], references: [id])
+
+  @@map("users_accounts")
 }
