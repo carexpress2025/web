@@ -37,6 +37,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3",
     "@prisma/studio": "^0.508.0",
     "@types/autoprefixer": "^9.7.2",
