@@ -15,7 +15,9 @@
       "sidebar": {
         "buttons": {
           "logout": "Sair"
-        }
+        },
+        "menuItems": {},
+        "legalItems": {}
       }
     },
     "buttons": {
