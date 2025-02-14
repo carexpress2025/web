@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const id  = req.nextUrl.searchParams.get('id');
+    const id = req.nextUrl.searchParams.get('id');
 
     if (!id) {
       return NextResponse.json(
@@ -59,7 +59,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const id  = req.nextUrl.searchParams.get('id');
+    const id = req.nextUrl.searchParams.get('id');
     const { name } = await req.json();
 
     if (!id) {
@@ -97,7 +97,7 @@ export async function PATCH(req: NextRequest): Promise<NextResponse> {
 
 export async function DELETE(req: NextRequest): Promise<NextResponse> {
   try {
-    const id  = req.nextUrl.searchParams.get('id');
+    const id = req.nextUrl.searchParams.get('id');
 
     if (!id) {
       return NextResponse.json(

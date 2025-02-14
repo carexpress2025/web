@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const userId  = req.nextUrl.searchParams.get('id');
+    const userId = req.nextUrl.searchParams.get('id');
     const { searchParams } = new URL(req.url);
     const status = searchParams.get('status') as string | null;
 
