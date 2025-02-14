@@ -21,6 +21,26 @@ const eslintConfig = [
       'prettier/prettier': 'error',
     },
   },
+  {
+    ignores: [
+      'node_modules/',
+      '.next/',
+      '.husky/',
+      '.vscode/',
+      'cypress/',
+      'prisma/',
+      'public/',
+      '.lint-stagedrc.cjs',
+      'commitlint.config.cjs',
+      'cypress.config.ts',
+      'eslint.config.mjs',
+      'jest.config.js',
+      'jest.setup.js',
+      'next.config.ts',
+      'postcss.config.mjs',
+      'tailwind.config.ts',
+    ],
+  },
 ];
 
 export default eslintConfig;
