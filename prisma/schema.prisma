@@ -16,7 +16,7 @@ datasource db {
 model User {
   id               Int                @id @default(autoincrement())
   name             String
-  UserAccounts     UserAccounts?
+  UserAccounts     UserAccount?
   UserSubscription UserSubscription[]
 
   @@map("users")
@@ -26,12 +26,12 @@ model Account {
   id           Int           @id @default(autoincrement())
   email        String        @unique
   password     String
-  UserAccounts UserAccounts?
+  UserAccounts UserAccount?
 
   @@map("accounts")
 }
 
-model UserAccounts {
+model UserAccount {
   id        Int      @id @default(autoincrement())
   userId    Int?     @unique
   user      User?    @relation(fields: [userId], references: [id])
