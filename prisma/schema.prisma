@@ -14,9 +14,10 @@ datasource db {
 }
 
 model User {
-  id           Int           @id @default(autoincrement())
-  name         String
-  UserAccounts UserAccounts?
+  id               Int                @id @default(autoincrement())
+  name             String
+  UserAccounts     UserAccounts?
+  UserSubscription UserSubscription[]
 
   @@map("users")
 }
@@ -41,10 +42,21 @@ model UserAccounts {
 }
 
 model Subscription {
-  id        Int      @id @default(autoincrement())
-  name      String
-  startDate DateTime
-  endDate   DateTime
+  id               Int                @id @default(autoincrement())
+  name             String
+  startDate        DateTime
+  endDate          DateTime
+  UserSubscription UserSubscription[]
 
   @@map("subscriptions")
+}
+
+model UserSubscription {
+  id             Int          @id @default(autoincrement())
+  userId         Int
+  user           User         @relation(fields: [userId], references: [id])
+  subscriptionId Int
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id])
+
+  @@map("users_subscriptions")
 }
