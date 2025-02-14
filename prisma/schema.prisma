@@ -23,8 +23,8 @@ model User {
 }
 
 model Account {
-  id           Int           @id @default(autoincrement())
-  email        String        @unique
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
   password     String
   UserAccounts UserAccount?
 
@@ -59,4 +59,38 @@ model UserSubscription {
   subscription   Subscription @relation(fields: [subscriptionId], references: [id])
 
   @@map("users_subscriptions")
+}
+
+model Cars {
+  id                    Int      @id @default(autoincrement())
+  brand                 String?
+  name                  String?
+  bodyType              String?
+  painting              String?
+  carType               String?
+  driveType             String?
+  transmissionType      String?
+  color                 String?
+  mileage               Int?
+  engine                String?
+  engineDisplacement    Int?
+  fuelType              String?
+  safety                Json?
+  interior              Json?
+  electronics           Json?
+  owners                String?
+  status                String?
+  year                  Int?
+  inspected             String?
+  plate                 String?
+  additionalInformation String?
+  others                String?
+  roadWorthy            String?
+  price                 Float?
+  images                String[]
+  phone                 String?
+  seller                String?
+  link                  String?
+
+  @@map("cars")
 }
