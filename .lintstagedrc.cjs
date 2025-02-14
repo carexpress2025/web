@@ -9,10 +9,8 @@ module.exports = {
   '*.json': (filenames) => {
     return [`prettier --write ${filenames.join(' ')}`];
   },
-  '*.spec.tsx': (filenames) => {
+  '*.{spec.tsx,spec.ts}': (filenames) => {
     return [
-      `prettier --write ${filenames.join(' ')}`,
-      `eslint ${filenames.join(' ')}`,
       `jest --coverage ${filenames.join(' ')}`,
     ];
   },
