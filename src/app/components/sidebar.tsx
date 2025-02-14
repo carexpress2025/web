@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from './LanguageSwitcher';
 import { menuItemsPath, legalItemsPath } from '../../constants/sidebarItems';
 import { useTranslation } from 'react-i18next';
 import { LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { signOut } from 'next-auth/react';
 
 export default function Sidebar() {
@@ -38,7 +38,7 @@ export default function Sidebar() {
             transition={{ delay: 0.2, duration: 0.3 }}
             className="bg-gradient-to-r from-gray-500 to-gray-700 bg-clip-text text-3xl font-bold tracking-tight text-transparent"
           >
-            {t('short_name')}
+            {t('site.short_name')}
           </motion.span>
         </Link>
       </div>
@@ -75,7 +75,7 @@ export default function Sidebar() {
                   )}
                 >
                   <item.icon className="mr-3 h-5 w-5" />
-                  {t(`layout.sidebar.menuItems.${item.key}`)}
+                  {t(`components.layout.sidebar.menuItems.${item.key}`)}
                 </Link>
               </motion.div>
             );
@@ -100,7 +100,7 @@ export default function Sidebar() {
               )}
             >
               <item.icon className="mr-3 h-5 w-5" />
-              {t(`layout.sidebar.legalItems.${item.key}`)}
+              {t(`components.layout.sidebar.legalItems.${item.key}`)}
             </Link>
           </motion.div>
         ))}
@@ -112,7 +112,7 @@ export default function Sidebar() {
             onClick={handleSignOut}
           >
             <LogOut className="mr-3 h-5 w-5" />
-            {t('layout.sidebar.button.logout')}
+            {t('components.layout.sidebar.buttons.logout')}
           </Button>
         </motion.div>
       </div>
