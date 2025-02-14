@@ -11,7 +11,10 @@
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
     "commit": "npx git-cz",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
@@ -43,10 +46,15 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3",
+    "@faker-js/faker": "^9.5.0",
     "@prisma/studio": "^0.508.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/autoprefixer": "^9.7.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/i18next": "^12.1.0",
+    "@types/jest": "^29.5.14",
     "@types/lint-staged": "^13.3.0",
     "@types/next-auth": "^3.13.0",
     "@types/node": "^20.0.0",
@@ -67,12 +75,16 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
     "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.4.3",
+    "next-router-mock": "^0.9.13",
     "postcss": "^8.0.0",
     "prettier": "^3.5.0",
     "prettier-eslint": "^16.3.0",
     "prisma": "^6.3.1",
     "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.0.0"
   }
 }
