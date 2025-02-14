@@ -18,8 +18,31 @@
         "buttons": {
           "logout": "Sair"
         },
-        "menuItems": {},
-        "legalItems": {}
+        "menuItems": {
+          "home": "Início",
+          "cars": "Carros",
+          "contacts": "Contatos",
+          "schedulings": "Agendamentos",
+          "schedulings.form.create": "Criar Agendamento",
+          "analytics": "Análises",
+          "chats": "Chats",
+          "whatsapp": "WhatsApp",
+          "qrcode": "QR Code",
+          "ai": "IA",
+          "ai.reply.generic": "Resposta Genérica",
+          "prompt.reply": "Responder Prompt",
+          "prompt.send": "Enviar Prompt",
+          "testing.ia.reply": "Testar IA - Resposta",
+          "testing.ia.send": "Testar IA - Envio",
+          "favorites": "Favoritos",
+          "profile": "Perfil",
+          "prices": "Preços",
+          "signature": "Assinatura"
+        },
+        "legalItems": {
+          "terms": "Termos de Serviço",
+          "privacy": "Política de Privacidade"
+        }
       }
     },
     "buttons": {

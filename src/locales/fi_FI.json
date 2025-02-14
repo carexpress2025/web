@@ -1,10 +1,66 @@
 {
-  "site": {},
+  "site": {
+    "name": "Carros Expresso",
+    "short_name": "Expresso"
+  },
   "pages": {},
-  "components": {},
+  "components": {
+    "language_switcher": {
+      "languages": {
+        "en_US": "Amerikkalainen Englanti",
+        "fi_FI": "Suomi",
+        "pt_BR": "Brasilian Portugali"
+      }
+    },
+    "layout": {
+      "sidebar": {
+        "language": "Kieli",
+        "buttons": {
+          "logout": "Kirjaudu ulos"
+        },
+        "menuItems": {
+          "home": "Koti",
+          "cars": "Autot",
+          "contacts": "Yhteystiedot",
+          "schedulings": "Aikataulut",
+          "schedulings.form.create": "Luo Aikataulu",
+          "analytics": "Analytiikka",
+          "chats": "Keskustelut",
+          "whatsapp": "WhatsApp",
+          "qrcode": "QR-koodi",
+          "ai": "AI",
+          "ai.reply.generic": "Yleinen Vastaus",
+          "prompt.reply": "Vastaa Promptiin",
+          "prompt.send": "Lähetä Prompti",
+          "testing.ia.reply": "Testaa AI - Vastaus",
+          "testing.ia.send": "Testaa AI - Lähetys",
+          "favorites": "Suosikit",
+          "profile": "Profiili",
+          "prices": "Hinnat",
+          "signature": "Allekirjoitus"
+        },
+        "legalItems": {
+          "terms": "Käyttöehdot",
+          "privacy": "Tietosuojakäytäntö"
+        }
+      }
+    },
+    "buttons": {
+      "pagination": {
+        "next": "Seuraava sivu",
+        "previous": "Edellinen sivu"
+      }
+    }
+  },
   "messages": {
-    "errors": {},
-    "success": {}
+    "errors": {
+      "cars": {
+        "noAvailable": "Ei Näytettävää Autoa",
+        "loading": "Autot Eivät Latautuneet"
+      }
+    },
+    "success": {},
+    "Loading": "Ladataan..."
   },
   "logs": {}
 }

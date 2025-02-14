@@ -1,10 +1,66 @@
 {
-  "site": {},
+  "site": {
+    "name": "Carros Expresso",
+    "short_name": "Expresso"
+  },
   "pages": {},
-  "components": {},
+  "components": {
+    "language_switcher": {
+      "languages": {
+        "en_US": "American English",
+        "fi_FI": "Finnish",
+        "pt_BR": "Brazilian Portuguese"
+      }
+    },
+    "layout": {
+      "sidebar": {
+        "language": "Language",
+        "buttons": {
+          "logout": "Logout"
+        },
+        "menuItems": {
+          "home": "Home",
+          "cars": "Cars",
+          "contacts": "Contacts",
+          "schedulings": "Schedulings",
+          "schedulings.form.create": "Create Scheduling",
+          "analytics": "Analytics",
+          "chats": "Chats",
+          "whatsapp": "WhatsApp",
+          "qrcode": "QR Code",
+          "ai": "AI",
+          "ai.reply.generic": "Generic Reply",
+          "prompt.reply": "Reply Prompt",
+          "prompt.send": "Send Prompt",
+          "testing.ia.reply": "Test AI - Reply",
+          "testing.ia.send": "Test AI - Send",
+          "favorites": "Favorites",
+          "profile": "Profile",
+          "prices": "Prices",
+          "signature": "Signature"
+        },
+        "legalItems": {
+          "terms": "Terms of Service",
+          "privacy": "Privacy Policy"
+        }
+      }
+    },
+    "buttons": {
+      "pagination": {
+        "next": "Next Page",
+        "previous": "Previous Page"
+      }
+    }
+  },
   "messages": {
-    "errors": {},
-    "success": {}
+    "errors": {
+      "cars": {
+        "noAvailable": "No Cars Available to Display",
+        "loading": "Unable to Load Cars"
+      }
+    },
+    "success": {},
+    "Loading": "Loading..."
   },
   "logs": {}
 }
