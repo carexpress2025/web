@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const id  = req.nextUrl.searchParams.get('id');
 
     if (!id) {
       return NextResponse.json(
@@ -60,12 +57,9 @@ export async function GET(
   }
 }
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const id  = req.nextUrl.searchParams.get('id');
     const { name } = await req.json();
 
     if (!id) {
@@ -101,12 +95,9 @@ export async function PATCH(
   }
 }
 
-export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function DELETE(req: NextRequest): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const id  = req.nextUrl.searchParams.get('id');
 
     if (!id) {
       return NextResponse.json(
