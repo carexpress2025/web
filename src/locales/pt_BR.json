@@ -123,11 +123,13 @@
         },
         "labels": {
           "email": "Endereço de E-mail",
-          "password": "Senha de Acesso"
+          "password": "Senha de Acesso",
+          "name": "Nome Completo"
         },
         "placeholders": {
           "email": "Insira seu Endereço de E-mail",
-          "password": "Insira sua Senha de Acesso"
+          "password": "Insira sua Senha de Acesso",
+          "name": "Insira seu Nome Completo"
         },
         "creatingAccount": "Criando sua Conta...",
         "alreadyHaveAccount": "Já Possui uma Conta?"

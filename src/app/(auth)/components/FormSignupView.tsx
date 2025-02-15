@@ -14,7 +14,13 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-export default function FormSignupView(): JSX.Element {
+interface FormSignupViewProps {
+  onSuccess: (accountId: string) => void;
+}
+
+export default function FormSignupView({
+  onSuccess,
+}: FormSignupViewProps): JSX.Element {
   const { t } = useTranslation();
   const language = useSelector(
     (state: { language: LanguageState }) => state.language.language,
@@ -34,7 +40,7 @@ export default function FormSignupView(): JSX.Element {
     setEmail,
     setPassword,
     handleSubmit,
-  } = useSignup();
+  } = useSignup(onSuccess);
 
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

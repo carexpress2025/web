@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 import AuthHeader from '../components/AuthHeader';
 import { ButtonRedirect } from '../components/ButtonRedirect';
-import FormSignupView from '../components/FormSignupView';
+import FormSteps from './components/FormSteps';
 
 export default function Page(): JSX.Element {
   return (
@@ -14,7 +14,7 @@ export default function Page(): JSX.Element {
         keyItem1={'pages.auth.signup.buttons.loginHere'}
         link={'/signin'}
       />
-      <FormSignupView />
+      <FormSteps />
     </div>
   );
 }

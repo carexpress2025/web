@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json(account, { status: 201 });
+    return NextResponse.json({ account: account }, { status: 201 });
   } catch (error: unknown) {
     let errorMessage = 'Erro desconhecido';
     let statusCode = 500;
