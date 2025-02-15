@@ -1,0 +1,75 @@
+networks:
+  carexpress-net:
+    name: carexpress-net
+    driver: bridge
+
+volumes:
+  postgres-data:
+    name: postgres-data
+    driver: local
+
+  portainer-data:
+    name: portainer-data
+    driver: local
+
+services:
+  database:
+    image: postgres:15
+    container_name: database
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - 5432:5432
+    networks:
+      - carexpress-net
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    mem_limit: 1g
+    memswap_limit: 4g
+
+  prisma-migrations:
+    image: node:18
+    container_name: prisma-migrations
+    restart: no
+    environment:
+      DATABASE_URL: postgres://admin:admin@database:5432/development
+    working_dir: /app
+    volumes:
+      - ./prisma:/app/prisma
+      - ./node_modules:/app/node_modules
+    networks:
+      - carexpress-net
+    command: ['npx', 'prisma', 'db', 'push']
+    depends_on:
+      - database
+
+  prisma-studio:
+    image: node:18
+    container_name: prisma-studio
+    restart: unless-stopped
+    ports:
+      - 5555:5555
+    environment:
+      DATABASE_URL: postgres://admin:admin@database:5432/development
+    working_dir: /app
+    volumes:
+      - ./prisma:/app/prisma
+      - ./node_modules:/app/node_modules
+    networks:
+      - carexpress-net
+    command: ['npx', 'prisma', 'studio']
+    depends_on:
+      - prisma-migrations
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+    volumes:
+      - portainer-data:/var/run/docker.sock
+    networks:
+      - carexpress-net
