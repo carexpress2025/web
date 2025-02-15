@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Carros Expresso",
+    "name": "Expresso Carros",
     "short_name": "Expresso"
   },
   "pages": {
@@ -111,6 +111,26 @@
       "section7": {
         "title": "7. Contato",
         "content": "Para preocupações relacionadas à privacidade, entre em contato conosco pelos canais oficiais disponíveis em nossa plataforma."
+      }
+    },
+    "auth": {
+      "signup": {
+        "welcome": "Boas Vindas",
+        "join": "Junte-se à nossa comunidade e encontre o carro perfeito para si",
+        "buttons": {
+          "createAccount": "Criar Conta",
+          "loginHere": "Entrar Agora"
+        },
+        "labels": {
+          "email": "Endereço de E-mail",
+          "password": "Senha de Acesso"
+        },
+        "placeholders": {
+          "email": "Insira seu Endereço de E-mail",
+          "password": "Insira sua Senha de Acesso"
+        },
+        "creatingAccount": "Criando sua Conta...",
+        "alreadyHaveAccount": "Já Possui uma Conta?"
       }
     }
   },

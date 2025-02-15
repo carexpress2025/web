@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 
-export function useSignup() {
+export const useSignup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -47,32 +47,4 @@ export function useSignup() {
     loading,
     handleSubmit,
   };
-}
-
-//
-// Configuração correta do `t`
-
-//
-//
-
-//     setLoading(true);
-
-//     const response = await fetch('/api/auth/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     setLoading(false);
-
-//     if (response.ok) {
-//       const { signIn } = await import('next-auth/react');
-//       signIn('credentials', { email, password });
-//     } else {
-//       setError(t('hooks.errors.errorSignupFailed'));
-//     }
-//   };
-
-// }
+};
