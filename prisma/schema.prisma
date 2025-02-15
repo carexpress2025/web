@@ -14,13 +14,14 @@ datasource db {
 }
 
 model User {
-  id               Int               @id @default(autoincrement())
-  name             String
-  UserAccounts     UserAccount?
-  UserSubscription UserSubscription?
-  UserScheduling   UserScheduling[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  id                    Int                     @id @default(autoincrement())
+  name                  String
+  UserAccounts          UserAccount?
+  UserSubscription      UserSubscription?
+  UserScheduling        UserScheduling[]
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  UserSentManualMessage UserSentManualMessage[]
 
   @@map("users")
 }
@@ -145,10 +146,25 @@ model SentManualMensage {
   body     String
   usedAi   Boolean @default(false)
 
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  UserSentManualMessage UserSentManualMessage[]
+
+  @@map("sent_manual_messages")
+}
+
+model UserSentManualMessage {
+  id                  Int               @id @default(autoincrement())
+  publicId            String            @unique @default(uuid()) @map("public_id")
+  userId              Int
+  user                User              @relation(fields: [userId], references: [id])
+  sentManualMessageId Int
+  sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("sent_manual_messages")
+  @@map("users_sent_manual_messages")
 }
 
 enum SCHEDULINGS_STATUS {
