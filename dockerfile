@@ -13,6 +13,9 @@ RUN yarn install
 # Copia todos os arquivos do projeto para o diretório de trabalho
 COPY . .
 
+# Gera o Prisma Client
+RUN npx prisma generate
+
 # Etapa 2: Rodar os testes (compilar e rodar testes)
 FROM node:18 AS test
 
