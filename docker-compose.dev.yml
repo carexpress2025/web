@@ -73,3 +73,15 @@ services:
       - portainer-data:/var/run/docker.sock
     networks:
       - carexpress-net
+
+  waha:
+    image: devlikeapro/waha-plus:latest
+    container_name: waha
+    networks:
+      - carexpress-net
+    ports:
+      - 4000:3000
+    environment:
+      WHATSAPP_API_KEY: "3UHRF5HT72H57XTH57THR75HXT7"
+      WAHA_DASHBOARD_USERNAME: "carexpress"
+      WAHA_DASHBOARD_PASSWORD: "carexpress"
