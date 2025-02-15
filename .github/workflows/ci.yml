@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    name: Build with Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Retrieve Git history, needed to verify commits
+
+      - name: 🚀 Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+
+      - name: 📦 Install dependencies
+        run: |
+          yarn cache clean
+          yarn install
+
+      - name: 🧹 Run Linter
+        run: yarn lint
+
+      - name: 📝 Type checking
+        run: yarn check-types
+
+      - name: Test Api
+        run: yarn test:api
+
+      - name: Test FrontEnd
+        run: yarn test:frontend
