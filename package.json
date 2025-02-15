@@ -6,7 +6,6 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "postinstall": "prisma generate",
     "studio": "prisma studio",
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
