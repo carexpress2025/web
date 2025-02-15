@@ -75,7 +75,7 @@ model UserSubscription {
   @@map("users_subscriptions")
 }
 
-model Cars {
+model Car {
   id                    Int      @id @default(autoincrement())
   publicId              String   @unique @default(uuid()) @map("public_id")
   brand                 String?
