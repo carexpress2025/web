@@ -112,14 +112,15 @@ model Cars {
 }
 
 model Scheduling {
-  id             Int             @id @default(autoincrement())
-  publicId       String          @unique @default(uuid()) @map("public_id")
+  id             Int                @id @default(autoincrement())
+  publicId       String             @unique @default(uuid()) @map("public_id")
   name           String
   filters        Json
   message        String
+  status         SCHEDULINGS_STATUS @default(PENDING)
   UserScheduling UserScheduling?
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
 
   @@map("schedulings")
 }
@@ -135,4 +136,11 @@ model UserScheduling {
   updatedAt    DateTime   @updatedAt
 
   @@map("users_schedulings")
+}
+
+enum SCHEDULINGS_STATUS {
+  RUNNING
+  PENDING
+  FAILED
+  STOPPED
 }
