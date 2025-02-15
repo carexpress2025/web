@@ -134,6 +134,12 @@
         "creatingAccount": "Criando sua Conta...",
         "alreadyHaveAccount": "Já Possui uma Conta?"
       }
+    },
+    "whatsapp": {
+      "title": "Whatsapp",
+      "subtitle": "Conexão Atual com o Whatsapp",
+      "connected": "Whatsapp Está Conectado",
+      "notConnected": "Whatsapp Não Está Conectado"
     }
   },
   "components": {

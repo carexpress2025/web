@@ -3,6 +3,7 @@
 import { AuthProvider } from '@/contexts/auth';
 import WithAuth from '@/hoc/withAuth';
 import { SessionProvider } from 'next-auth/react';
+import Sidebar from '../components/Sidebar';
 
 export default function RootLayout({
   children,
@@ -12,7 +13,10 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <AuthProvider>
-        <WithAuth>{children}</WithAuth>
+        <WithAuth>
+          <Sidebar />
+          {children}
+        </WithAuth>
       </AuthProvider>
     </SessionProvider>
   );
