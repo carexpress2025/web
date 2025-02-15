@@ -27,51 +27,56 @@ model User {
 
 model Account {
   id           Int          @id @default(autoincrement())
+  publicId     String       @unique @default(uuid()) @map("public_id")
   email        String       @unique
   password     String
   UserAccounts UserAccount?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 
   @@map("accounts")
 }
 
 model UserAccount {
   id        Int      @id @default(autoincrement())
+  publicId  String   @unique @default(uuid()) @map("public_id")
   userId    Int?     @unique
   user      User?    @relation(fields: [userId], references: [id])
   accountId Int?     @unique
   account   Account? @relation(fields: [accountId], references: [id])
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("users_accounts")
 }
 
 model Subscription {
   id               Int                @id @default(autoincrement())
+  publicId         String             @unique @default(uuid()) @map("public_id")
   name             String             @unique
   UserSubscription UserSubscription[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
 
   @@map("subscriptions")
 }
 
 model UserSubscription {
   id             Int          @id @default(autoincrement())
+  publicId       String       @unique @default(uuid()) @map("public_id")
   userId         Int          @unique
   user           User         @relation(fields: [userId], references: [id])
   subscriptionId Int
   subscription   Subscription @relation(fields: [subscriptionId], references: [id])
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
 
   @@map("users_subscriptions")
 }
 
 model Cars {
   id                    Int      @id @default(autoincrement())
+  publicId              String   @unique @default(uuid()) @map("public_id")
   brand                 String?
   name                  String?
   bodyType              String?
@@ -100,32 +105,34 @@ model Cars {
   phone                 String?
   seller                String?
   link                  String?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
 
   @@map("cars")
 }
 
 model Scheduling {
   id             Int             @id @default(autoincrement())
+  publicId       String          @unique @default(uuid()) @map("public_id")
   name           String
   filters        Json
   message        String
   UserScheduling UserScheduling?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
 
   @@map("schedulings")
 }
 
 model UserScheduling {
   id           Int        @id @default(autoincrement())
+  publicId     String     @unique @default(uuid()) @map("public_id")
   userId       Int
   user         User       @relation(fields: [userId], references: [id])
   schedulingId Int        @unique
   scheduling   Scheduling @relation(fields: [schedulingId], references: [id])
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 
   @@map("users_schedulings")
 }
