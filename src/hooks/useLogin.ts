@@ -3,6 +3,7 @@ import { signIn } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
 import { signinAccountSchema } from '@/validations';
+import { useRouter } from 'next/navigation';
 
 export function useLogin() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ export function useLogin() {
   const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,9 +44,9 @@ export function useLogin() {
 
       setLoading(false);
 
-      if (response?.error) {
-        setError(t('messages.errors.auth.signin.failedLogin'));
-      } else if (!response?.ok) {
+      if (response && response.ok) {
+        router.push('/dashboard');
+      } else {
         setError(t('messages.errors.auth.signin.failedLogin'));
       }
     } catch (error) {
