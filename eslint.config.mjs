@@ -8,9 +8,7 @@ import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
@@ -26,6 +24,13 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': 'warn',
+      'antfu/no-top-level-await': 'off',
+      'style/brace-style': ['error', '1tbs'],
+      'ts/consistent-type-definitions': ['error', 'type'],
+      'react/prefer-destructuring-assignment': 'off',
+      'node/prefer-global/process': 'off',
+      'test/padding-around-all': 'error',
+      'test/prefer-lowercase-title': 'off',
     },
   },
   {
@@ -47,7 +52,8 @@ const eslintConfig = [
       'tailwind.config.ts',
       'vitest.setup.ts',
       'jest.config.js',
-      'jest.setup.js'
+      'jest.setup.js',
+      'release.config.cjs',
     ],
   },
 ];
