@@ -85,3 +85,23 @@ services:
       WHATSAPP_API_KEY: "3UHRF5HT72H57XTH57THR75HXT7"
       WAHA_DASHBOARD_USERNAME: "carexpress"
       WAHA_DASHBOARD_PASSWORD: "carexpress"
+
+  web:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    container_name: web
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://admin:admin@database:5432/development
+      NEXTAUTH_SECRET: HM4F7H478RH3457HR734YHR834HR84UR843R8J48RU
+      NEXTAUTH_URL: 'http://localhost:3000'
+    ports:
+      - 3000:3000
+    networks:
+      - carexpress-net
+    mem_limit: 1g
+    memswap_limit: 2g
+    depends_on:
+      - database
+      - waha
