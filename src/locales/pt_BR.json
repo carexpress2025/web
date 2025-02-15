@@ -133,6 +133,20 @@
         },
         "creatingAccount": "Criando sua Conta...",
         "alreadyHaveAccount": "Já Possui uma Conta?"
+      },
+      "signin": {
+        "welcome": "Bem Vindo de Volta",
+        "enter": "Forneça suas crendenciais para acessar a dashboard",
+        "buttons": {
+          "registernHere": "Criar Conta Agora",
+          "loginButton": "Entrar",
+          "loggingIn": "Entrando..."
+        },
+        "email": "Endereço de Email",
+        "password": "Senha de Acesso",
+        "noAccount": "Não tem uma conta?",
+        "placeholderEmail": "Digite seu email",
+        "placeholderPassword": "Digite sua senha"
       }
     },
     "whatsapp": {
@@ -194,11 +208,24 @@
     "errors": {
       "cars": {
         "noAvailable": "Não Existe Carros para Exibir",
-        "loading": "Não Foi Possivel carregar os Carros"
+        "loading": "Não Foi Possivel carregar os Carros",
+        "errorFetchingCars": "Não foi possível buscar os carros",
+        "carsNotFound": "Nenhum Carro foi encontrado"
+      },
+      "auth": {
+        "signin": {
+          "failedLogin": "Falha ao realizar o login.",
+          "requiredFields": "Email e senha são obrigatórios",
+          "generalError": "Houve um Problema ao realizar o login"
+        },
+        "signup": {
+          "failedSignup": "Falha ao realizar o cadastro",
+          "requiredFields": "Email e senha são obrigatórios"
+        }
       }
     },
-    "success": {},
-    "Loading": "Carregando..."
+    "success": {}
   },
+  "Loading": "Carregando...",
   "logs": {}
 }

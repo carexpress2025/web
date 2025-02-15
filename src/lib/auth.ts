@@ -27,18 +27,28 @@ export const authConfig: NextAuthConfig = {
       return true;
     },
     async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.email = user.email;
+      try {
+        if (user) {
+          token.id = user.id;
+          token.email = user.email;
+        }
+        return token;
+      } catch (error) {
+        console.error('Error in JWT callback:', error);
+        throw new Error('Error in JWT callback');
       }
-      return token;
     },
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-        session.user.email = token.email as string;
+      try {
+        if (session.user) {
+          session.user.id = token.id as string;
+          session.user.email = token.email as string;
+        }
+        return session;
+      } catch (error) {
+        console.error('Error in session callback:', error);
+        throw new Error('Error in session callback');
       }
-      return session;
     },
   },
   adapter: PrismaAdapter(prisma),
@@ -54,24 +64,34 @@ export const authConfig: NextAuthConfig = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials: Record<string, unknown>) {
-        const email = credentials?.email as string;
-        const password = credentials?.password as string;
+        try {
+          const email = credentials?.email as string;
+          const password = credentials?.password as string;
 
-        if (!email || !password) {
-          throw new Error('Email e senha são obrigatórios');
-        }
+          if (!email || !password) {
+            throw new Error('Email e senha são obrigatórios');
+          }
 
-        const user = await prisma.account.findUnique({
-          where: {
-            email: email,
-          },
-        });
+          const user = await prisma.account.findUnique({
+            where: {
+              email: email,
+            },
+          });
 
-        if (user && (await bcrypt.compare(password, user.password))) {
+          if (!user) {
+            throw new Error('Email ou Senha Incorreto');
+          }
+
+          const passwordMatch = await bcrypt.compare(password, user.password);
+          if (!passwordMatch) {
+            throw new Error('Email ou Senha Incorreto');
+          }
+
           return { id: user.id.toString(), email: user.email };
+        } catch (error) {
+          console.error('Error during authorization:', error);
+          throw new Error('Erro ao realizar a autenticação. Tente novamente.');
         }
-
-        return null;
       },
     }),
   ],

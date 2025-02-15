@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { createUserSchema } from '@/validations/userSchemas';
+import { createUserSchema } from '@/validations';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {

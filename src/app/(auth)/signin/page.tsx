@@ -1,45 +1,20 @@
-'use client';
-
 import { JSX } from 'react';
-import { signIn } from 'next-auth/react';
-import { useState } from 'react';
+import AuthHeader from '../components/AuthHeader';
+import { ButtonRedirect } from '../components/ButtonRedirect';
+import FormSigninView from './components/FormSigninView';
 
 export default function Page(): JSX.Element {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (result?.error) {
-      alert('Erro ao fazer login');
-    } else {
-      window.location.href = '/';
-    }
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
+    <div className="w-full max-w-md space-y-8">
+      <AuthHeader
+        keyItem1={'pages.auth.signin.welcome'}
+        keyItem2={'pages.auth.signin.enter'}
       />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
+      <ButtonRedirect
+        keyItem1={'pages.auth.signin.buttons.registernHere'}
+        link={'/signup'}
       />
-      <button type="submit">Login</button>
-    </form>
+      <FormSigninView />
+    </div>
   );
 }
