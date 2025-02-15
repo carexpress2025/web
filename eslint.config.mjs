@@ -41,11 +41,13 @@ const eslintConfig = [
       'commitlint.config.cjs',
       'cypress.config.ts',
       'eslint.config.mjs',
-      'jest.config.js',
-      'jest.setup.js',
+      'vitest.config.mts',
       'next.config.ts',
       'postcss.config.mjs',
       'tailwind.config.ts',
+      'vitest.setup.ts',
+      'jest.config.js',
+      'jest.setup.js'
     ],
   },
 ];

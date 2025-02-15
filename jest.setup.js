@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
+require('@testing-library/jest-dom');
 
 jest.mock('next/navigation', () => require('next-router-mock'));
 
