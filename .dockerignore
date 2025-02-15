@@ -26,3 +26,4 @@ RFEADME.md
 seed.ts
 tsconfig.tsbuildinfo
 vercel.json
+prometheus.yml

@@ -12,6 +12,14 @@ volumes:
     name: portainer-data
     driver: local
 
+  prometheus-data:
+    name: prometheus-data
+    driver: local
+
+  grafana-data:
+    name: grafana-data
+    driver: local
+
 services:
   database:
     image: postgres:15
@@ -82,9 +90,9 @@ services:
     ports:
       - 4000:3000
     environment:
-      WHATSAPP_API_KEY: "3UHRF5HT72H57XTH57THR75HXT7"
-      WAHA_DASHBOARD_USERNAME: "carexpress"
-      WAHA_DASHBOARD_PASSWORD: "carexpress"
+      WHATSAPP_API_KEY: '3UHRF5HT72H57XTH57THR75HXT7'
+      WAHA_DASHBOARD_USERNAME: 'carexpress'
+      WAHA_DASHBOARD_PASSWORD: 'carexpress'
 
   web:
     build:
@@ -105,3 +113,30 @@ services:
     depends_on:
       - database
       - waha
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus-data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - carexpress-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - 3001:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: 'admin'
+    networks:
+      - carexpress-net
+    depends_on:
+      - prometheus
