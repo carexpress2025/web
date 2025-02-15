@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
-import { signinAccountSchema } from '@/validations/signinAccountSchema';
+import { signinAccountSchema } from '@/validations';
 
 export function useLogin() {
   const [email, setEmail] = useState('');
