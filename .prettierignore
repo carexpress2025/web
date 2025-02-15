@@ -16,3 +16,4 @@ next.config.ts
 postcss.config.mjs
 tailwind.config.ts
 jest.setup.js
+release.config.cjs

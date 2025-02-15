@@ -24,13 +24,7 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': 'warn',
-      'antfu/no-top-level-await': 'off',
-      'style/brace-style': ['error', '1tbs'],
-      'ts/consistent-type-definitions': ['error', 'type'],
       'react/prefer-destructuring-assignment': 'off',
-      'node/prefer-global/process': 'off',
-      'test/padding-around-all': 'error',
-      'test/prefer-lowercase-title': 'off',
     },
   },
   {
@@ -54,6 +48,7 @@ const eslintConfig = [
       'jest.config.js',
       'jest.setup.js',
       'release.config.cjs',
+      'i18n.ts'
     ],
   },
 ];
