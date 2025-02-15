@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { FC, useState } from 'react';
-import type { ICarInterface } from '@/interfaces';
+import type { ICarInterface } from '@/domains/entities';
 import {
   AlertCircle,
   Calendar,

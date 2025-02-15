@@ -1,6 +1,6 @@
 'use client';
 
-import { ICarInterface } from '@/interfaces';
+import { ICarInterface } from '@/domains/entities';
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -15,15 +15,18 @@ import {
   Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { cn } from '@lib/utils';
 import { useTranslation } from 'react-i18next';
 import { CarDetailsModal } from './CarDetailsModal';
+import Image from 'next/image';
 
 export default function CarCard({ car }: { car: ICarInterface }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const { t } = useTranslation();
+
+  const carLink = car?.link ? car.link : '';
 
   const formattedPrice = car.price
     ? `${car.price.toLocaleString('pt-BR', {
@@ -43,7 +46,7 @@ export default function CarCard({ car }: { car: ICarInterface }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative h-[200px] overflow-hidden">
-        <img
+        <Image
           src={car.images[0] || '/placeholder-car.png'}
           alt={car.name || 'Carro'}
           className={cn(
@@ -68,7 +71,7 @@ export default function CarCard({ car }: { car: ICarInterface }) {
             size="icon"
             variant="secondary"
             className="h-8 w-8 rounded-full bg-white/90 transition-colors hover:bg-white"
-            onClick={() => (window.location.href = car.link)}
+            onClick={() => (window.location.href = carLink)}
           >
             <Share2 className="h-4 w-4 text-gray-600" />
           </Button>
