@@ -3,4 +3,6 @@
 
 yarn run lint
 
-yarn run test
+yarn run test:api
+
+yarn run test:frontend
