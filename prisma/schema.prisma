@@ -138,6 +138,19 @@ model UserScheduling {
   @@map("users_schedulings")
 }
 
+model SentManualMensage {
+  id       Int     @id @default(autoincrement())
+  publicId String  @unique @default(uuid()) @map("public_id")
+  contact  String
+  body     String
+  usedAi   Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("sent_manual_messages")
+}
+
 enum SCHEDULINGS_STATUS {
   RUNNING
   PENDING
