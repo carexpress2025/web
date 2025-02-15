@@ -1,8 +1,8 @@
 'use client';
 
 import { JSX, useState } from 'react';
-import FormSignupView from '../../components/FormSignupView';
-import FormCreateUserView from '../../components/FormCreateUserView';
+import FormSignupView from './FormSignupView';
+import FormCreateUserView from './FormCreateUserView';
 
 export default function FormSteps(): JSX.Element {
   const [step, setStep] = useState<'signup' | 'createUser'>('signup');
