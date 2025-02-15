@@ -20,7 +20,7 @@
 - [x] Testes de Unidade com Jest
 - [x] Testes de Componentes com Cypress
 - [ ] Gerenciamento de estado com redux.js
-- [ ] Autenticação com Next Auth.js
+- [x] Autenticação com Next Auth.js
 - [ ] Proteger páginas com Autenticação
 - [x] Padronização de Arquivos com Editor Config
 - [ ] Formatação de Datas com Date Fns
