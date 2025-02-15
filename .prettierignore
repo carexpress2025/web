@@ -9,8 +9,10 @@ public/
 commitlint.config.cjs
 cypress.config.ts
 eslint.config.mjs
+vitest.config.mts
+vitest.setup.ts
 jest.config.js
-jest.setup.js
 next.config.ts
 postcss.config.mjs
 tailwind.config.ts
+jest.setup.js

@@ -20,8 +20,22 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["node"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "jest.config.js",
+    "vitest.config.mts"
+  ],
+  "exclude": [
+    "node_modules/",
+    "e2e/",
+    ".husky/",
+    "src/**/*.spec.tsx",
+    "src/app/api/**/*.test.ts"
+  ]
 }

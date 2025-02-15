@@ -9,9 +9,13 @@ module.exports = {
   '*.json': (filenames) => {
     return [`prettier --write ${filenames.join(' ')}`];
   },
-  '*.{spec.tsx,spec.ts}': (filenames) => {
-    return [
-      `jest --coverage ${filenames.join(' ')}`,
-    ];
+  '*.spec.tsx': (filenames) => {
+    return [`vitest run --silent ${filenames.join(' ')}`];
+  },
+  '*.test.ts': (filenames) => {
+    return [`jest --coverage ${filenames.join(' ')}`];
+  },
+  '*.cy.tsx': (filenames) => {
+    return [`cypress run ${filenames.join(' ')}`];
   },
 };

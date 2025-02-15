@@ -1,16 +1,20 @@
+import { JSX } from 'react';
 import AuthHeader from '../components/AuthHeader';
 import { ButtonRedirect } from '../components/ButtonRedirect';
-import FormSignup from '../components/FormSignup';
+import FormSteps from './components/FormSteps';
 
-export default function Page() {
+export default function Page(): JSX.Element {
   return (
     <div className="w-full max-w-md space-y-8">
       <AuthHeader
-        keyItem1={'pages.signup.welcome'}
-        keyItem2={'pages.signup.enter'}
+        keyItem1={'pages.auth.signup.welcome'}
+        keyItem2={'pages.auth.signup.join'}
       />
-      <ButtonRedirect keyItem1={'pages.signup.loginHere'} link={'/signup'} />
-      <FormSignup />
+      <ButtonRedirect
+        keyItem1={'pages.auth.signup.buttons.loginHere'}
+        link={'/signin'}
+      />
+      <FormSteps />
     </div>
   );
 }

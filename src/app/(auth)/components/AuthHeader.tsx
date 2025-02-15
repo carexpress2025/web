@@ -27,7 +27,9 @@ export default function AuthHeader({
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center gap-2">
-        <span className="text-primary text-2xl font-bold">{t('name')}</span>
+        <span className="text-primary text-2xl font-bold">
+          {t('site.name')}
+        </span>
       </div>
       <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
         {t(keyItem1)}

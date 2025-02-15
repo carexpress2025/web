@@ -6,20 +6,21 @@ import {
   QrCode,
   MessageSquare,
   Send,
-  CalendarCheck,
+  Calendar,
   Users,
   Car,
-  Settings2,
+  Settings,
   Bot,
-  MessageCircle,
   Star,
+  User,
+  DollarSign,
 } from 'lucide-react';
 
 export const menuItemsPath = [
   {
     key: 'home',
     icon: Home,
-    href: '/home',
+    href: '/dashboard',
   },
   {
     key: 'cars',
@@ -29,16 +30,16 @@ export const menuItemsPath = [
   {
     key: 'contacts',
     icon: Users,
-    href: '/contacts',
+    href: '/whatsapp/contacts',
   },
   {
     key: 'schedulings',
-    icon: CalendarCheck,
+    icon: Calendar,
     href: '/schedulings',
   },
   {
-    key: 'create-schedulings',
-    icon: CalendarCheck,
+    key: 'schedulings.form.create',
+    icon: Calendar,
     href: '/schedulings/form/create',
   },
   {
@@ -53,7 +54,7 @@ export const menuItemsPath = [
   },
   {
     key: 'whatsapp',
-    icon: MessageCircle,
+    icon: QrCode,
     href: '/whatsapp',
   },
   {
@@ -63,23 +64,53 @@ export const menuItemsPath = [
   },
   {
     key: 'ai',
-    icon: Settings2,
-    href: '/ai/settings',
+    icon: Settings,
+    href: '/settings/ai',
   },
   {
-    key: 'prompts',
+    key: 'ai.reply.generic',
+    icon: Settings,
+    href: '/settings/ai/reply/generic',
+  },
+  {
+    key: 'prompt.reply',
     icon: Send,
-    href: '/ai/settings/prompt',
+    href: '/prompts/reply',
   },
   {
-    key: 'testingia',
+    key: 'prompt.send',
+    icon: Send,
+    href: '/prompts/send',
+  },
+  {
+    key: 'testing.ia.reply',
     icon: Bot,
-    href: '/ai/prompt/testing',
+    href: '/prompts/reply/testing',
   },
   {
-    key: 'stars',
+    key: 'testing.ia.send',
+    icon: Bot,
+    href: '/prompt/send/testing',
+  },
+  {
+    key: 'favorites',
     icon: Star,
-    href: '/stars',
+    href: '/cars/favorites',
+  },
+  {
+    key: 'profile',
+    icon: User,
+    href: '/profile',
+  },
+  {
+    key: 'prices',
+    icon: DollarSign,
+    href: '/prices',
+  },
+  {
+    key: 'signature',
+    icon: DollarSign,
+    href: '/signature',
   },
 ];
 

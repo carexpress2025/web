@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const existingUser = await prisma.accounts.findUnique({
+  const existingUser = await prisma.account.findUnique({
     where: { email },
   });
 
@@ -26,14 +26,14 @@ export async function POST(req: NextRequest) {
   const hashedPassword = await bcrypt.hash(password, 12);
 
   try {
-    const account = await prisma.accounts.create({
+    const account = await prisma.account.create({
       data: {
-        email,
+        email: email,
         password: hashedPassword,
       },
     });
 
-    return NextResponse.json(account, { status: 201 });
+    return NextResponse.json({ account: account }, { status: 201 });
   } catch (error: unknown) {
     let errorMessage = 'Erro desconhecido';
     let statusCode = 500;

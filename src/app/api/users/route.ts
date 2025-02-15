@@ -1,29 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { createUserSchema } from '@/validations/userSchemas';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const { name, accountId } = await req.json();
+    const body = await req.json();
+    const result = createUserSchema.safeParse(body);
 
-    if (!name) {
+    if (!result.success) {
       return NextResponse.json(
-        { error: 'O nome é obrigatório' },
+        { error: 'Dados inválidos', details: result.error.format() },
         { status: 400 },
       );
     }
 
-    const newUser = await prisma.users.create({
+    const { name, accountId } = result.data;
+
+    const newUser = await prisma.user.create({
       data: {
         name,
         UserAccounts: {
-          create: {
-            accountId: accountId,
-          },
+          create: { accountId },
         },
       },
     });
 
-    return NextResponse.json(newUser, { status: 201 });
+    return NextResponse.json({ user: newUser }, { status: 201 });
   } catch (error: unknown) {
     console.error('Erro ao criar usuário:', error);
     return NextResponse.json(

@@ -1,164 +1,17 @@
 {
-  "name": "Car Express",
-  "short_name": "Express",
-  "description": "Sistema de automação de busca de carros para compra",
-  "layout": {
-    "sidebar": {
-      "button": {
-        "logout": "Sair"
-      },
-      "menuItems": {
-        "home": "Início",
-        "cars": "Carros",
-        "contacts": "Contatos",
-        "schedulings": "Agendamentos",
-        "create-schedulings": "Criar Agendamento",
-        "qrcode": "QR Code",
-        "analytics": "Gráficos",
-        "chats": "Conversas",
-        "whatsapp": "WhatsApp",
-        "ai": "Inteligência Artificial",
-        "prompts": "Prompts",
-        "testingia": "Testar IA",
-        "stars": "Favoritos",
-        "profile": "Meu Perfil"
-      },
-      "legalItems": {
-        "terms": "Termos de Uso",
-        "privacy": "Privacidade"
-      }
-    }
-  },
-  "carModal": {
-    "interiorSection": "Interior",
-    "electronics": "Eletrônicos",
-    "satety": "Segurança",
-    "seller": "Vendedor",
-    "send": "Enviar Mensagem",
-    "close": "Fechar",
-    "technical": "Especificações Técnicas",
-    "color": "Cor",
-    "condition": "Condição",
-    "fuelType": "Tipo de Combustível",
-    "numberOfDoors": "Número de Portas",
-    "power": "Potência",
-    "engine": "Motor",
-    "gearbox": "Caixa de Câmbio",
-    "transmission": "Transmissão",
-    "acceleration": "Aceleração",
-    "body": "Tipo de Carroçaria",
-    "electronic": {
-      "usb": "USB",
-      "smartphoneIntegration": "Integração com Smartphone",
-      "audioSystem": "Sistema de Áudio",
-      "audioConnection": "Conexão de Áudio",
-      "bluetooth": "Bluetooth",
-      "headUpDisplay": "Display Heads-Up",
-      "mobilePhoneEquipment": "Equipamento para Celular",
-      "alloyWheels": "Rodas de Liga Leve",
-      "sunroof": "Teto Solar",
-      "multifunctionSteeringWheel": "Volante Multifuncional",
-      "rainSensor": "Sensor de Chuva",
-      "trunkTemperatureControl": "Controle de Temperatura do Bagageiro",
-      "turbo": "Turbo",
-      "sportsSuspension": "Suspensão Esportiva",
-      "towBar": "Engate de Reboque",
-      "batteryPreHeating": "Pré-Aquecimento da Bateria",
-      "chassisKit": "Kit de Chassi",
-      "serviceBook": "Manual de Serviço",
-      "plugInChargingSocketForHybridCar": "Tomada de Carregamento Plug-In para Carro Híbrido",
-      "airSuspension": "Suspensão a Ar",
-      "handicapEquipment": "Equipamento para Deficientes",
-      "twoSetsOfTires": "Dois Conjuntos de Pneus",
-      "roofHatch": "Tampa do Teto"
-    },
-    "interior": {
-      "seatHeaters": "Aquecedores de Assento",
-      "rearViewCamera": "Câmera de Ré",
-      "fuelBatteryOperatedAuxiliaryHeater": "Aquecedor Auxiliar a Combustível/Bateria",
-      "parkingSensors": "Sensores de Estacionamento",
-      "tirePressureMonitoringSystem": "Sistema de Monitoramento de Pressão dos Pneus",
-      "internalSocket": "Tomada Interna",
-      "startStopSystem": "Sistema Start-Stop",
-      "skiHatch": "Tampa para Esqui",
-      "powerWindows": "Vidros Elétricos",
-      "electricMirrors": "Espelhos Elétricos",
-      "electricallyAdjustableSeats": "Assentos Ajustáveis Eletricamente",
-      "electricallyOperatedTailgate": "Porta Traseira Elétrica",
-      "luggageCompartmentSafetyNet": "Rede de Segurança do Compartimento de Carga",
-      "sportSeats": "Assentos Esportivos",
-      "cruiseControl": "Controle de Cruzeiro",
-      "onBoardComputer": "Computador de Bordo",
-      "keyless": "Entrada Sem Chave",
-      "airConditionedSeating": "Assentos com Ar Condicionado",
-      "airConditioning": "Ar Condicionado",
-      "retractableRearSeats": "Assentos Traseiros Retráteis",
-      "laneDepartureWarning": "Aviso de Desvio de Faixa",
-      "roofOpeningMechanism": "Mecanismo de Abertura do Teto",
-      "centralLocking": "Fechamento Centralizado",
-      "motorHeater": "Aquecedor de Motor",
-      "heatedSteeringWheel": "Volante Aquecido",
-      "heatedWindscreen": "Parabrisa Aquecido",
-      "leatherInterior": "Interior em Couro",
-      "satelliteNavigator": "Navegador por Satélite",
-      "speedLimitSensor": "Sensor de Limite de Velocidade",
-      "powerSteering": "Direção Hidráulica"
-    },
-    "safety": {
-      "antiLockBrakingSystem": "Sistema de Freios ABS",
-      "hillStartAssist": "Assistente de Partida em Subida",
-      "parkingAssistance": "Assistência de Estacionamento",
-      "fogLights": "Faróis de Neblina",
-      "airbags": "Airbags",
-      "collisionWarning": "Aviso de Colisão",
-      "theftAlarm": "Alarme Contra Roubo",
-      "xenonHeadlights": "Faróis de Xenônio",
-      "adaptiveHeadlights": "Faróis Adaptativos",
-      "electronicStabilityControl": "Controle Eletrônico de Estabilidade",
-      "emergencyBrakeAssist": "Assistência de Frenagem de Emergência",
-      "isofixReady": "Compatível com Isofix",
-      "corneringLights": "Faróis de Curva",
-      "blindSpotAssist": "Assistente de Ponto Cego",
-      "engineImmobilizer": "Imobilizador de Motor",
-      "ledHeadlights": "Faróis de LED",
-      "tractionControlSystem": "Sistema de Controle de Tração"
-    }
-  },
-  "hooks": {
-    "errors": {
-      "errorFetchingCars": "Não foi possível buscar os carros",
-      "carsNotFound": "Nenhum Carro foi encontrado",
-      "failedLogin": "Falha ao realizar o login.",
-      "failedSignup": "Falha ao realizar o cadastro",
-      "login": {
-        "requiredFields": "Email e senha são obrigatórios"
-      },
-      "signup": {
-        "requiredFields": "Email e senha são obrigatórios"
-      }
-    }
-  },
-  "carCard": {
-    "button": {
-      "details": "Ver Detalhes"
-    }
+  "site": {
+    "name": "Expresso Carros",
+    "short_name": "Expresso"
   },
   "pages": {
-    "whatsapp": {
-      "title": "Status do WhatsApp",
-      "subtitle": "Seu status do WhatsApp",
-      "connected": "Você está com o WhatsApp conectado",
-      "notConnected": "Seu WhatsApp não está conectado"
-    },
     "terms": {
-      "title": "Termos de Uso",
       "section1": {
         "title": "1. Aceitação dos Termos",
-        "content": "Ao acessar e utilizar a plataforma, você concorda com estes termos de uso. Se não concordar com qualquer parte destes termos, não utilize nossos serviços."
+        "content": "Ao acessar e usar a plataforma, você concorda com estes termos de uso. Se discordar de qualquer parte destes termos, não use nossos serviços."
       },
       "section2": {
         "title": "2. Acesso Restrito",
-        "content": "Nossa plataforma é restrita e exclusiva para usuários verificados. Acesso não autorizado ou tentativas de burlar nossos sistemas de segurança resultarão em medidas legais cabíveis."
+        "content": "Nossa plataforma é restrita e exclusiva para usuários verificados. O acesso não autorizado ou tentativas de burlar nossos sistemas de segurança resultarão em ações legais apropriadas."
       },
       "section3": {
         "title": "3. Serviços e Taxas",
@@ -166,71 +19,186 @@
       },
       "section4": {
         "title": "4. Isenção de Responsabilidade",
-        "content": "Nossa plataforma atua apenas como intermediária na comunicação entre compradores e vendedores. Não possuímos os veículos anunciados e não somos responsáveis por:",
+        "content": "Nossa plataforma atua apenas como intermediária na comunicação entre compradores e vendedores. Não possuímos os veículos listados e não somos responsáveis por:",
         "list": {
-          "item1": "A veracidade das informações fornecidas pelos vendedores",
-          "item2": "O estado dos veículos anunciados",
-          "item3": "Negociações ou transações realizadas entre as partes",
+          "item1": "A precisão das informações fornecidas pelos vendedores",
+          "item2": "A condição dos veículos listados",
+          "item3": "As negociações ou transações realizadas entre as partes",
           "item4": "Problemas técnicos ou mecânicos dos veículos",
           "item5": "Disputas ou conflitos entre compradores e vendedores"
         }
       },
       "section5": {
         "title": "5. Uso do Bot do WhatsApp",
-        "content": "Nossa plataforma utiliza um bot automatizado do WhatsApp que permite:",
+        "content": "Nossa plataforma usa um bot automatizado do WhatsApp que permite:",
         "list": {
           "item1": "Comunicação simultânea com vários vendedores",
-          "item2": "Coleta automatizada de dados de veículos e vendedores",
-          "item3": "Início de conversas em tempo real"
+          "item2": "Coleta automatizada de dados dos veículos e dos vendedores",
+          "item3": "Iniciar conversas em tempo real"
         },
-        "extra": "Os usuários são responsáveis pelo uso adequado desta ferramenta e devem cumprir as políticas de uso do WhatsApp."
+        "extra": "Os usuários são responsáveis pelo uso adequado dessa ferramenta e devem cumprir as políticas de uso do WhatsApp."
       },
       "section6": {
         "title": "6. Proteção de Dados",
-        "content": "Todas as informações coletadas e processadas através da nossa plataforma estão sujeitas à nossa Política de Privacidade. O uso indevido ou não autorizado de dados resultará em penalidades legais."
+        "content": "Todas as informações coletadas e processadas através da nossa plataforma estão sujeitas à nossa Política de Privacidade. O uso não autorizado ou inadequado dos dados resultará em penalidades legais."
       },
       "section7": {
         "title": "7. Alterações nos Termos",
-        "content": "Reservamo-nos o direito de modificar estes termos a qualquer momento. É responsabilidade do usuário verificar periodicamente as atualizações."
+        "content": "Reservamo-nos o direito de modificar estes termos a qualquer momento. É responsabilidade do usuário verificar periodicamente se houve atualizações."
       }
     },
-    "cars": {
-      "header": {
-        "description": "Melhor plataforma de busca de carros",
-        "title": "Todos os Carros"
+    "privacy": {
+      "title": "Política de Privacidade",
+      "section1": {
+        "title": "1. Coleta de Dados",
+        "content": "Nossa plataforma coleta e processa dados necessários para a operação do serviço, incluindo:",
+        "list": {
+          "item1": "Informações de registro e verificação do usuário",
+          "item2": "Dados dos veículos anunciados",
+          "item3": "Histórico de mensagens e interações",
+          "item4": "Informações de contato dos vendedores"
+        }
+      },
+      "section2": {
+        "title": "2. Uso dos Dados",
+        "content": "Os dados coletados são usados para:",
+        "list": {
+          "item1": "Facilitar a comunicação entre compradores e vendedores",
+          "item2": "Melhorar a experiência do usuário na plataforma",
+          "item3": "Garantir a segurança e integridade do serviço",
+          "item4": "Processar cobranças e pagamentos",
+          "item5": "Cumprir com obrigações legais"
+        }
+      },
+      "section3": {
+        "title": "3. Proteção de Dados",
+        "content": "Implementamos medidas técnicas e organizacionais para proteger seus dados, incluindo:",
+        "list": {
+          "item1": "Criptografia de dados sensíveis",
+          "item2": "Controle de acesso restrito",
+          "item3": "Monitoramento de segurança",
+          "item4": "Backups regulares"
+        }
+      },
+      "section4": {
+        "title": "4. Compartilhamento de Dados",
+        "content": "Seus dados podem ser compartilhados apenas nas seguintes circunstâncias:",
+        "list": {
+          "item1": "Entre compradores e vendedores para facilitar a negociação",
+          "item2": "Com prestadores de serviços necessários para a operação da plataforma",
+          "item3": "Por solicitação legal ou ordem judicial"
+        }
+      },
+      "section5": {
+        "title": "5. Seus Direitos",
+        "content": "Você tem o direito de:",
+        "list": {
+          "item1": "Acessar seus dados pessoais",
+          "item2": "Solicitar a correção de dados incorretos",
+          "item3": "Solicitar a exclusão dos seus dados"
+        },
+        "extra": "Revogar o consentimento para o uso dos dados"
+      },
+      "section6": {
+        "title": "6. Retenção de Dados",
+        "content": "Retemos seus dados apenas pelo tempo necessário para:",
+        "list": {
+          "item1": "Cumprir os propósitos para os quais foram coletados",
+          "item2": "Atender aos requisitos legais",
+          "item3": "Resolver disputas"
+        }
+      },
+      "section7": {
+        "title": "7. Contato",
+        "content": "Para preocupações relacionadas à privacidade, entre em contato conosco pelos canais oficiais disponíveis em nossa plataforma."
       }
     },
-    "signup": {
-      "titleFinland": "Veículos da Finlândia",
-      "welcome": "Crie sua conta para começar!",
-      "register": "Cadastro",
-      "enter": "Preencha os campos abaixo para criar sua conta.",
-      "name": "Nome Completo",
-      "email": "Endereço de Email",
-      "password": "Senha de Acesso",
-      "confirmPassword": "Confirme sua Senha",
-      "signupButton": "Cadastrar",
-      "signingUp": "Criando conta...",
-      "alreadyHaveAccount": "Já tem uma conta?",
-      "loginHere": "Faça login aqui",
-      "placeholderName": "Digite seu nome completo",
-      "placeholderEmail": "Digite seu email",
-      "placeholderPassword": "Digite sua senha",
-      "placeholderConfirmPassword": "Confirme sua senha"
+    "auth": {
+      "signup": {
+        "welcome": "Boas Vindas",
+        "join": "Junte-se à nossa comunidade e encontre o carro perfeito para si",
+        "buttons": {
+          "createAccount": "Criar Conta",
+          "loginHere": "Entrar Agora"
+        },
+        "labels": {
+          "email": "Endereço de E-mail",
+          "password": "Senha de Acesso",
+          "name": "Nome Completo"
+        },
+        "placeholders": {
+          "email": "Insira seu Endereço de E-mail",
+          "password": "Insira sua Senha de Acesso",
+          "name": "Insira seu Nome Completo"
+        },
+        "creatingAccount": "Criando sua Conta...",
+        "alreadyHaveAccount": "Já Possui uma Conta?"
+      }
     },
-    "signin": {
-      "titleFinland": "Veículos da Finlândia",
-      "welcome": "Bem-vindo de volta! Faça login para acessar sua conta.",
-      "login": "Login",
-      "enter": "Insira seu email e senha para acessar sua conta.",
-      "email": "Endereço de Email",
-      "password": "Senha de Acesso",
-      "loginButton": "Entrar",
-      "loggingIn": "Entrando...",
-      "noAccount": "Não tem uma conta?",
-      "createAccount": "Crie uma conta",
-      "placeholderEmail": "Digite seu email",
-      "placeholderPassword": "Digite sua senha"
+    "whatsapp": {
+      "title": "Whatsapp",
+      "subtitle": "Conexão Atual com o Whatsapp",
+      "connected": "Whatsapp Está Conectado",
+      "notConnected": "Whatsapp Não Está Conectado"
     }
-  }
+  },
+  "components": {
+    "language_switcher": {
+      "languages": {
+        "en_US": "Inglês Americano",
+        "fi_FI": "Finlandês",
+        "pt_BR": "Português Brasileiro"
+      }
+    },
+    "layout": {
+      "sidebar": {
+        "language": "Idioma",
+        "buttons": {
+          "logout": "Sair"
+        },
+        "menuItems": {
+          "home": "Início",
+          "cars": "Carros",
+          "contacts": "Contatos",
+          "schedulings": "Agendamentos",
+          "schedulings.form.create": "Criar Agendamento",
+          "analytics": "Análises",
+          "chats": "Chats",
+          "whatsapp": "WhatsApp",
+          "qrcode": "QR Code",
+          "ai": "IA",
+          "ai.reply.generic": "Resposta Genérica",
+          "prompt.reply": "Responder Prompt",
+          "prompt.send": "Enviar Prompt",
+          "testing.ia.reply": "Testar IA - Resposta",
+          "testing.ia.send": "Testar IA - Envio",
+          "favorites": "Favoritos",
+          "profile": "Perfil",
+          "prices": "Preços",
+          "signature": "Assinatura"
+        },
+        "legalItems": {
+          "terms": "Termos de Serviço",
+          "privacy": "Política de Privacidade"
+        }
+      }
+    },
+    "buttons": {
+      "pagination": {
+        "next": "Próxima Página",
+        "previous": "Página Anterior"
+      }
+    }
+  },
+  "messages": {
+    "errors": {
+      "cars": {
+        "noAvailable": "Não Existe Carros para Exibir",
+        "loading": "Não Foi Possivel carregar os Carros"
+      }
+    },
+    "success": {},
+    "Loading": "Carregando..."
+  },
+  "logs": {}
 }

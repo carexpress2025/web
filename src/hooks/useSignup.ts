@@ -1,15 +1,13 @@
+import { Account } from '@prisma/client';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
 
-export function useSignup() {
+export const useSignup = (onSuccess: (accountId: string) => void) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
-
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,13 +27,17 @@ export function useSignup() {
       body: JSON.stringify({ email, password }),
     });
 
+    setLoading(false);
+
     if (response.ok) {
-      router.push('/signin');
+      const data: { account: Account } = await response.json();
+
+      const accountId = data.account.id.toString();
+
+      onSuccess(accountId);
     } else {
       setError(t('hooks.errors.failedSignup'));
     }
-
-    setLoading(false);
   };
 
   return {
@@ -47,32 +49,4 @@ export function useSignup() {
     loading,
     handleSubmit,
   };
-}
-
-//
-// Configuração correta do `t`
-
-//
-//
-
-//     setLoading(true);
-
-//     const response = await fetch('/api/auth/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     setLoading(false);
-
-//     if (response.ok) {
-//       const { signIn } = await import('next-auth/react');
-//       signIn('credentials', { email, password });
-//     } else {
-//       setError(t('hooks.errors.errorSignupFailed'));
-//     }
-//   };
-
-// }
+};
