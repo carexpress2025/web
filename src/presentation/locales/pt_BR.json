@@ -161,8 +161,8 @@
           "generic": {
             "title": "Respostas Genéricas da Inteligência Artificial",
             "tabs": {
-              "reply": "Resposta",
-              "send": "Envio"
+              "positive": "Resposta Positiva",
+              "negative": "Resposta Negativa"
             },
             "form": {
               "responsePlaceholder": "Insira a sua resposta aqui"
