@@ -1,10 +1,10 @@
 'use client';
 
-import { LanguageState } from '@/store/languageSlice';
+import { LanguageState } from '@/data/store/languageSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import i18n from '../../../../i18n';
+import i18n from '../../../i18n';
 
 export default function AuthHeader({
   keyItem1,

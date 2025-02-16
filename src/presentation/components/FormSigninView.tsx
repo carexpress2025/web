@@ -1,26 +1,29 @@
 'use client';
 
-import { JSX } from 'react';
-import { useSignup } from '@/hooks';
+import { useLogin } from '@hooks/useLogin';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { LanguageState } from '@/store/languageSlice';
+import { LanguageState } from '@/data/store/languageSlice';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../../../../i18n';
+import i18n from '../../../i18n';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-interface FormSignupViewProps {
-  onSuccess: (accountId: string) => void;
-}
+export default function FormSigninView() {
+  const {
+    error,
+    loading,
+    email,
+    password,
+    setEmail,
+    setPassword,
+    handleSubmit,
+  } = useLogin();
 
-export default function FormSignupView({
-  onSuccess,
-}: FormSignupViewProps): JSX.Element {
   const { t } = useTranslation();
   const language = useSelector(
     (state: { language: LanguageState }) => state.language.language,
@@ -32,16 +35,6 @@ export default function FormSignupView({
     }
   }, [language]);
 
-  const {
-    error,
-    loading,
-    email,
-    password,
-    setEmail,
-    setPassword,
-    handleSubmit,
-  } = useSignup(onSuccess);
-
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
       {error && (
@@ -52,7 +45,7 @@ export default function FormSignupView({
       )}
       <div className="space-y-4">
         <div>
-          <Label>{t('pages.auth.signup.labels.email')}</Label>
+          <Label>{t('pages.auth.signin.email')}</Label>
           <Input
             id="email"
             name="email"
@@ -60,21 +53,21 @@ export default function FormSignupView({
             autoComplete="email"
             required
             className="w-full"
-            placeholder={t('pages.auth.signup.placeholders.email')}
+            placeholder={t('pages.auth.signin.placeholderEmail')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <Label>{t('pages.auth.signup.labels.password')}</Label>
+          <Label>{t('pages.auth.signin.password')}</Label>
           <Input
             id="password"
             name="password"
             type="password"
-            autoComplete="password"
+            autoComplete="current-password"
             required
             className="w-full"
-            placeholder={t('pages.auth.signup.placeholders.password')}
+            placeholder={t('pages.auth.signin.placeholderPassword')}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -82,16 +75,16 @@ export default function FormSignupView({
       </div>
       <Button type="submit" className="w-full" disabled={loading}>
         {loading
-          ? t('pages.auth.signup.creatingAccount')
-          : t('pages.auth.signup.buttons.createAccount')}
+          ? t('pages.auth.signin.buttons.loggingIn')
+          : t('pages.auth.signin.buttons.loginButton')}
       </Button>
       <p className="text-muted-foreground px-8 text-center text-sm">
-        {t('pages.auth.signup.alreadyHaveAccount')}
+        {t('pages.auth.signin.noAccount')}
         <Link
-          href="/signin"
+          href="/signup"
           className="text-primary hover:text-blue-600 underline underline-offset-4"
         >
-          {t('pages.auth.signup.buttons.loginHere')}
+          {t('pages.auth.signin.buttons.registernHere')}
         </Link>{' '}
       </p>
     </form>

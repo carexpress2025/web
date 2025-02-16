@@ -1,4 +1,4 @@
-import { siteMetadata } from '../metadata';
+import { siteMetadata } from '../../metadata';
 
 import type { Metadata } from 'next';
 

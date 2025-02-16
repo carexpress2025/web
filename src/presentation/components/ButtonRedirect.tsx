@@ -1,13 +1,13 @@
 'use client';
 
-import { LanguageState } from '@/store/languageSlice';
+import { LanguageState } from '@/data/store/languageSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import i18n from '../../../../i18n';
+import i18n from '../../../i18n';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { cn } from '@lib/utils';
 
 export function ButtonRedirect({
   link,

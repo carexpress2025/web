@@ -1,15 +1,15 @@
 'use client';
 
 import { JSX } from 'react';
-import { useCreateUser } from '@/hooks';
+import { useCreateUser } from '@hooks/useCreateUser';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { LanguageState } from '@/store/languageSlice';
+import { LanguageState } from '@/data/store/languageSlice';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../../../../i18n';
+import i18n from '../../../i18n';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 

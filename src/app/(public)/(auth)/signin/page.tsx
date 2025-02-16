@@ -1,7 +1,7 @@
 import { JSX } from 'react';
-import AuthHeader from '../components/AuthHeader';
-import { ButtonRedirect } from '../components/ButtonRedirect';
-import FormSigninView from './components/FormSigninView';
+import AuthHeader from '@/presentation/components/AuthHeader';
+import { ButtonRedirect } from '@/presentation/components/ButtonRedirect';
+import FormSigninView from '@/presentation/components/FormSigninView';
 
 export default function Page(): JSX.Element {
   return (
