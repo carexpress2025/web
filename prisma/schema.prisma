@@ -24,10 +24,11 @@ model User {
   UserScheduling        UserScheduling[]
   UserSentManualMessage UserSentManualMessage[]
   UserCarFavorite       UserCarFavorite?
-  createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @updatedAt
   UserWhatsapp          UserWhatsapp?
   UserSettings          UserSettings?
+  UserPrompts           UserPrompts?
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
 
   @@map("users")
 }
@@ -316,6 +317,31 @@ model UserSettings {
   updatedAt  DateTime @updatedAt
 
   @@map("users_settings")
+}
+
+model Prompt {
+  id            Int          @id @default(autoincrement())
+  publicId      String       @unique @default(uuid()) @map("public_id")
+  settingsReply Json?
+  settingsSend  Json?
+  UserPrompts   UserPrompts?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@map("prompts")
+}
+
+model UserPrompts {
+  id        Int      @id @default(autoincrement())
+  publicId  String   @unique @default(uuid()) @map("public_id")
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  promptId  Int      @unique
+  prompt    Prompt   @relation(fields: [promptId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users_prompts")
 }
 
 enum SCHEDULINGS_STATUS {
