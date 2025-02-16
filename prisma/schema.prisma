@@ -27,6 +27,7 @@ model User {
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   UserWhatsapp          UserWhatsapp?
+  UserSettings          UserSettings?
 
   @@map("users")
 }
@@ -290,17 +291,31 @@ model UserWhatsapp {
 }
 
 model Settings {
-  id                      Int      @id @default(autoincrement())
-  publicId                String   @unique @default(uuid()) @map("public_id")
-  sendMessagesWithIA      Boolean  @default(false)
-  replyMessagesWithIA     Boolean  @default(false)
-  replyWithGenericAnswers Boolean  @default(false)
+  id                      Int           @id @default(autoincrement())
+  publicId                String        @unique @default(uuid()) @map("public_id")
+  sendMessagesWithIA      Boolean       @default(false)
+  replyMessagesWithIA     Boolean       @default(false)
+  replyWithGenericAnswers Boolean       @default(false)
   modelIA                 String?
   apiKeyIA                String?
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
+  UserSettings            UserSettings?
+  createdAt               DateTime      @default(now())
+  updatedAt               DateTime      @updatedAt
 
   @@map("settings")
+}
+
+model UserSettings {
+  id         Int      @id @default(autoincrement())
+  publicId   String   @unique @default(uuid()) @map("public_id")
+  userId     Int      @unique
+  user       User     @relation(fields: [userId], references: [id])
+  settingsId Int      @unique
+  settings   Settings @relation(fields: [settingsId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("users_settings")
 }
 
 enum SCHEDULINGS_STATUS {
