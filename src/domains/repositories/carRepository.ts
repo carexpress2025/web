@@ -163,4 +163,10 @@ export class CarRepository {
 
     return await prisma.car.findMany({ where: query });
   }
+
+  async count(filters: ICarFiltersInterface) {
+    const query = makeCarQuery(filters);
+
+    return await prisma.car.count({ where: query });
+  }
 }
