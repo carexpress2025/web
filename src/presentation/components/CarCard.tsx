@@ -15,7 +15,7 @@ import {
   Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@lib/utils';
+import { cn } from '@/core/libs/utils';
 import { useTranslation } from 'react-i18next';
 import { CarDetailsModal } from './CarDetailsModal';
 import Image from 'next/image';
