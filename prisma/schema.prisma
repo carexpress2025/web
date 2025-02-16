@@ -16,6 +16,7 @@ datasource db {
 model User {
   id                    Int                     @id @default(autoincrement())
   name                  String
+  language              String                  @default("fi")
   UserAccounts          UserAccount?
   UserSubscription      UserSubscription?
   UserAiGenericResponse UserAiGenericResponse?
