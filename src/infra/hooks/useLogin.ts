@@ -45,7 +45,7 @@ export function useLogin() {
       setLoading(false);
 
       if (response && response.ok) {
-        router.push('/dashboard');
+        router.push('/');
       } else {
         setError(t('messages.errors.auth.signin.failedLogin'));
       }
