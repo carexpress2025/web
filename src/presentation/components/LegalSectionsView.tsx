@@ -1,13 +1,13 @@
 'use client';
 
-import { LanguageState } from '@/store/languageSlice';
+import { LanguageState } from '@/data/store/languageSlice';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import i18n from '../../../../i18n';
+import i18n from '../../../i18n';
 import { ScrollArea } from '@radix-ui/react-scroll-area';
 
-export default function SectionsView({ mainKey }: { mainKey: string }) {
+export default function LegalSectionsView({ mainKey }: { mainKey: string }) {
   const { t } = useTranslation();
   const language = useSelector(
     (state: { language: LanguageState }) => state.language.language,

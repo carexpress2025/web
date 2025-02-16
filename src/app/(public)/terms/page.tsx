@@ -1,10 +1,10 @@
 import { JSX } from 'react';
-import SectionsView from '../components/SectionsView';
+import LegalSectionsView from '@/presentation/components/LegalSectionsView';
 
 export default function Page(): JSX.Element {
   return (
     <main className="ml-64 flex-1 bg-gray-100 p-8">
-      <SectionsView mainKey="terms" />
+      <LegalSectionsView mainKey="terms" />
     </main>
   );
 }
