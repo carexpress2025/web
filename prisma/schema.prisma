@@ -289,6 +289,20 @@ model UserWhatsapp {
   @@map("users_whatsapp")
 }
 
+model Settings {
+  id                      Int      @id @default(autoincrement())
+  publicId                String   @unique @default(uuid()) @map("public_id")
+  sendMessagesWithIA      Boolean  @default(false)
+  replyMessagesWithIA     Boolean  @default(false)
+  replyWithGenericAnswers Boolean  @default(false)
+  modelIA                 String?
+  apiKeyIA                String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@map("settings")
+}
+
 enum SCHEDULINGS_STATUS {
   RUNNING
   PENDING
