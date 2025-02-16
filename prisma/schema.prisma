@@ -18,6 +18,7 @@ model User {
   name                  String
   UserAccounts          UserAccount?
   UserSubscription      UserSubscription?
+  UserAiGenericResponse UserAiGenericResponse?
   UserScheduling        UserScheduling[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
@@ -173,10 +174,25 @@ model AiGenericResponse {
   positiveResponses String[]
   negativeResponses String[]
 
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  UserAiGenericResponse UserAiGenericResponse[]
+
+  @@map("ai_generic_responses")
+}
+
+model UserAiGenericResponse {
+  id                  Int               @id @default(autoincrement())
+  publicId            String            @unique @default(uuid()) @map("public_id")
+  userId              Int               @unique
+  user                User              @relation(fields: [userId], references: [id])
+  aiGenericResponseId Int               @unique
+  aiGenericResponse   AiGenericResponse @relation(fields: [aiGenericResponseId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("ai_generic_responses")
+  @@map("users_ai_generic_responses")
 }
 
 enum SCHEDULINGS_STATUS {
