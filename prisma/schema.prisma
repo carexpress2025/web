@@ -24,13 +24,12 @@ model User {
   UserScheduling           UserScheduling[]
   UserSentManualMessage    UserSentManualMessage[]
   UserSentAutomaticMessage UserSentAutomaticMessage[]
-
-  UserWhatsapp UserWhatsapp?
-  UserSettings UserSettings?
-  UserFavorite UserFavorite?
-  UserPrompts  UserPrompts?
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  UserWhatsapp             UserWhatsapp?
+  UserSettings             UserSettings?
+  UserFavorite             UserFavorite?
+  UserPrompts              UserPrompt?
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime                   @updatedAt
 
   @@map("users")
 }
@@ -365,18 +364,18 @@ model UserSettings {
 }
 
 model Prompt {
-  id            Int          @id @default(autoincrement())
-  publicId      String       @unique @default(uuid()) @map("public_id")
+  id            Int         @id @default(autoincrement())
+  publicId      String      @unique @default(uuid()) @map("public_id")
   settingsReply Json?
   settingsSend  Json?
-  UserPrompts   UserPrompts?
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  UserPrompts   UserPrompt?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 
   @@map("prompts")
 }
 
-model UserPrompts {
+model UserPrompt {
   id        Int      @id @default(autoincrement())
   publicId  String   @unique @default(uuid()) @map("public_id")
   userId    Int      @unique
