@@ -1,9 +1,17 @@
 import prisma from '@/core/libs/prisma';
 
 export class UserRepository {
-  async createUser(name: string, language: string = 'fi') {
+  async createUser(name: string, accountId: number, language: string = 'fi') {
     return await prisma.user.create({
-      data: { name, language },
+      data: {
+        name: name,
+        language: language,
+        UserAccounts: {
+          create: {
+            accountId: accountId,
+          },
+        },
+      },
     });
   }
 

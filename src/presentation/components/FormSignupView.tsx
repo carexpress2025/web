@@ -1,7 +1,7 @@
 'use client';
 
 import { JSX } from 'react';
-import { useSignup } from '@hooks/useSignup';
+import { useSignup } from '@/infra/hooks';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';

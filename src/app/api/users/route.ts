@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@lib/prisma';
 import { createUserSchema } from '@/validations';
+import { userRepository } from '@/domains/repositories';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
@@ -16,14 +16,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const { name, accountId } = result.data;
 
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        UserAccounts: {
-          create: { accountId },
-        },
-      },
-    });
+    const language = 'fi';
+
+    const newUser = await userRepository.createUser(name, accountId, language);
 
     return NextResponse.json({ user: newUser }, { status: 201 });
   } catch (error: unknown) {

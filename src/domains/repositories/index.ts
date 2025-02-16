@@ -23,6 +23,7 @@ import { SettingsRepository } from './settingsRepository';
 import { PromptRepository } from './promptRepository';
 import { CarRepository } from './carRepository';
 import { UserRepository } from './userRepository';
+import { AccountRepository } from './accountRepository';
 
 const subscriptionRepository = new SubscriptionRepository();
 const userSubscriptionRepository = new UserSubscriptionRepository();
@@ -42,7 +43,10 @@ const userSettingsRepository = new SettingsRepository();
 const promptRepository = new PromptRepository();
 const carRepository = new CarRepository();
 const userRepository = new UserRepository();
+const accountRepository = new AccountRepository();
+
 export {
+  accountRepository,
   subscriptionRepository,
   userSubscriptionRepository,
   favoriteRepository,

@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 import AuthHeader from '@/presentation/components//AuthHeader';
 import { ButtonRedirect } from '@/presentation/components//ButtonRedirect';
-import FormSteps from '@/presentation/components//FormSteps';
+import FormSteps from '@/presentation/components/FormSteps';
 
 export default function Page(): JSX.Element {
   return (
