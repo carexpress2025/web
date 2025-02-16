@@ -76,7 +76,7 @@ model UserSubscription {
   publicId       String       @unique @default(uuid()) @map("public_id")
   userId         Int          @unique
   user           User         @relation(fields: [userId], references: [id])
-  subscriptionId Int
+  subscriptionId Int          @unique
   subscription   Subscription @relation(fields: [subscriptionId], references: [id])
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
