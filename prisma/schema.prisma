@@ -157,6 +157,7 @@ model Scheduling {
   name           String
   filters        Json
   message        String
+  favorities     Boolean            @default(false)
   status         SCHEDULINGS_STATUS @default(PENDING)
   UserScheduling UserScheduling?
   createdAt      DateTime           @default(now())
