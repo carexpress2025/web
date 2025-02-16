@@ -3,7 +3,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { languageReducer } from './languageSlice';
-import { LANGUAGE } from '@/constants/localStorage';
+import { LANGUAGE } from '@/data/constants/localStorage';
 
 const persistConfig = {
   key: LANGUAGE,
