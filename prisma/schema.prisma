@@ -26,6 +26,7 @@ model User {
   UserCarFavorite       UserCarFavorite?
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
+  UserWhatsapp          UserWhatsapp?
 
   @@map("users")
 }
@@ -263,14 +264,29 @@ model UserAiGenericResponse {
 }
 
 model Whatsapp {
-  id        Int      @id @default(autoincrement())
-  publicId  String   @unique @default(uuid()) @map("public_id")
-  number    String   @unique
-  session   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int           @id @default(autoincrement())
+  publicId     String        @unique @default(uuid()) @map("public_id")
+  number       String        @unique
+  session      String
+  UserWhatsapp UserWhatsapp?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
   @@map("whatsapp")
+}
+
+model UserWhatsapp {
+  id          Int      @id @default(autoincrement())
+  publicId    String   @unique @default(uuid()) @map("public_id")
+  noReplyList String[] @default([])
+  userId      Int      @unique
+  user        User     @relation(fields: [userId], references: [id])
+  whatsappId  Int      @unique
+  whatsapp    Whatsapp @relation(fields: [whatsappId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("users_whatsapp")
 }
 
 enum SCHEDULINGS_STATUS {
