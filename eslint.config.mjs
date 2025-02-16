@@ -48,7 +48,8 @@ const eslintConfig = [
       'jest.config.js',
       'jest.setup.js',
       'release.config.cjs',
-      'i18n.ts'
+      'i18n.ts',
+      '*.d.ts'
     ],
   },
 ];
