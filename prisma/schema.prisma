@@ -22,9 +22,9 @@ model User {
   UserAiGenericResponse UserAiGenericResponse?
   UserScheduling        UserScheduling[]
   UserSentManualMessage UserSentManualMessage[]
+  UserCarFavorite       UserCarFavorite?
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
-  UserCarFavorite       UserCarFavorite?
 
   @@map("users")
 }
@@ -113,8 +113,8 @@ model UserCarFavorite {
 }
 
 model Car {
-  id                    Int          @id @default(autoincrement())
-  publicId              String       @unique @default(uuid()) @map("public_id")
+  id                    Int                @id @default(autoincrement())
+  publicId              String             @unique @default(uuid()) @map("public_id")
   brand                 String?
   name                  String?
   bodyType              String?
@@ -143,10 +143,12 @@ model Car {
   phone                 String?
   seller                String?
   link                  String?
-  createdAt             DateTime     @default(now())
-  updatedAt             DateTime     @updatedAt
-  CarFavorite           CarFavorite? @relation(fields: [carFavoriteId], references: [id])
+  CarFavorite           CarFavorite?       @relation(fields: [carFavoriteId], references: [id])
   carFavoriteId         Int?
+  CarUserScheduling     CarUserScheduling? @relation(fields: [carUserSchedulingId], references: [id])
+  carUserSchedulingId   Int?
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
 
   @@map("cars")
 }
@@ -167,16 +169,29 @@ model Scheduling {
 }
 
 model UserScheduling {
-  id           Int        @id @default(autoincrement())
-  publicId     String     @unique @default(uuid()) @map("public_id")
-  userId       Int
-  user         User       @relation(fields: [userId], references: [id])
-  schedulingId Int        @unique
-  scheduling   Scheduling @relation(fields: [schedulingId], references: [id])
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
+  id                Int                @id @default(autoincrement())
+  publicId          String             @unique @default(uuid()) @map("public_id")
+  userId            Int
+  user              User               @relation(fields: [userId], references: [id])
+  schedulingId      Int                @unique
+  scheduling        Scheduling         @relation(fields: [schedulingId], references: [id])
+  CarUserScheduling CarUserScheduling?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
 
   @@map("users_schedulings")
+}
+
+model CarUserScheduling {
+  id               Int            @id @default(autoincrement())
+  publicId         String         @unique @default(uuid()) @map("public_id")
+  cars             Car[]
+  userSchedulingId Int            @unique
+  userScheduling   UserScheduling @relation(fields: [userSchedulingId], references: [id])
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@map("cars_users_schedulings")
 }
 
 model SentManualMensage {
@@ -185,9 +200,9 @@ model SentManualMensage {
   contact               String
   body                  String
   usedAi                Boolean                 @default(false)
+  UserSentManualMessage UserSentManualMessage[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
-  UserSentManualMessage UserSentManualMessage[]
 
   @@map("sent_manual_messages")
 }
@@ -210,9 +225,9 @@ model AiGenericResponse {
   publicId              String                  @unique @default(uuid()) @map("public_id")
   positiveResponses     String[]
   negativeResponses     String[]
+  UserAiGenericResponse UserAiGenericResponse[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
-  UserAiGenericResponse UserAiGenericResponse[]
 
   @@map("ai_generic_responses")
 }
