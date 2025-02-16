@@ -14,21 +14,23 @@ datasource db {
 }
 
 model User {
-  id                    Int                     @id @default(autoincrement())
-  publicId              String                  @unique @default(uuid()) @map("public_id")
-  name                  String
-  language              String                  @default("fi")
-  UserAccounts          UserAccount?
-  UserSubscription      UserSubscription?
-  UserAiGenericResponse UserAiGenericResponse?
-  UserScheduling        UserScheduling[]
-  UserSentManualMessage UserSentManualMessage[]
-  UserWhatsapp          UserWhatsapp?
-  UserSettings          UserSettings?
-  UserFavorite          UserFavorite?
-  UserPrompts           UserPrompts?
-  createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @updatedAt
+  id                       Int                        @id @default(autoincrement())
+  publicId                 String                     @unique @default(uuid()) @map("public_id")
+  name                     String
+  language                 String                     @default("fi")
+  UserAccounts             UserAccount?
+  UserSubscription         UserSubscription?
+  UserAiGenericResponse    UserAiGenericResponse?
+  UserScheduling           UserScheduling[]
+  UserSentManualMessage    UserSentManualMessage[]
+  UserSentAutomaticMessage UserSentAutomaticMessage[]
+
+  UserWhatsapp UserWhatsapp?
+  UserSettings UserSettings?
+  UserFavorite UserFavorite?
+  UserPrompts  UserPrompts?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
   @@map("users")
 }
@@ -100,9 +102,9 @@ model UserFavorite {
   user        User         @relation(fields: [userId], references: [id])
   favoriteId  Int          @unique
   favorite    Favorite     @relation(fields: [favoriteId], references: [id])
+  CarFavorite CarFavorite?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  CarFavorite CarFavorite?
 
   @@map("users_favorities")
 }
@@ -120,41 +122,42 @@ model CarFavorite {
 }
 
 model Car {
-  id                    Int                    @id @default(autoincrement())
-  publicId              String                 @unique @default(uuid()) @map("public_id")
-  brand                 String?
-  name                  String?
-  bodyType              String?
-  painting              String?
-  carType               String?
-  driveType             String?
-  transmissionType      String?
-  color                 String?
-  mileage               Int?
-  engine                String?
-  engineDisplacement    Int?
-  fuelType              String?
-  safety                Json?
-  interior              Json?
-  electronics           Json?
-  owners                String?
-  status                String?
-  year                  Int?
-  inspected             String?
-  plate                 String?
-  additionalInformation String?
-  others                String?
-  roadWorthy            String?
-  price                 Float?
-  images                String[]
-  phone                 String?
-  seller                String?
-  link                  String?
-  CarFavorite           CarFavorite[]
-  CarUserScheduling     CarUserScheduling[]
-  CarSentManualMessage  CarSentManualMessage[]
-  createdAt             DateTime               @default(now())
-  updatedAt             DateTime               @updatedAt
+  id                      Int                       @id @default(autoincrement())
+  publicId                String                    @unique @default(uuid()) @map("public_id")
+  brand                   String?
+  name                    String?
+  bodyType                String?
+  painting                String?
+  carType                 String?
+  driveType               String?
+  transmissionType        String?
+  color                   String?
+  mileage                 Int?
+  engine                  String?
+  engineDisplacement      Int?
+  fuelType                String?
+  safety                  Json?
+  interior                Json?
+  electronics             Json?
+  owners                  String?
+  status                  String?
+  year                    Int?
+  inspected               String?
+  plate                   String?
+  additionalInformation   String?
+  others                  String?
+  roadWorthy              String?
+  price                   Float?
+  images                  String[]
+  phone                   String?
+  seller                  String?
+  link                    String?
+  CarFavorite             CarFavorite[]
+  CarUserScheduling       CarUserScheduling[]
+  CarSentManualMessage    CarSentManualMessage[]
+  CarSentAutomaticMessage CarSentAutomaticMessage[]
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
 
   @@map("cars")
 }
@@ -239,6 +242,47 @@ model CarSentManualMessage {
   updatedAt           DateTime          @updatedAt
 
   @@map("cars_sent_manual_messages")
+}
+
+model SentAutomaticMessage {
+  id                       Int                       @id @default(autoincrement())
+  publicId                 String                    @unique @default(uuid()) @map("public_id")
+  contact                  String
+  body                     String
+  usedAi                   Boolean                   @default(false)
+  status                   SENT_AUTOMATIC_MESSAGE    @default(SENT)
+  UserSentAutomaticMessage UserSentAutomaticMessage?
+  CarSentAutomaticMessage  CarSentAutomaticMessage?
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime                  @updatedAt
+
+  @@map("sent_automatic_messages")
+}
+
+model UserSentAutomaticMessage {
+  id                     Int                  @id @default(autoincrement())
+  publicId               String               @unique @default(uuid()) @map("public_id")
+  userId                 Int
+  user                   User                 @relation(fields: [userId], references: [id])
+  sentAutomaticMessageId Int                  @unique
+  sentAutomaticMessage   SentAutomaticMessage @relation(fields: [sentAutomaticMessageId], references: [id])
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+
+  @@map("users_sent_automatic_messages")
+}
+
+model CarSentAutomaticMessage {
+  id                     Int                  @id @default(autoincrement())
+  publicId               String               @unique @default(uuid()) @map("public_id")
+  carId                  Int
+  car                    Car                  @relation(fields: [carId], references: [id])
+  sentAutomaticMessageId Int                  @unique
+  sentAutomaticMessage   SentAutomaticMessage @relation(fields: [sentAutomaticMessageId], references: [id])
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+
+  @@map("cars_sent_automatic_messages")
 }
 
 model AiGenericResponse {
@@ -353,6 +397,13 @@ enum SCHEDULINGS_STATUS {
 }
 
 enum SENT_MANUAL_MESSAGE {
+  SENT
+  NOT_SENT
+  ERROR
+  ANSWERED
+}
+
+enum SENT_AUTOMATIC_MESSAGE {
   SENT
   NOT_SENT
   ERROR
