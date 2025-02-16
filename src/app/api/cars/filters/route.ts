@@ -9,9 +9,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       searchParams,
     ) as unknown as ICarFiltersInterface;
 
-    const count = await carRepository.countCarsWithFilters(filters);
+    const cars = await carRepository.filterCars(filters);
 
-    return NextResponse.json({ count });
+    return NextResponse.json({ cars });
   } catch (error: unknown) {
     let errorMessage = 'Erro desconhecido';
     let statusCode = 500;

@@ -158,15 +158,28 @@ export class CarRepository {
     });
   }
 
-  async filter(filters: ICarFiltersInterface) {
+  async filterCars(filters: ICarFiltersInterface) {
     const query = makeCarQuery(filters);
 
     return await prisma.car.findMany({ where: query });
   }
 
-  async count(filters: ICarFiltersInterface) {
+  async countCars() {
+    return await prisma.car.count();
+  }
+
+  async countCarsWithFilters(filters: ICarFiltersInterface) {
     const query = makeCarQuery(filters);
 
     return await prisma.car.count({ where: query });
+  }
+
+  async getAllCarsWithPagination(page: number = 1, pageSize: number = 10) {
+    const offset = (page - 1) * pageSize;
+
+    return await prisma.car.findMany({
+      skip: offset,
+      take: pageSize,
+    });
   }
 }
