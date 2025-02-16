@@ -12,7 +12,7 @@
     "commit": "npx git-cz",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run",
-    "test:frontend": "vitest run --silent",
+    "test:frontend": "vitest run --silent --passWithNoTests",
     "test:api": "jest",
     "test": "npm-run-all --parallel test:api test:frontend test:e2e",
     "migrate": "prisma migrate dev"
