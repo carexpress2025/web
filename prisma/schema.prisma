@@ -77,6 +77,15 @@ model UserSubscription {
   @@map("users_subscriptions")
 }
 
+model CarFavorite {
+  id       Int    @id @default(autoincrement())
+  publicId String @unique @default(uuid()) @map("public_id")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("cars_favorities")
+}
+
 model Car {
   id                    Int      @id @default(autoincrement())
   publicId              String   @unique @default(uuid()) @map("public_id")
@@ -147,7 +156,6 @@ model SentManualMensage {
   contact  String
   body     String
   usedAi   Boolean @default(false)
-
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   UserSentManualMessage UserSentManualMessage[]
@@ -162,7 +170,6 @@ model UserSentManualMessage {
   user                User              @relation(fields: [userId], references: [id])
   sentManualMessageId Int
   sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -174,7 +181,6 @@ model AiGenericResponse {
   publicId          String   @unique @default(uuid()) @map("public_id")
   positiveResponses String[]
   negativeResponses String[]
-
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   UserAiGenericResponse UserAiGenericResponse[]
@@ -189,7 +195,6 @@ model UserAiGenericResponse {
   user                User              @relation(fields: [userId], references: [id])
   aiGenericResponseId Int               @unique
   aiGenericResponse   AiGenericResponse @relation(fields: [aiGenericResponseId], references: [id])
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
