@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import WhatsappView from './WhatsappView';
+import WhatsappView from '@/presentation/components/WhatsappView';
 
 export default function Page(): JSX.Element {
   return (

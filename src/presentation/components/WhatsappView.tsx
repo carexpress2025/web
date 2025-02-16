@@ -3,8 +3,8 @@
 import { JSX, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LanguageState } from '@/store/languageSlice';
-import i18n from '../../../../i18n';
+import { LanguageState } from '@/data/store/languageSlice';
+import i18n from '../../../i18n';
 import { Card } from '@/components/ui/card';
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from 'react-icons/ai';
 
