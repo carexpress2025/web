@@ -262,6 +262,17 @@ model UserAiGenericResponse {
   @@map("users_ai_generic_responses")
 }
 
+model Whatsapp {
+  id        Int      @id @default(autoincrement())
+  publicId  String   @unique @default(uuid()) @map("public_id")
+  number    String   @unique
+  session   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("whatsapp")
+}
+
 enum SCHEDULINGS_STATUS {
   RUNNING
   PENDING
