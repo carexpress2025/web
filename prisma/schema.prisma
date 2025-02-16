@@ -123,6 +123,7 @@ model CarFavorite {
 model Car {
   id                      Int                       @id @default(autoincrement())
   publicId                String                    @unique @default(uuid()) @map("public_id")
+  idCar                   String                    @unique
   brand                   String?
   name                    String?
   bodyType                String?
@@ -138,6 +139,7 @@ model Car {
   safety                  Json?
   interior                Json?
   electronics             Json?
+  specifications          Json?
   owners                  String?
   status                  String?
   year                    Int?
