@@ -30,7 +30,7 @@ export const useCreateUser = (accountId: string) => {
     setLoading(false);
 
     if (response.ok) {
-      router.push('/');
+      router.push('/signin');
     } else {
       setError(t('hooks.errors.failedSignup'));
     }
