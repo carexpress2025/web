@@ -23,6 +23,7 @@ model User {
   UserSentManualMessage UserSentManualMessage[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
+  UserCarFavorite       UserCarFavorite?
 
   @@map("users")
 }
@@ -77,18 +78,42 @@ model UserSubscription {
   @@map("users_subscriptions")
 }
 
-model CarFavorite {
-  id       Int    @id @default(autoincrement())
-  publicId String @unique @default(uuid()) @map("public_id")
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  publicId  String   @unique @default(uuid()) @map("public_id")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("favorities")
+}
+
+model CarFavorite {
+  id              Int              @id @default(autoincrement())
+  publicId        String           @unique @default(uuid()) @map("public_id")
+  cars            Car[]
+  UserCarFavorite UserCarFavorite?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
 
   @@map("cars_favorities")
 }
 
+model UserCarFavorite {
+  id            Int         @id @default(autoincrement())
+  publicId      String      @unique @default(uuid()) @map("public_id")
+  carFavoriteId Int         @unique
+  carFavorite   CarFavorite @relation(fields: [carFavoriteId], references: [id])
+  userId        Int         @unique
+  user          User        @relation(fields: [userId], references: [id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@map("users_cars_favorities")
+}
+
 model Car {
-  id                    Int      @id @default(autoincrement())
-  publicId              String   @unique @default(uuid()) @map("public_id")
+  id                    Int          @id @default(autoincrement())
+  publicId              String       @unique @default(uuid()) @map("public_id")
   brand                 String?
   name                  String?
   bodyType              String?
@@ -117,8 +142,10 @@ model Car {
   phone                 String?
   seller                String?
   link                  String?
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt
+  CarFavorite           CarFavorite? @relation(fields: [carFavoriteId], references: [id])
+  carFavoriteId         Int?
 
   @@map("cars")
 }
@@ -151,11 +178,11 @@ model UserScheduling {
 }
 
 model SentManualMensage {
-  id       Int     @id @default(autoincrement())
-  publicId String  @unique @default(uuid()) @map("public_id")
-  contact  String
-  body     String
-  usedAi   Boolean @default(false)
+  id                    Int                     @id @default(autoincrement())
+  publicId              String                  @unique @default(uuid()) @map("public_id")
+  contact               String
+  body                  String
+  usedAi                Boolean                 @default(false)
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   UserSentManualMessage UserSentManualMessage[]
@@ -170,17 +197,17 @@ model UserSentManualMessage {
   user                User              @relation(fields: [userId], references: [id])
   sentManualMessageId Int
   sentManualMessage   SentManualMensage @relation(fields: [sentManualMessageId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
   @@map("users_sent_manual_messages")
 }
 
 model AiGenericResponse {
-  id                Int      @id @default(autoincrement())
-  publicId          String   @unique @default(uuid()) @map("public_id")
-  positiveResponses String[]
-  negativeResponses String[]
+  id                    Int                     @id @default(autoincrement())
+  publicId              String                  @unique @default(uuid()) @map("public_id")
+  positiveResponses     String[]
+  negativeResponses     String[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   UserAiGenericResponse UserAiGenericResponse[]
@@ -195,8 +222,8 @@ model UserAiGenericResponse {
   user                User              @relation(fields: [userId], references: [id])
   aiGenericResponseId Int               @unique
   aiGenericResponse   AiGenericResponse @relation(fields: [aiGenericResponseId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
   @@map("users_ai_generic_responses")
 }
