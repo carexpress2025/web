@@ -3,12 +3,14 @@ import {
   ICarElectronicsInterface,
   ICarInteriorInterface,
   ICarSafetyInterface,
+  ICarSpecificationsInterface,
 } from '@/data/interfaces';
 import { makeCarQuery } from '../factories/queries/makeCarQuery';
 import { ICarFiltersInterface } from '@/data/interfaces/ICarFiltersInterface';
 
 export class CarRepository {
   async createCar(data: {
+    idCar: string;
     brand?: string;
     name?: string;
     bodyType?: string;
@@ -24,6 +26,7 @@ export class CarRepository {
     safety: Partial<ICarSafetyInterface>;
     interior: Partial<ICarInteriorInterface>;
     electronics: Partial<ICarElectronicsInterface>;
+    specifications: Partial<ICarSpecificationsInterface>;
     owners?: string;
     status?: string;
     year?: number;
@@ -39,12 +42,16 @@ export class CarRepository {
     link?: string;
   }) {
     return await prisma.car.create({
-      data,
+      data: data,
     });
   }
 
   async getCarById(id: number) {
     return await prisma.car.findUnique({ where: { id } });
+  }
+
+  async getCarByIdCar(idCar: string) {
+    return await prisma.car.findUnique({ where: { idCar: idCar } });
   }
 
   async getCarByPublicId(publicId: string) {
@@ -58,34 +65,36 @@ export class CarRepository {
   async updateCar(
     id: number,
     data: Partial<{
-      brand: string;
-      name: string;
-      bodyType: string;
-      painting: string;
-      carType: string;
-      driveType: string;
-      transmissionType: string;
-      color: string;
-      mileage: number;
-      engine: string;
-      engineDisplacement: number;
-      fuelType: string;
+      idCar: string;
+      brand?: string;
+      name?: string;
+      bodyType?: string;
+      painting?: string;
+      carType?: string;
+      driveType?: string;
+      transmissionType?: string;
+      color?: string;
+      mileage?: number;
+      engine?: string;
+      engineDisplacement?: number;
+      fuelType?: string;
       safety: Partial<ICarSafetyInterface>;
       interior: Partial<ICarInteriorInterface>;
       electronics: Partial<ICarElectronicsInterface>;
-      owners: string;
-      status: string;
-      year: number;
-      inspected: string;
-      plate: string;
-      additionalInformation: string;
-      others: string;
-      roadWorthy: string;
-      price: number;
-      images: string[];
-      phone: string;
-      seller: string;
-      link: string;
+      specifications: Partial<ICarSpecificationsInterface>;
+      owners?: string;
+      status?: string;
+      year?: number;
+      inspected?: string;
+      plate?: string;
+      additionalInformation?: string;
+      others?: string;
+      roadWorthy?: string;
+      price?: number;
+      images?: string[];
+      phone?: string;
+      seller?: string;
+      link?: string;
     }>,
   ) {
     return await prisma.car.update({
