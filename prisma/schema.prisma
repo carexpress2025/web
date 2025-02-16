@@ -167,6 +167,18 @@ model UserSentManualMessage {
   @@map("users_sent_manual_messages")
 }
 
+model AiGenericResponse {
+  id                Int      @id @default(autoincrement())
+  publicId          String   @unique @default(uuid()) @map("public_id")
+  positiveResponses String[]
+  negativeResponses String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ai_generic_responses")
+}
+
 enum SCHEDULINGS_STATUS {
   RUNNING
   PENDING
