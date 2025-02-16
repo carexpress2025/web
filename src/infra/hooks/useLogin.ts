@@ -52,6 +52,7 @@ export function useLogin() {
     } catch (error) {
       console.error('Erro ao tentar autenticar:', error);
       setError(t('messages.errors.auth.signin.generalError'));
+    } finally {
       setLoading(false);
     }
   };
