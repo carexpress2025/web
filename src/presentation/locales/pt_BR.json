@@ -154,6 +154,27 @@
       "subtitle": "Conexão Atual com o Whatsapp",
       "connected": "Whatsapp Está Conectado",
       "notConnected": "Whatsapp Não Está Conectado"
+    },
+    "settings": {
+      "ai": {
+        "reply": {
+          "generic": {
+            "title": "Respostas Genéricas da Inteligência Artificial",
+            "tabs": {
+              "reply": "Resposta",
+              "send": "Envio"
+            },
+            "form": {
+              "responsePlaceholder": "Insira a sua resposta aqui"
+            },
+            "buttons": {
+              "removeResponse": "Remover Resposta",
+              "addResponse": "Adicionar Resposta",
+              "saveResponses": "Salvar Resposta"
+            }
+          }
+        }
+      }
     }
   },
   "components": {
