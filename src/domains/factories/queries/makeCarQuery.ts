@@ -151,10 +151,10 @@ export function makeCarQuery(filters: ICarFiltersInterface) {
   }
 
   if (minYear && !isNaN(minYear)) {
-    query.year = { gte: minYear };
+    query.year = { gte: Number(minYear) };
   }
   if (maxYear && !isNaN(maxYear)) {
-    query.year = { lte: maxYear };
+    query.year = { lte: Number(maxYear) };
   }
 
   if (minPrice && !isNaN(minPrice)) {
