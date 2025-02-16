@@ -1,6 +1,2 @@
-export * from './IAccountInterface';
+export * from './IPromptInterface';
 export * from './ICarInterface';
-export * from './ISubscriptionInterface';
-export * from './IUserAccountInterface';
-export * from './IUserInterface';
-export * from './IUserSubscriptionInterface';
