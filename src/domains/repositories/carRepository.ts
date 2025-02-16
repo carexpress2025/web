@@ -4,6 +4,8 @@ import {
   ICarInteriorInterface,
   ICarSafetyInterface,
 } from '@/data/interfaces';
+import { makeCarQuery } from '../factories/queries/makeCarQuery';
+import { ICarFiltersInterface } from '@/data/interfaces/ICarFiltersInterface';
 
 export class CarRepository {
   async createCar(data: {
@@ -145,5 +147,11 @@ export class CarRepository {
         CarSentAutomaticMessage: true,
       },
     });
+  }
+
+  async filter(filters: ICarFiltersInterface) {
+    const query = makeCarQuery(filters);
+
+    return await prisma.car.findMany({ where: query });
   }
 }
