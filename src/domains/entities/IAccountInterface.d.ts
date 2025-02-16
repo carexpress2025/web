@@ -1,5 +1,5 @@
 import type { IUserAccountInterface } from './IUserAccountInterface';
-import type { IBaseInterface } from '../base/IBaseInterface';
+import type { IBaseInterface } from '@interface/base/IBaseInterface';
 
 export interface IAccountInterface extends IBaseInterface {
   email: string;

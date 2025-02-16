@@ -1,4 +1,4 @@
-import type { IBaseInterface } from '../base/IBaseInterface';
+import type { IBaseInterface } from '@interface/base/IBaseInterface';
 import type { IUserAccountInterface } from './IUserAccountInterface';
 import type { IUserSubscriptionInterface } from './IUserSubscriptionInterface';
 
