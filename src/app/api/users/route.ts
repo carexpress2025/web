@@ -15,14 +15,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     const { name, accountId } = result.data;
-
     const language = 'fi';
 
     const newUser = await userRepository.createUser(name, accountId, language);
 
     return NextResponse.json({ user: newUser }, { status: 201 });
-  } catch (error: unknown) {
-    console.error('Erro ao criar usuário:', error);
+  } catch (error) {
+    console.error(
+      'Erro ao criar usuário:',
+      error instanceof Error ? error.message : error,
+    );
     return NextResponse.json(
       { error: 'Erro interno do servidor' },
       { status: 500 },

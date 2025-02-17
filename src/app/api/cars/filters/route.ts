@@ -9,20 +9,36 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       searchParams,
     ) as unknown as ICarFiltersInterface;
 
-    const cars = await carRepository.filterCars(filters);
-
-    return NextResponse.json({ cars });
-  } catch (error: unknown) {
-    let errorMessage = 'Erro desconhecido';
-    let statusCode = 500;
-
-    if (error instanceof Error) {
-      errorMessage = error.message;
-      if (error.message.includes('Database error')) {
-        statusCode = 503;
-      }
+    if (!filters) {
+      return NextResponse.json(
+        { error: 'Filtros inválidos ou não fornecidos' },
+        { status: 400 },
+      );
     }
 
-    return NextResponse.json({ error: errorMessage }, { status: statusCode });
+    const cars = await carRepository.filterCars(filters);
+
+    if (!cars || cars.length === 0) {
+      return NextResponse.json(
+        { error: 'Nenhum carro encontrado com os filtros fornecidos' },
+        { status: 404 },
+      );
+    }
+
+    return NextResponse.json({ cars }, { status: 200 });
+  } catch (error: unknown) {
+    console.error(
+      'Erro ao filtrar carros:',
+      error instanceof Error ? error.message : error,
+    );
+
+    const statusCode =
+      error instanceof Error && error.message.includes('Database error')
+        ? 503
+        : 500;
+    return NextResponse.json(
+      { error: 'Erro ao buscar carros, tente novamente mais tarde' },
+      { status: statusCode },
+    );
   }
 }

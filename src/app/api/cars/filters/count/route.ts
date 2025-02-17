@@ -9,20 +9,31 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       searchParams,
     ) as unknown as ICarFiltersInterface;
 
-    const count = await carRepository.countCarsWithFilters(filters);
-
-    return NextResponse.json({ count });
-  } catch (error: unknown) {
-    let errorMessage = 'Erro desconhecido';
-    let statusCode = 500;
-
-    if (error instanceof Error) {
-      errorMessage = error.message;
-      if (error.message.includes('Database error')) {
-        statusCode = 503;
-      }
+    if (!filters) {
+      return NextResponse.json(
+        { error: 'Filtros inválidos ou ausentes' },
+        { status: 400 },
+      );
     }
 
-    return NextResponse.json({ error: errorMessage }, { status: statusCode });
+    const count = await carRepository.countCarsWithFilters(filters);
+
+    return NextResponse.json({ count }, { status: 200 });
+  } catch (error) {
+    console.error(
+      'Erro ao contar carros com filtros:',
+      error instanceof Error ? error.message : error,
+    );
+
+    const statusCode =
+      error instanceof Error && error.message.includes('Database error')
+        ? 503
+        : 500;
+    return NextResponse.json(
+      {
+        error: 'Erro ao buscar contagem de carros, tente novamente mais tarde',
+      },
+      { status: statusCode },
+    );
   }
 }
