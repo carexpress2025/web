@@ -491,10 +491,10 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
               <Button
                 onClick={() => {
                   if (car.phone) {
-                    window.location.href = `/send-message/${car.phone.replace(
+                    window.location.href = `/whatsapp/chats/form/create/manual/?phone=${car.phone.replace(
                       '+',
                       '',
-                    )}`;
+                    )}&car=${car.id}`;
                   }
                 }}
                 className="w-auto"

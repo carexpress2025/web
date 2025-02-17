@@ -153,7 +153,24 @@
       "title": "WhatsApp",
       "subtitle": "Nykyinen yhteys WhatsAppiin",
       "connected": "WhatsApp on yhdistetty",
-      "notConnected": "WhatsApp ei ole yhdistetty"
+      "notConnected": "WhatsApp ei ole yhdistetty",
+      "chats": {
+        "sendManualMessage": {
+          "title": "Lähetä viesti manuaalisesti",
+          "labels": {
+            "phone": "Puhelinnumero",
+            "message": "Tekstiviesti"
+          },
+          "placeholders": {
+            "phone": "Syötä vastaanottajan puhelinnumero",
+            "message": "Syötä lähetettävä tekstiviesti"
+          },
+          "buttons": {
+            "sendMessage": "Lähetä viesti",
+            "sendingMessage": "Lähetetään..."
+          }
+        }
+      }
     },
     "settings": {
       "ai": {

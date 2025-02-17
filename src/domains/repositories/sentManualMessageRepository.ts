@@ -11,11 +11,11 @@ export class SentManualMensageRepository {
   ) {
     return await prisma.sentManualMensage.create({
       data: {
-        contact,
-        body,
+        contact: contact,
+        body: body,
         usedAi: usedAi ?? false,
-        UserSentManualMessage: userId ? { create: { userId } } : undefined,
-        CarSentManualMessage: carId ? { create: { carId } } : undefined,
+        userSentManualMessage: userId ? { create: { userId } } : undefined,
+        carSentManualMessage: carId ? { create: { carId } } : undefined,
       },
     });
   }
