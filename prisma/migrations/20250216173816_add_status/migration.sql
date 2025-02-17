@@ -1,0 +1,5 @@
+-- CreateEnum
+CREATE TYPE "SENT_MANUAL_MESSAGE" AS ENUM ('SENT', 'NOT_SENT', 'ERROR', 'ANSWERED');
+
+-- AlterTable
+ALTER TABLE "sent_manual_messages" ADD COLUMN     "status" "SENT_MANUAL_MESSAGE" NOT NULL DEFAULT 'SENT';

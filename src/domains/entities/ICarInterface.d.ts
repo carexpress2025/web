@@ -1,16 +1,21 @@
-import type { CAR_BODY_TYPE } from '../../enums/CarBodyType';
-import type { CAR_BRAND } from '../../enums/CarBrand';
-import type { CAR_COLOR } from '../../enums/CarColor';
-import type { CAR_FUELTYPE } from '../../enums/CarFuelType';
-import type { CAR_PAINTING_TYPE } from '../../enums/CarPaintingType';
-import type { CAR_TRANSMISSION_TYPE } from '../../enums/CarTransmissionType';
-import type { ICarElectronicsInterface } from '../ICarElectronicsInterface';
-import type { ICarInteriorInterface } from '../ICarInteriorInterface';
-import type { ICarSafetyInterface } from '../ICarSafetyInterface';
-import type { ICarSpecificationsInterface } from '../ICarSpecificationsInterface';
-import { Car } from '@prisma/client';
+import {
+  CAR_BODY_TYPE,
+  CAR_BRAND,
+  CAR_COLOR,
+  CAR_FUELTYPE,
+  CAR_PAINTING_TYPE,
+  CAR_TRANSMISSION_TYPE,
+  CAR_TYPE,
+} from '@/data/enums';
+import type {
+  ICarElectronicsInterface,
+  ICarInteriorInterface,
+  ICarSafetyInterface,
+  ICarSpecificationsInterface,
+} from '@/data/interfaces';
+import type { Car } from '@prisma/client';
 
-export interface ICarInterface extends Car {
+export interface ICarInterface extends Partial<Car> {
   brand: CAR_BRAND;
   bodyType: CAR_BODY_TYPE;
   painting: CAR_PAINTING_TYPE;

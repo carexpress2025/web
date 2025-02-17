@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import i18n from '../../../i18n';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@lib/utils';
+import { cn } from '@/core/libs/utils';
 
 export function ButtonRedirect({
   link,

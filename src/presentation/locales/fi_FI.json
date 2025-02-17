@@ -1,50 +1,50 @@
 {
   "site": {
-    "name": "Carros Expresso",
-    "short_name": "Expresso"
+    "name": "pika-autot",
+    "short_name": "ilmaista"
   },
   "pages": {
     "terms": {
       "section1": {
-        "title": "1. Käyttöehtojen Hyväksyminen",
-        "content": "Pääsy ja käyttö alustalle edellyttää näiden käyttöehtojen hyväksymistä. Jos et hyväksy jotain osaa näistä ehdoista, älä käytä palvelujamme."
+        "title": "1. Ehtojen hyväksyminen",
+        "content": "Kun käytät alustaa, hyväksyt nämä käyttöehdot. Jos et hyväksy jotain näistä ehdoista, älä käytä palvelujamme."
       },
       "section2": {
-        "title": "2. Rajoitettu Pääsy",
-        "content": "Alustamme on rajoitettu ja tarkoitettu vain vahvistetuille käyttäjille. Luvaton pääsy tai yritykset kiertää turvatoimiamme johtavat asianmukaisiin oikeudellisiin toimiin."
+        "title": "2. Rajoitettu pääsy",
+        "content": "Alustamme on rajoitettu ja se on tarkoitettu vain vahvistetuille käyttäjille. Luvaton pääsy tai yritykset kiertää turvajärjestelmiämme johtavat asianmukaisiin oikeudellisiin toimiin."
       },
       "section3": {
-        "title": "3. Palvelut ja Maksut",
-        "content": "Palvelumme mahdollistaa yhteydenpidon ostajien ja myyjien välillä automatisoidun viestintäjärjestelmän avulla. Jokainen lähetetty viesti maksaa 0,05 € (viisi senttiä euroa)."
+        "title": "3. Palvelut ja maksut",
+        "content": "Palvelumme helpottaa viestintää ajoneuvojen ostajien ja myyjien välillä automatisoidun viestintäjärjestelmän avulla. Jokainen lähetetty viesti maksaa 0,05 € (viisi senttiä euroa)."
       },
       "section4": {
         "title": "4. Vastuuvapauslauseke",
-        "content": "Alustamme toimii vain välikätenä ostajien ja myyjien välisessä viestinnässä. Emme omista listattuja ajoneuvoja emmekä ole vastuussa:",
+        "content": "Alustamme toimii vain välikätenä ostajien ja myyjien välisessä viestinnässä. Me emme omista lueteltuja ajoneuvoja emmekä ole vastuussa seuraavista:",
         "list": {
-          "item1": "Myyjien antamien tietojen oikeellisuudesta",
-          "item2": "Listattujen ajoneuvojen kunnosta",
-          "item3": "Osapuolten välisistä neuvotteluista tai kaupoista",
-          "item4": "Ajoneuvojen teknisistä tai mekaanisista ongelmista",
-          "item5": "Riidoista tai konflikteista ostajien ja myyjien välillä"
+          "item1": "Myyjien antamien tietojen tarkkuus",
+          "item2": "Luetteloitujen ajoneuvojen kunto",
+          "item3": "Osapuolten väliset neuvottelut tai kaupat",
+          "item4": "Ajoneuvojen tekniset tai mekaaniset ongelmat",
+          "item5": "Ostajien ja myyjien väliset riidat tai konfliktit"
         }
       },
       "section5": {
-        "title": "5. WhatsApp Botin Käyttö",
+        "title": "5. WhatsApp-botin käyttö",
         "content": "Alustamme käyttää automatisoitua WhatsApp-bottia, joka mahdollistaa:",
         "list": {
-          "item1": "Samanaikainen yhteydenpito useiden myyjien kanssa",
-          "item2": "Ajoneuvojen ja myyjien tietojen automaattinen kerääminen",
-          "item3": "Reaaliaikaisen keskustelun aloittaminen"
+          "item1": "Samanaikaisen viestinnän useiden myyjien kanssa",
+          "item2": "Ajoneuvo- ja myyjätietojen automatisoidun keräämisen",
+          "item3": "Reaaliaikaisten keskustelujen aloittamisen"
         },
-        "extra": "Käyttäjät ovat vastuussa tämän työkalun asianmukaisesta käytöstä ja heidän on noudatettava WhatsAppin käyttöehtoja."
+        "extra": "Käyttäjät ovat vastuussa tämän työkalun asianmukaisesta käytöstä ja heidän on noudatettava WhatsAppin käyttöpolitiikkaa."
       },
       "section6": {
         "title": "6. Tietosuoja",
-        "content": "Alustallamme kerätty ja käsitelty kaikki tieto on meidän Tietosuojakäytännön mukainen. Luvaton tai virheellinen tietojen käyttö johtaa oikeudellisiin seuraamuksiin."
+        "content": "Kaikki alustamme keräämät ja käsittelemät tiedot ovat meidän tietosuojakäytännön alaisia. Luvaton tai epäasianmukainen tietojen käyttö johtaa oikeudellisiin seuraamuksiin."
       },
       "section7": {
-        "title": "7. Ehtojen Muutokset",
-        "content": "Pidätämme oikeuden muuttaa näitä ehtoja milloin tahansa. Käyttäjän vastuulla on tarkistaa säännöllisesti mahdolliset päivitykset."
+        "title": "7. Ehtojen muutokset",
+        "content": "Pidätämme oikeuden muuttaa näitä ehtoja milloin tahansa. Käyttäjän vastuulla on tarkistaa mahdolliset päivitykset säännöllisesti."
       }
     },
     "privacy": {
@@ -53,9 +53,9 @@
         "title": "1. Tietojen kerääminen",
         "content": "Alustamme kerää ja käsittelee palvelun toiminnan kannalta tarvittavat tiedot, mukaan lukien:",
         "list": {
-          "item1": "Rekisteröinti- ja käyttäjän varmennustiedot",
+          "item1": "Käyttäjän rekisteröinti- ja vahvistustiedot",
           "item2": "Ilmoitettujen ajoneuvojen tiedot",
-          "item3": "Viestien ja vuorovaikutuksen historia",
+          "item3": "Viestihistoria ja vuorovaikutukset",
           "item4": "Myyjien yhteystiedot"
         }
       },
@@ -63,18 +63,18 @@
         "title": "2. Tietojen käyttö",
         "content": "Kerättyjä tietoja käytetään seuraaviin tarkoituksiin:",
         "list": {
-          "item1": "Ostajien ja myyjien välisen viestinnän helpottaminen",
+          "item1": "Viestinnän helpottaminen ostajien ja myyjien välillä",
           "item2": "Käyttäjäkokemuksen parantaminen alustalla",
           "item3": "Palvelun turvallisuuden ja eheyden varmistaminen",
           "item4": "Maksujen ja maksujen käsittely",
-          "item5": "Lainsäädännön velvoitteiden täyttäminen"
+          "item5": "Lakivelvoitteiden täyttäminen"
         }
       },
       "section3": {
-        "title": "3. Tietojen suojaus",
-        "content": "Otamme käyttöön teknisiä ja organisatorisia toimenpiteitä suojellaksemme tietojasi, mukaan lukien:",
+        "title": "3. Tietosuoja",
+        "content": "Olemme ottaneet käyttöön teknisiä ja organisatorisia toimenpiteitä suojellaksemme tietojasi, kuten:",
         "list": {
-          "item1": "Herkien tietojen salaaminen",
+          "item1": "Herkän tiedon salaus",
           "item2": "Rajoitettu pääsynhallinta",
           "item3": "Turvallisuuden valvonta",
           "item4": "Säännölliset varmuuskopiot"
@@ -85,41 +85,104 @@
         "content": "Tietojasi voidaan jakaa vain seuraavissa olosuhteissa:",
         "list": {
           "item1": "Ostajien ja myyjien välillä neuvottelujen helpottamiseksi",
-          "item2": "Alustan toiminnan kannalta välttämättömien palveluntarjoajien kanssa",
-          "item3": "Lakisella pyynnöllä tai tuomioistuimen määräyksellä"
+          "item2": "Palveluntarjoajien kanssa, jotka ovat tarpeen alustan toiminnan kannalta",
+          "item3": "Lain tai oikeuden määräyksestä"
         }
       },
       "section5": {
         "title": "5. Oikeutesi",
         "content": "Sinulla on oikeus:",
         "list": {
-          "item1": "Pääsy omiin henkilötietoihisi",
-          "item2": "Pyytää virheellisten tietojen oikaisemista",
+          "item1": "Pääsy henkilökohtaisiin tietoihisi",
+          "item2": "Pyytää virheellisten tietojen oikaisua",
           "item3": "Pyytää tietojesi poistamista"
         },
-        "extra": "Peruuttaa suostumus tietojen käytölle"
+        "extra": "Peruuttaa suostumus tietojen käyttöön"
       },
       "section6": {
-        "title": "6. Tietojen säilyttäminen",
-        "content": "Säilytämme tietojasi vain sen ajan, joka on tarpeen:",
+        "title": "6. Tietojen säilytys",
+        "content": "Säilytämme tietojasi vain niin kauan kuin on tarpeen:",
         "list": {
-          "item1": "Kerättyjen tietojen käyttötarkoitusten täyttämiseksi",
-          "item2": "Lainsäädännöllisten vaatimusten täyttämiseksi",
-          "item3": "Riitojen ratkaisemiseksi"
+          "item1": "Täyttääksemme ne tarkoitukset, joita varten ne kerättiin",
+          "item2": "Täyttääksemme lakisääteiset velvoitteet",
+          "item3": "Ratkaistaksemme riidat"
         }
       },
       "section7": {
-        "title": "7. Yhteystiedot",
-        "content": "Yksityisyyteen liittyvissä huolenaiheissa ota yhteyttä meihin virallisten kanavien kautta, jotka ovat saatavilla alustallamme."
+        "title": "7. Yhteydenotto",
+        "content": "Tietosuojaan liittyvissä asioissa ota yhteyttä meihin virallisilla yhteykanavilla, jotka löytyvät alustaltamme."
+      }
+    },
+    "auth": {
+      "signup": {
+        "welcome": "Tervetuloa",
+        "join": "Liity yhteisöömme ja löydä täydellinen auto sinulle",
+        "buttons": {
+          "createAccount": "Luo tili",
+          "loginHere": "Kirjaudu sisään nyt"
+        },
+        "labels": {
+          "email": "Sähköpostiosoite",
+          "password": "Salasana",
+          "name": "Koko nimi"
+        },
+        "placeholders": {
+          "email": "Syötä sähköpostiosoitteesi",
+          "password": "Syötä salasanasi",
+          "name": "Syötä koko nimesi"
+        },
+        "creatingAccount": "Luodaan tiliäsi...",
+        "alreadyHaveAccount": "Onko sinulla jo tili?"
+      },
+      "signin": {
+        "welcome": "Tervetuloa takaisin",
+        "enter": "Anna tunnistetiedot päästäksesi hallintapaneeliin",
+        "buttons": {
+          "registernHere": "Luo tili nyt",
+          "loginButton": "Kirjaudu sisään",
+          "loggingIn": "Kirjaudutaan sisään..."
+        },
+        "email": "Sähköpostiosoite",
+        "password": "Salasana",
+        "noAccount": "Eikö sinulla ole tiliä?",
+        "placeholderEmail": "Syötä sähköpostiosoitteesi",
+        "placeholderPassword": "Syötä salasanasi"
+      }
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "subtitle": "Nykyinen yhteys WhatsAppiin",
+      "connected": "WhatsApp on yhdistetty",
+      "notConnected": "WhatsApp ei ole yhdistetty"
+    },
+    "settings": {
+      "ai": {
+        "reply": {
+          "generic": {
+            "title": "AI:n yleiset vastaukset",
+            "tabs": {
+              "positive": "Positiivinen vastaus",
+              "negative": "Negatiivinen vastaus"
+            },
+            "form": {
+              "responsePlaceholder": "Syötä vastaus tänne"
+            },
+            "buttons": {
+              "removeResponse": "Poista vastaus",
+              "addResponse": "Lisää vastaus",
+              "saveResponses": "Tallenna vastaus"
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "language_switcher": {
       "languages": {
-        "en_US": "Amerikkalainen Englanti",
+        "en_US": "Englanti (Yhdysvallat)",
         "fi_FI": "Suomi",
-        "pt_BR": "Brasilian Portugali"
+        "pt_BR": "Portugali (Brasilia)"
       }
     },
     "layout": {
@@ -133,15 +196,15 @@
           "cars": "Autot",
           "contacts": "Yhteystiedot",
           "schedulings": "Aikataulut",
-          "schedulings.form.create": "Luo Aikataulu",
+          "schedulings.form.create": "Luo aikataulu",
           "analytics": "Analytiikka",
           "chats": "Keskustelut",
           "whatsapp": "WhatsApp",
           "qrcode": "QR-koodi",
           "ai": "AI",
-          "ai.reply.generic": "Yleinen Vastaus",
-          "prompt.reply": "Vastaa Promptiin",
-          "prompt.send": "Lähetä Prompti",
+          "ai.reply.generic": "Yleinen vastaus",
+          "prompt.reply": "Vastaa kehotteeseen",
+          "prompt.send": "Lähetä kehotus",
           "testing.ia.reply": "Testaa AI - Vastaus",
           "testing.ia.send": "Testaa AI - Lähetys",
           "favorites": "Suosikit",
@@ -150,7 +213,7 @@
           "signature": "Allekirjoitus"
         },
         "legalItems": {
-          "terms": "Käyttöehdot",
+          "terms": "Palveluehdot",
           "privacy": "Tietosuojakäytäntö"
         }
       }
@@ -165,12 +228,25 @@
   "messages": {
     "errors": {
       "cars": {
-        "noAvailable": "Ei Näytettävää Autoa",
-        "loading": "Autot Eivät Latautuneet"
+        "noAvailable": "Ei autoja näytettäväksi",
+        "loading": "Autot eivät lataudu",
+        "errorFetchingCars": "Autot eivät lataudu",
+        "carsNotFound": "Ei löytynyt autoja"
+      },
+      "auth": {
+        "signin": {
+          "failedLogin": "Kirjautuminen epäonnistui.",
+          "requiredFields": "Sähköposti ja salasana ovat pakollisia",
+          "generalError": "Kirjautumisessa tapahtui ongelma"
+        },
+        "signup": {
+          "failedSignup": "Rekisteröityminen epäonnistui",
+          "requiredFields": "Sähköposti ja salasana ovat pakollisia"
+        }
       }
     },
-    "success": {},
-    "Loading": "Ladataan..."
+    "success": {}
   },
+  "Loading": "Ladataan...",
   "logs": {}
 }

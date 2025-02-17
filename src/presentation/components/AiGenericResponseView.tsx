@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import i18n from '../../../i18n';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Textarea } from '@/components/ui/textarea';
-import { useAiGenericResponse } from '@/infra/hooks/useAiGenericResponse';
+import { useAiGenericResponse } from '@/infra/hooks';
 import { useSession } from 'next-auth/react';
 
 export default function AiGenericResponseView() {

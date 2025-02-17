@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "Carros Expresso",
-    "short_name": "Expresso"
+    "name": "Cars Express",
+    "short_name": "Express"
   },
   "pages": {
     "terms": {
@@ -15,15 +15,15 @@
       },
       "section3": {
         "title": "3. Services and Fees",
-        "content": "Our service facilitates communication between buyers and sellers of vehicles through an automated messaging system. Each message sent costs €0.05 (five cents of a euro)."
+        "content": "Our service facilitates communication between buyers and sellers of vehicles through an automated messaging system. Each message sent costs €0.05 (five cents of euro)."
       },
       "section4": {
-        "title": "4. Disclaimer of Liability",
+        "title": "4. Disclaimer",
         "content": "Our platform acts only as an intermediary in communication between buyers and sellers. We do not own the listed vehicles and are not responsible for:",
         "list": {
-          "item1": "The accuracy of the information provided by sellers",
-          "item2": "The condition of the listed vehicles",
-          "item3": "Negotiations or transactions made between parties",
+          "item1": "The accuracy of information provided by sellers",
+          "item2": "The condition of listed vehicles",
+          "item3": "Negotiations or transactions conducted between parties",
           "item4": "Technical or mechanical issues of the vehicles",
           "item5": "Disputes or conflicts between buyers and sellers"
         }
@@ -34,13 +34,13 @@
         "list": {
           "item1": "Simultaneous communication with multiple sellers",
           "item2": "Automated collection of vehicle and seller data",
-          "item3": "Initiating real-time conversations"
+          "item3": "Starting real-time conversations"
         },
         "extra": "Users are responsible for the proper use of this tool and must comply with WhatsApp's usage policies."
       },
       "section6": {
         "title": "6. Data Protection",
-        "content": "All information collected and processed through our platform is subject to our Privacy Policy. Unauthorized or improper use of data will result in legal penalties."
+        "content": "All information collected and processed through our platform is subject to our Privacy Policy. Unauthorized or inappropriate use of data will result in legal penalties."
       },
       "section7": {
         "title": "7. Changes to the Terms",
@@ -53,21 +53,21 @@
         "title": "1. Data Collection",
         "content": "Our platform collects and processes data necessary for the operation of the service, including:",
         "list": {
-          "item1": "Registration and user verification information",
-          "item2": "Advertised vehicle data",
+          "item1": "User registration and verification information",
+          "item2": "Vehicle data for listings",
           "item3": "Message and interaction history",
-          "item4": "Sellers' contact information"
+          "item4": "Seller contact information"
         }
       },
       "section2": {
-        "title": "2. Data Usage",
-        "content": "The collected data is used for:",
+        "title": "2. Use of Data",
+        "content": "The data collected is used to:",
         "list": {
-          "item1": "Facilitating communication between buyers and sellers",
-          "item2": "Improving user experience on the platform",
-          "item3": "Ensuring the security and integrity of the service",
-          "item4": "Processing charges and payments",
-          "item5": "Complying with legal obligations"
+          "item1": "Facilitate communication between buyers and sellers",
+          "item2": "Improve the user experience on the platform",
+          "item3": "Ensure the security and integrity of the service",
+          "item4": "Process charges and payments",
+          "item5": "Comply with legal obligations"
         }
       },
       "section3": {
@@ -82,11 +82,11 @@
       },
       "section4": {
         "title": "4. Data Sharing",
-        "content": "Your data may be shared only under the following circumstances:",
+        "content": "Your data may only be shared under the following circumstances:",
         "list": {
-          "item1": "Between buyers and sellers to facilitate negotiation",
-          "item2": "With service providers necessary for platform operation",
-          "item3": "By legal request or court order"
+          "item1": "Between buyers and sellers to facilitate negotiations",
+          "item2": "With service providers necessary for the operation of the platform",
+          "item3": "As required by law or court order"
         }
       },
       "section5": {
@@ -97,11 +97,11 @@
           "item2": "Request correction of incorrect data",
           "item3": "Request deletion of your data"
         },
-        "extra": "Revoke consent for data usage"
+        "extra": "Withdraw consent for the use of data"
       },
       "section6": {
         "title": "6. Data Retention",
-        "content": "We retain your data only for the necessary duration to:",
+        "content": "We retain your data only for as long as necessary to:",
         "list": {
           "item1": "Fulfill the purposes for which it was collected",
           "item2": "Meet legal requirements",
@@ -110,7 +110,70 @@
       },
       "section7": {
         "title": "7. Contact",
-        "content": "For privacy-related concerns, contact us through the official channels available on our platform."
+        "content": "For privacy concerns, please contact us through the official channels available on our platform."
+      }
+    },
+    "auth": {
+      "signup": {
+        "welcome": "Welcome",
+        "join": "Join our community and find the perfect car for you",
+        "buttons": {
+          "createAccount": "Create Account",
+          "loginHere": "Log In Now"
+        },
+        "labels": {
+          "email": "Email Address",
+          "password": "Access Password",
+          "name": "Full Name"
+        },
+        "placeholders": {
+          "email": "Enter your Email Address",
+          "password": "Enter your Access Password",
+          "name": "Enter your Full Name"
+        },
+        "creatingAccount": "Creating your Account...",
+        "alreadyHaveAccount": "Already have an Account?"
+      },
+      "signin": {
+        "welcome": "Welcome Back",
+        "enter": "Provide your credentials to access the dashboard",
+        "buttons": {
+          "registernHere": "Create Account Now",
+          "loginButton": "Log In",
+          "loggingIn": "Logging in..."
+        },
+        "email": "Email Address",
+        "password": "Access Password",
+        "noAccount": "Don't have an account?",
+        "placeholderEmail": "Enter your email",
+        "placeholderPassword": "Enter your password"
+      }
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "subtitle": "Current Connection with WhatsApp",
+      "connected": "WhatsApp is Connected",
+      "notConnected": "WhatsApp is Not Connected"
+    },
+    "settings": {
+      "ai": {
+        "reply": {
+          "generic": {
+            "title": "AI Generic Replies",
+            "tabs": {
+              "positive": "Positive Reply",
+              "negative": "Negative Reply"
+            },
+            "form": {
+              "responsePlaceholder": "Enter your response here"
+            },
+            "buttons": {
+              "removeResponse": "Remove Response",
+              "addResponse": "Add Response",
+              "saveResponses": "Save Response"
+            }
+          }
+        }
       }
     }
   },
@@ -126,21 +189,21 @@
       "sidebar": {
         "language": "Language",
         "buttons": {
-          "logout": "Logout"
+          "logout": "Log Out"
         },
         "menuItems": {
           "home": "Home",
           "cars": "Cars",
           "contacts": "Contacts",
-          "schedulings": "Schedulings",
-          "schedulings.form.create": "Create Scheduling",
+          "schedulings": "Schedules",
+          "schedulings.form.create": "Create Schedule",
           "analytics": "Analytics",
           "chats": "Chats",
           "whatsapp": "WhatsApp",
           "qrcode": "QR Code",
           "ai": "AI",
           "ai.reply.generic": "Generic Reply",
-          "prompt.reply": "Reply Prompt",
+          "prompt.reply": "Reply to Prompt",
           "prompt.send": "Send Prompt",
           "testing.ia.reply": "Test AI - Reply",
           "testing.ia.send": "Test AI - Send",
@@ -165,12 +228,25 @@
   "messages": {
     "errors": {
       "cars": {
-        "noAvailable": "No Cars Available to Display",
-        "loading": "Unable to Load Cars"
+        "noAvailable": "No Cars to Display",
+        "loading": "Unable to load Cars",
+        "errorFetchingCars": "Unable to fetch cars",
+        "carsNotFound": "No Cars Found"
+      },
+      "auth": {
+        "signin": {
+          "failedLogin": "Login failed.",
+          "requiredFields": "Email and password are required",
+          "generalError": "There was a problem logging in"
+        },
+        "signup": {
+          "failedSignup": "Signup failed",
+          "requiredFields": "Email and password are required"
+        }
       }
     },
-    "success": {},
-    "Loading": "Loading..."
+    "success": {}
   },
+  "Loading": "Loading...",
   "logs": {}
 }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@lib/prisma';
 import { createUserSchema } from '@/validations';
+import { userRepository } from '@/domains/repositories';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
@@ -15,19 +15,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     const { name, accountId } = result.data;
+    const language = 'fi';
 
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        UserAccounts: {
-          create: { accountId },
-        },
-      },
-    });
+    const newUser = await userRepository.createUser(name, accountId, language);
 
     return NextResponse.json({ user: newUser }, { status: 201 });
-  } catch (error: unknown) {
-    console.error('Erro ao criar usuário:', error);
+  } catch (error) {
+    console.error(
+      'Erro ao criar usuário:',
+      error instanceof Error ? error.message : error,
+    );
     return NextResponse.json(
       { error: 'Erro interno do servidor' },
       { status: 500 },

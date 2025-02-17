@@ -2,14 +2,14 @@
 
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import LanguageSwitcher from './LanguageSwitcher';
 import { menuItemsPath, legalItemsPath } from '@/data/constants/sidebarItems';
 import { useTranslation } from 'react-i18next';
 import { LogOut } from 'lucide-react';
-import { cn } from '@lib/utils';
+import { cn } from '@/core/libs/utils';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { signOut } from 'next-auth/react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Sidebar() {
   const { t } = useTranslation();
