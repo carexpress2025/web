@@ -318,6 +318,11 @@
         "ledHeadlights": "LED Headlights",
         "tractionControlSystem": "Traction Control System"
       }
+    },
+    "carCard": {
+      "button": {
+        "details": "View Details"
+      }
     }
   },
   "messages": {

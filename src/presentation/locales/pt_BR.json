@@ -318,6 +318,11 @@
         "ledHeadlights": "Faróis de LED",
         "tractionControlSystem": "Sistema de Controle de Tração"
       }
+    },
+    "carCard": {
+      "button": {
+        "details": "Visualizar Detalhes"
+      }
     }
   },
   "messages": {

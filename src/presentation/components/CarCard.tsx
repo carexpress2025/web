@@ -142,7 +142,7 @@ export default function CarCard({ car }: { car: ICarInterface }) {
             size="sm"
             className="bg-primary/90 hover:bg-primary flex items-center gap-2 rounded-xl text-white transition-all duration-300 hover:gap-3"
           >
-            {t('carCard.button.details')}
+            {t('components.carCard.button.details')}
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>

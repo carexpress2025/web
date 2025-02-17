@@ -318,6 +318,11 @@
         "ledHeadlights": "LED-ajovalot",
         "tractionControlSystem": "Vetovoiman Hallintajärjestelmä"
       }
+    },
+    "carCard": {
+      "button": {
+        "details": "Näytä yksityiskohdat"
+      }
     }
   },
   "messages": {
