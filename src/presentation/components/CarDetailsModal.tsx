@@ -124,7 +124,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <Palette className="h-5 w-5" />
                   <span>
-                    {t('carModal.color')}: {car.color}
+                    {t('components.carModal.color')}: {car.color}
                   </span>
                 </div>
               )}
@@ -132,7 +132,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <FileText className="h-5 w-5" />
                   <span>
-                    {t('carModal.condition')}: {car.roadWorthy}
+                    {t('components.carModal.condition')}: {car.roadWorthy}
                   </span>
                 </div>
               )}
@@ -140,7 +140,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <Fuel className="h-5 w-5" />
                   <span>
-                    {t('carModal.fuelType')}: {car.fuelType}
+                    {t('components.carModal.fuelType')}: {car.fuelType}
                   </span>
                 </div>
               )}
@@ -149,7 +149,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   <div className="flex items-center gap-2">
                     <ListChecks className="h-5 w-5" />
                     <span>
-                      {t('carModal.numberOfDoors')}:{' '}
+                      {t('components.carModal.numberOfDoors')}:{' '}
                       {car.specifications.numberOfDoors}
                     </span>
                   </div>
@@ -158,7 +158,8 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <AlertCircle className="h-5 w-5" />
                   <span>
-                    {t('carModal.power')}: {car.specifications.power.kw} Kw{' '}
+                    {t('components.carModal.power')}:{' '}
+                    {car.specifications.power.kw} Kw{' '}
                     {car.specifications.power.hv} Hv
                   </span>
                 </div>
@@ -168,7 +169,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
           <div>
             <div>
               <h4 className="mb-2 mt-12 font-semibold">
-                {t('carModal.technical')}
+                {t('components.carModal.technical')}
               </h4>
             </div>
             <div className="space-y-2">
@@ -176,7 +177,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <CarIcon className="h-5 w-5" />
                   <span>
-                    {t('carModal.engine')}: {car.engine}
+                    {t('components.carModal.engine')}: {car.engine}
                   </span>
                 </div>
               )}
@@ -184,7 +185,8 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <Settings className="h-5 w-5" />
                   <span>
-                    {t('carModal.gearbox')}: {car.specifications.gearbox}
+                    {t('components.carModal.gearbox')}:{' '}
+                    {car.specifications.gearbox}
                   </span>
                 </div>
               )}
@@ -192,7 +194,8 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <Zap className="h-5 w-5" />
                   <span>
-                    {t('carModal.transmission')}: {car.transmissionType}
+                    {t('components.carModal.transmission')}:{' '}
+                    {car.transmissionType}
                   </span>
                 </div>
               )}
@@ -201,7 +204,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                   <div className="flex items-center gap-2">
                     <Gauge className="h-5 w-5" />
                     <span>
-                      {t('carModal.acceleration')}:{' '}
+                      {t('components.carModal.acceleration')}:{' '}
                       {car.specifications.acceleration}
                     </span>
                   </div>
@@ -210,7 +213,7 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 <div className="flex items-center gap-2">
                   <DoorOpen className="h-5 w-5" />
                   <span>
-                    {t('carModal.body')}: {car.bodyType}
+                    {t('components.carModal.body')}: {car.bodyType}
                   </span>
                 </div>
               )}
@@ -221,213 +224,255 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
         {car.interior && Object.values(car.interior).some(Boolean) && (
           <div className="mt-6">
             <h4 className="mb-2 font-semibold">
-              {t('carModal.interiorSection')}
+              {t('components.carModal.interiorSection')}
             </h4>
             {car.interior.seatHeaters && (
-              <p>{t('carModal.interior.seatHeaters')}</p>
+              <p>{t('components.carModal.interior.seatHeaters')}</p>
             )}
             {car.interior.rearViewCamera && (
-              <p>{t('carModal.interior.rearViewCamera')}</p>
+              <p>{t('components.carModal.interior.rearViewCamera')}</p>
             )}
             {car.interior.fuelBatteryOperatedAuxiliaryHeater && (
-              <p>{t('carModal.interior.fuelBatteryOperatedAuxiliaryHeater')}</p>
+              <p>
+                {t(
+                  'components.carModal.interior.fuelBatteryOperatedAuxiliaryHeater',
+                )}
+              </p>
             )}
             {car.interior.parkingSensors && (
-              <p>{t('carModal.interior.parkingSensors')}</p>
+              <p>{t('components.carModal.interior.parkingSensors')}</p>
             )}
             {car.interior.tirePressureMonitoringSystem && (
-              <p>{t('carModal.interior.tirePressureMonitoringSystem')}</p>
+              <p>
+                {t('components.carModal.interior.tirePressureMonitoringSystem')}
+              </p>
             )}
             {car.interior.internalSocket && (
-              <p>{t('carModal.interior.internalSocket')}</p>
+              <p>{t('components.carModal.interior.internalSocket')}</p>
             )}
             {car.interior.startStopSystem && (
-              <p>{t('carModal.interior.startStopSystem')}</p>
+              <p>{t('components.carModal.interior.startStopSystem')}</p>
             )}
-            {car.interior.skiHatch && <p>{t('carModal.interior.skiHatch')}</p>}
+            {car.interior.skiHatch && (
+              <p>{t('components.carModal.interior.skiHatch')}</p>
+            )}
             {car.interior.powerWindows && (
-              <p>{t('carModal.interior.powerWindows')}</p>
+              <p>{t('components.carModal.interior.powerWindows')}</p>
             )}
             {car.interior.electricMirrors && (
-              <p>{t('carModal.interior.electricMirrors')}</p>
+              <p>{t('components.carModal.interior.electricMirrors')}</p>
             )}
             {car.interior.electricallyAdjustableSeats && (
-              <p>{t('carModal.interior.electricallyAdjustableSeats')}</p>
+              <p>
+                {t('components.carModal.interior.electricallyAdjustableSeats')}
+              </p>
             )}
             {car.interior.electricallyOperatedTailgate && (
-              <p>{t('carModal.interior.electricallyOperatedTailgate')}</p>
+              <p>
+                {t('components.carModal.interior.electricallyOperatedTailgate')}
+              </p>
             )}
             {car.interior.luggageCompartmentSafetyNet && (
-              <p>{t('carModal.interior.luggageCompartmentSafetyNet')}</p>
+              <p>
+                {t('components.carModal.interior.luggageCompartmentSafetyNet')}
+              </p>
             )}
             {car.interior.sportSeats && (
-              <p>{t('carModal.interior.sportSeats')}</p>
+              <p>{t('components.carModal.interior.sportSeats')}</p>
             )}
             {car.interior.cruiseControl && (
-              <p>{t('carModal.interior.cruiseControl')}</p>
+              <p>{t('components.carModal.interior.cruiseControl')}</p>
             )}
             {car.interior.onBoardComputer && (
-              <p>{t('carModal.interior.onBoardComputer')}</p>
+              <p>{t('components.carModal.interior.onBoardComputer')}</p>
             )}
-            {car.interior.keyless && <p>{t('carModal.interior.keyless')}</p>}
+            {car.interior.keyless && (
+              <p>{t('components.carModal.interior.keyless')}</p>
+            )}
             {car.interior.airConditionedSeating && (
-              <p>{t('carModal.interior.airConditionedSeating')}</p>
+              <p>{t('components.carModal.interior.airConditionedSeating')}</p>
             )}
             {car.interior.airConditioning && (
-              <p>{t('carModal.interior.airConditioning')}</p>
+              <p>{t('components.carModal.interior.airConditioning')}</p>
             )}
             {car.interior.retractableRearSeats && (
-              <p>{t('carModal.interior.retractableRearSeats')}</p>
+              <p>{t('components.carModal.interior.retractableRearSeats')}</p>
             )}
             {car.interior.laneDepartureWarning && (
-              <p>{t('carModal.interior.laneDepartureWarning')}</p>
+              <p>{t('components.carModal.interior.laneDepartureWarning')}</p>
             )}
             {car.interior.roofOpeningMechanism && (
-              <p>{t('carModal.interior.roofOpeningMechanism')}</p>
+              <p>{t('components.carModal.interior.roofOpeningMechanism')}</p>
             )}
             {car.interior.centralLocking && (
-              <p>{t('carModal.interior.centralLocking')}</p>
+              <p>{t('components.carModal.interior.centralLocking')}</p>
             )}
             {car.interior.motorHeater && (
-              <p>{t('carModal.interior.motorHeater')}</p>
+              <p>{t('components.carModal.interior.motorHeater')}</p>
             )}
             {car.interior.heatedSteeringWheel && (
-              <p>{t('carModal.interior.heatedSteeringWheel')}</p>
+              <p>{t('components.carModal.interior.heatedSteeringWheel')}</p>
             )}
             {car.interior.heatedWindscreen && (
-              <p>{t('carModal.interior.heatedWindscreen')}</p>
+              <p>{t('components.carModal.interior.heatedWindscreen')}</p>
             )}
             {car.interior.leatherInterior && (
-              <p>{t('carModal.interior.leatherInterior')}</p>
+              <p>{t('components.carModal.interior.leatherInterior')}</p>
             )}
             {car.interior.satelliteNavigator && (
-              <p>{t('carModal.interior.satelliteNavigator')}</p>
+              <p>{t('components.carModal.interior.satelliteNavigator')}</p>
             )}
             {car.interior.speedLimitSensor && (
-              <p>{t('carModal.interior.speedLimitSensor')}</p>
+              <p>{t('components.carModal.interior.speedLimitSensor')}</p>
             )}
             {car.interior.powerSteering && (
-              <p>{t('carModal.interior.powerSteering')}</p>
+              <p>{t('components.carModal.interior.powerSteering')}</p>
             )}
           </div>
         )}
 
         {car.safety && Object.values(car.safety).some(Boolean) && (
           <div className="mt-6">
-            <h4 className="mb-2 font-semibold">{t('carModal.satety')}</h4>
+            <h4 className="mb-2 font-semibold">
+              {t('components.carModal.satety')}
+            </h4>
             {car.safety.antiLockBrakingSystem && (
-              <p>{t('carModal.safety.antiLockBrakingSystem')}</p>
+              <p>{t('components.carModal.safety.antiLockBrakingSystem')}</p>
             )}
             {car.safety.hillStartAssist && (
-              <p>{t('carModal.safety.hillStartAssist')}</p>
+              <p>{t('components.carModal.safety.hillStartAssist')}</p>
             )}
             {car.safety.parkingAssistance && (
-              <p>{t('carModal.safety.parkingAssistance')}</p>
+              <p>{t('components.carModal.safety.parkingAssistance')}</p>
             )}
-            {car.safety.fogLights && <p>{t('carModal.safety.fogLights')}</p>}
-            {car.safety.airbags && <p>{t('carModal.safety.airbags')}</p>}
+            {car.safety.fogLights && (
+              <p>{t('components.carModal.safety.fogLights')}</p>
+            )}
+            {car.safety.airbags && (
+              <p>{t('components.carModal.safety.airbags')}</p>
+            )}
             {car.safety.collisionWarning && (
-              <p>{t('carModal.safety.collisionWarning')}</p>
+              <p>{t('components.carModal.safety.collisionWarning')}</p>
             )}
-            {car.safety.theftAlarm && <p>{t('carModal.safety.theftAlarm')}</p>}
+            {car.safety.theftAlarm && (
+              <p>{t('components.carModal.safety.theftAlarm')}</p>
+            )}
             {car.safety.xenonHeadlights && (
-              <p>{t('carModal.safety.xenonHeadlights')}</p>
+              <p>{t('components.carModal.safety.xenonHeadlights')}</p>
             )}
             {car.safety.adaptiveHeadlights && (
-              <p>{t('carModal.safety.adaptiveHeadlights')}</p>
+              <p>{t('components.carModal.safety.adaptiveHeadlights')}</p>
             )}
             {car.safety.electronicStabilityControl && (
-              <p>{t('carModal.safety.electronicStabilityControl')}</p>
+              <p>
+                {t('components.carModal.safety.electronicStabilityControl')}
+              </p>
             )}
             {car.safety.emergencyBrakeAssist && (
-              <p>{t('carModal.safety.emergencyBrakeAssist')}</p>
+              <p>{t('components.carModal.safety.emergencyBrakeAssist')}</p>
             )}
             {car.safety.isofixReady && (
-              <p>{t('carModal.safety.isofixReady')}</p>
+              <p>{t('components.carModal.safety.isofixReady')}</p>
             )}
             {car.safety.corneringLights && (
-              <p>{t('carModal.safety.corneringLights')}</p>
+              <p>{t('components.carModal.safety.corneringLights')}</p>
             )}
             {car.safety.blindSpotAssist && (
-              <p>{t('carModal.safety.blindSpotAssist')}</p>
+              <p>{t('components.carModal.safety.blindSpotAssist')}</p>
             )}
             {car.safety.engineImmobilizer && (
-              <p>{t('carModal.safety.engineImmobilizer')}</p>
+              <p>{t('components.carModal.safety.engineImmobilizer')}</p>
             )}
             {car.safety.ledHeadlights && (
-              <p>{t('carModal.safety.ledHeadlights')}</p>
+              <p>{t('components.carModal.safety.ledHeadlights')}</p>
             )}
             {car.safety.tractionControlSystem && (
-              <p>{t('carModal.safety.tractionControlSystem')}</p>
+              <p>{t('components.carModal.safety.tractionControlSystem')}</p>
             )}
           </div>
         )}
 
         {car.electronics && Object.values(car.electronics).some(Boolean) && (
           <div className="mt-6">
-            <h4 className="mb-2 font-semibold">{t('carModal.electronics')}</h4>
-            {car.electronics.usb && <p>{t('carModal.electronic.usb')}</p>}
+            <h4 className="mb-2 font-semibold">
+              {t('components.carModal.electronics')}
+            </h4>
+            {car.electronics.usb && (
+              <p>{t('components.carModal.electronic.usb')}</p>
+            )}
             {car.electronics.smartphoneIntegration && (
-              <p>{t('carModal.electronic.smartphoneIntegration')}</p>
+              <p>{t('components.carModal.electronic.smartphoneIntegration')}</p>
             )}
             {car.electronics.audioSystem && (
-              <p>{t('carModal.electronic.audioSystem')}</p>
+              <p>{t('components.carModal.electronic.audioSystem')}</p>
             )}
             {car.electronics.audioConnection && (
-              <p>{t('carModal.electronic.audioConnection')}</p>
+              <p>{t('components.carModal.electronic.audioConnection')}</p>
             )}
             {car.electronics.bluetooth && (
-              <p>{t('carModal.electronic.bluetooth')}</p>
+              <p>{t('components.carModal.electronic.bluetooth')}</p>
             )}
             {car.electronics.headUpDisplay && (
-              <p>{t('carModal.electronic.headUpDisplay')}</p>
+              <p>{t('components.carModal.electronic.headUpDisplay')}</p>
             )}
             {car.electronics.mobilePhoneEquipment && (
-              <p>{t('carModal.electronic.mobilePhoneEquipment')}</p>
+              <p>{t('components.carModal.electronic.mobilePhoneEquipment')}</p>
             )}
             {car.electronics.alloyWheels && (
-              <p>{t('carModal.electronic.alloyWheels')}</p>
+              <p>{t('components.carModal.electronic.alloyWheels')}</p>
             )}
             {car.electronics.sunroof && (
-              <p>{t('carModal.electronic.sunroof')}</p>
+              <p>{t('components.carModal.electronic.sunroof')}</p>
             )}
             {car.electronics.multifunctionSteeringWheel && (
-              <p>{t('carModal.electronic.multifunctionSteeringWheel')}</p>
+              <p>
+                {t('components.carModal.electronic.multifunctionSteeringWheel')}
+              </p>
             )}
             {car.electronics.rainSensor && (
-              <p>{t('carModal.electronic.rainSensor')}</p>
+              <p>{t('components.carModal.electronic.rainSensor')}</p>
             )}
             {car.electronics.trunkTemperatureControl && (
-              <p>{t('carModal.electronic.trunkTemperatureControl')}</p>
+              <p>
+                {t('components.carModal.electronic.trunkTemperatureControl')}
+              </p>
             )}
-            {car.electronics.turbo && <p>{t('carModal.electronic.turbo')}</p>}
+            {car.electronics.turbo && (
+              <p>{t('components.carModal.electronic.turbo')}</p>
+            )}
             {car.electronics.sportsSuspension && (
-              <p>{t('carModal.electronic.sportsSuspension')}</p>
+              <p>{t('components.carModal.electronic.sportsSuspension')}</p>
             )}
-            {car.electronics.towBar && <p>{t('carModal.electronic.towBar')}</p>}
+            {car.electronics.towBar && (
+              <p>{t('components.carModal.electronic.towBar')}</p>
+            )}
             {car.electronics.batteryPreHeating && (
-              <p>{t('carModal.electronic.batteryPreHeating')}</p>
+              <p>{t('components.carModal.electronic.batteryPreHeating')}</p>
             )}
             {car.electronics.chassisKit && (
-              <p>{t('carModal.electronic.chassisKit')}</p>
+              <p>{t('components.carModal.electronic.chassisKit')}</p>
             )}
             {car.electronics.serviceBook && (
-              <p>{t('carModal.electronic.serviceBook')}</p>
+              <p>{t('components.carModal.electronic.serviceBook')}</p>
             )}
             {car.electronics.plugInChargingSocketForHybridCar && (
-              <p>{t('carModal.electronic.plugInChargingSocketForHybridCar')}</p>
+              <p>
+                {t(
+                  'components.carModal.electronic.plugInChargingSocketForHybridCar',
+                )}
+              </p>
             )}
             {car.electronics.airSuspension && (
-              <p>{t('carModal.electronic.airSuspension')}</p>
+              <p>{t('components.carModal.electronic.airSuspension')}</p>
             )}
             {car.electronics.handicapEquipment && (
-              <p>{t('carModal.electronic.handicapEquipment')}</p>
+              <p>{t('components.carModal.electronic.handicapEquipment')}</p>
             )}
             {car.electronics.twoSetsOfTires && (
-              <p>{t('carModal.electronic.twoSetsOfTires')}</p>
+              <p>{t('components.carModal.electronic.twoSetsOfTires')}</p>
             )}
             {car.electronics.roofHatch && (
-              <p>{t('carModal.electronic.roofHatch')}</p>
+              <p>{t('components.carModal.electronic.roofHatch')}</p>
             )}
           </div>
         )}
@@ -435,7 +480,9 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
         <div className="mt-6 border-t pt-4">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-semibold">{t('carModal.seller')}</h4>
+              <h4 className="font-semibold">
+                {t('components.carModal.seller')}
+              </h4>
               <p>{car.seller}</p>
             </div>
 
@@ -452,10 +499,10 @@ export const CarDetailsModal: FC<CarDetailsModalProps> = ({
                 }}
                 className="w-auto"
               >
-                {t('carModal.send')}
+                {t('components.carModal.send')}
               </Button>
               <Button onClick={onClose} className="w-auto">
-                {t('carModal.close')}
+                {t('components.carModal.close')}
               </Button>
             </div>
           </div>
