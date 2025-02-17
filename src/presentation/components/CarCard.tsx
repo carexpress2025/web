@@ -54,6 +54,8 @@ export default function CarCard({ car }: { car: ICarInterface }) {
             isHovered && 'scale-110',
           )}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          width={768}
+          height={768}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         <div className="animate-fade-in-up absolute left-3 top-3 flex gap-2">

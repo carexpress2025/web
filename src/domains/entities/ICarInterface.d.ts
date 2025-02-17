@@ -27,4 +27,5 @@ export interface ICarInterface extends Partial<Car> {
   interior: ICarInteriorInterface;
   specifications: ICarSpecificationsInterface;
   electronics: ICarElectronicsInterface;
+  images: string[];
 }
