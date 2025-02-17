@@ -19,6 +19,16 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const storeLanguage = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [
+          'persist/PERSIST',
+          'persist/REHYDRATE',
+          'persist/REGISTER',
+        ],
+      },
+    }),
 });
 
 //@ts-expect-error
