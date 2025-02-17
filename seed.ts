@@ -6,9 +6,11 @@ async function main() {
   const plans = [
     {
       name: 'Free',
+      price: 0,
     },
     {
       name: 'Basic',
+      price: 300,
     },
   ];
 

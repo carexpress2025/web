@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { httpRequestDurationSeconds } from '@lib/metrics';
+import { httpRequestDurationSeconds } from '@/core/libs/metrics';
 
 export const collectMetrics = async (
   req: NextRequest,
