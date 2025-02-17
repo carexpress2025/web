@@ -64,18 +64,18 @@ export default function CarsListView() {
                 disabled={currentPage === 1}
                 className="px-4 py-2 mx-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
               >
-                {t('pagination.previous')}
+                {t('components.buttons.pagination.previous')}
               </button>
               <span className="px-4 py-2 text-gray-700">
-                {t('pagination.page')} {currentPage} {t('pagination.of')}{' '}
-                {totalPages}
+                {t('components.buttons.pagination.page')} {currentPage}{' '}
+                {t('components.buttons.pagination.of')} {totalPages}
               </span>
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="px-4 py-2 mx-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
               >
-                {t('pagination.next')}
+                {t('components.buttons.pagination.next')}
               </button>
             </div>
           </div>

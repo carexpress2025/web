@@ -221,7 +221,9 @@
     "buttons": {
       "pagination": {
         "next": "Seuraava sivu",
-        "previous": "Edellinen sivu"
+        "previous": "Edellinen sivu",
+        "of": "kokonaisuudessaan",
+        "page": "Sivu"
       }
     },
     "carModal": {

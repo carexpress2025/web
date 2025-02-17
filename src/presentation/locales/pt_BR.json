@@ -221,7 +221,9 @@
     "buttons": {
       "pagination": {
         "next": "Próxima Página",
-        "previous": "Página Anterior"
+        "previous": "Página Anterior",
+        "of": "de",
+        "page": "Página"
       }
     },
     "carModal": {
