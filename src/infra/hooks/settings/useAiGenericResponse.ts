@@ -15,9 +15,7 @@ export function useAiGenericResponse(userId: number) {
   const fetchResponses = async () => {
     setLoading(true);
     try {
-      const res = await fetch(
-        `/api/settings/ai/reply/generic/user/${userId}/view`,
-      );
+      const res = await fetch(`/api/settings/generic/reply/user/${userId}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Erro ao buscar respostas');
       setResponses(data);
@@ -36,17 +34,12 @@ export function useAiGenericResponse(userId: number) {
     try {
       let res;
       if (responses && responses.id) {
-        // Se a configuração já existe, faz o PATCH
-        res = await fetch(
-          `/api/settings/ai/reply/generic/user/${userId}/update`,
-          {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ positiveResponses, negativeResponses }),
-          },
-        );
+        res = await fetch(`/api/settings/generic/reply/user/${userId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ positiveResponses, negativeResponses }),
+        });
       } else {
-        // Se não existir, faz o POST
         res = await fetch(`/api/settings/ai/reply/generic/user/${userId}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
