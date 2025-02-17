@@ -2,14 +2,21 @@ import prisma from '@/core/libs/prisma';
 import { SENT_MANUAL_MESSAGE } from '@prisma/client';
 
 export class SentManualMensageRepository {
-  async createSentManualMensage(data: {
-    contact: string;
-    body: string;
-    usedAi?: boolean;
-    status?: SENT_MANUAL_MESSAGE;
-  }) {
+  async createSentManualMensage(
+    userId: number,
+    carId: number,
+    contact: string,
+    body: string,
+    usedAi?: boolean,
+  ) {
     return await prisma.sentManualMensage.create({
-      data,
+      data: {
+        contact,
+        body,
+        usedAi: usedAi ?? false,
+        UserSentManualMessage: userId ? { create: { userId } } : undefined,
+        CarSentManualMessage: carId ? { create: { carId } } : undefined,
+      },
     });
   }
 

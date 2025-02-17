@@ -1,12 +1,21 @@
 import prisma from '@/core/libs/prisma';
 
 export class AiGenericResponseRepository {
-  async createAiGenericResponse(data: {
-    positiveResponses: string[];
-    negativeResponses: string[];
-  }) {
+  async createAiGenericResponse(
+    userId: number,
+    positiveResponses: string[],
+    negativeResponses: string[],
+  ) {
     return await prisma.aiGenericResponse.create({
-      data,
+      data: {
+        positiveResponses: positiveResponses,
+        negativeResponses: negativeResponses,
+        UserAiGenericResponse: {
+          create: {
+            userId: userId,
+          },
+        },
+      },
     });
   }
 

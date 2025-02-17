@@ -19,6 +19,16 @@ export class UserRepository {
     return await prisma.user.findUnique({ where: { id } });
   }
 
+  async getUserByAccountId(accountId: number) {
+    return await prisma.userAccount.findUnique({
+      where: { accountId: accountId },
+      include: {
+        account: true,
+        user: true,
+      },
+    });
+  }
+
   async getUserByPublicId(publicId: string) {
     return await prisma.user.findUnique({ where: { publicId } });
   }

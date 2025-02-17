@@ -1,11 +1,20 @@
 import prisma from '@/core/libs/prisma';
 
 export class PromptRepository {
-  async createPrompt(settingsReply?: object, settingsSend?: object) {
+  async createPrompt(
+    userId: number,
+    settingsReply?: object,
+    settingsSend?: object,
+  ) {
     return await prisma.prompt.create({
       data: {
-        settingsReply,
-        settingsSend,
+        settingsReply: settingsReply,
+        settingsSend: settingsSend,
+        UserPrompts: {
+          create: {
+            userId: userId,
+          },
+        },
       },
     });
   }

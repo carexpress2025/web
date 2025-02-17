@@ -15,6 +15,7 @@ import {
 import {
   UserSentManualMessageRepository,
   CarSentManualMessageRepository,
+  SentManualMensageRepository,
 } from './sentManualMessageRepository';
 import { SentAutomaticMessageRepository } from './sentAutomaticMessageRepository';
 import { AiGenericResponseRepository } from './aiGenericResponseRepository';
@@ -44,9 +45,11 @@ const promptRepository = new PromptRepository();
 const carRepository = new CarRepository();
 const userRepository = new UserRepository();
 const accountRepository = new AccountRepository();
+const sentManualMessageRepository = new SentManualMensageRepository();
 
 export {
   accountRepository,
+  sentManualMessageRepository,
   subscriptionRepository,
   userSubscriptionRepository,
   favoriteRepository,
