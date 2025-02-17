@@ -39,9 +39,10 @@ export function useGetCarsPagination(): UseGetAllCarsReturn {
       const total = await countRes.json();
 
       const { cars } = data;
+      const { count } = total;
 
       setCars(cars);
-      setTotalCars(total);
+      setTotalCars(count);
     } catch (err) {
       console.error(err);
       setError(t('messages.errors.cars.errorFetchingCars'));
