@@ -1,17 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { userRepository, userWhatsappRepository } from '@/domains/repositories';
 import { WAHA_TOKEN, WAHA_URL } from '@/core/libs/waha';
-
-const parseIdFromRequest = (req: NextRequest): number | null => {
-  try {
-    const idString = req.nextUrl.pathname.split('/').pop();
-    if (!idString) return null;
-    const accountId = Number(idString);
-    return isNaN(accountId) ? null : accountId;
-  } catch {
-    return null;
-  }
-};
+import { parseIdFromRequest } from '@/core/utils/getAccountId';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
