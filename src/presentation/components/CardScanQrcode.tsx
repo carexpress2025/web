@@ -11,10 +11,11 @@ import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import ButtonCreateSessionBackend from './buttons/ButtonCreateSessionBackend';
+import { useGetWhatsappSession } from '@/infra/hooks/whatsapp/useGetWhatsappSession';
+import { useSession } from 'next-auth/react';
 
 export default function CardScanQrcode() {
   const [qrValue, setQrValue] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
   const [whatsappConnected, setWhatsappConnected] = useState(false);
 
   const { t } = useTranslation();
@@ -22,17 +23,34 @@ export default function CardScanQrcode() {
     (state: { language: LanguageState }) => state.language.language,
   );
 
-  useEffect(() => {
-    if (language) {
-      i18n.changeLanguage(language);
-    }
-  }, [language]);
+  const { data: session } = useSession();
+
+  const { error, getWhatsappSession, loading, sessionData, successMessage } =
+    useGetWhatsappSession();
 
   const createSessionFrontend = async () => {};
 
   const handleGetQrCode = async () => {};
 
   const handleRemoveSession = async () => {};
+
+  useEffect(() => {
+    if (language) {
+      i18n.changeLanguage(language);
+    }
+  }, [language]);
+
+  useEffect(() => {
+    if (!session?.user?.id) {
+      console.error('Usuário não autenticado');
+      return;
+    }
+
+    const userId = Number(session.user.id);
+    getWhatsappSession(userId);
+  }, [session, getWhatsappSession]);
+
+  const isSessionCreated = sessionData && sessionData.status !== 'STOPPED';
 
   return (
     <Card className="p-4 shadow-md rounded-xl w-full max-w-lg mx-auto">
@@ -51,7 +69,8 @@ export default function CardScanQrcode() {
       </div>
 
       <div className="flex justify-center gap-3 mt-4">
-        <ButtonCreateSessionBackend />
+        {!isSessionCreated && <ButtonCreateSessionBackend />}
+
         <Button
           onClick={handleGetQrCode}
           disabled={loading}

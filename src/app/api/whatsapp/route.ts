@@ -95,8 +95,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }),
     });
 
-    console.log(response, { token: WAHA_TOKEN });
-
     if (!response.ok) {
       const errorData = await response.json();
       console.error('Erro ao chamar API externa:', errorData);

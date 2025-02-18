@@ -52,7 +52,13 @@ export class WhatsappUserRepository {
   }
 
   async getUserWhatsappByUserId(userId: number) {
-    return await prisma.userWhatsapp.findUnique({ where: { userId } });
+    return await prisma.userWhatsapp.findUnique({
+      where: { userId },
+      include: {
+        whatsapp: true,
+        user: true,
+      },
+    });
   }
 
   async getUserWhatsappByWhatsappId(whatsappId: number) {
