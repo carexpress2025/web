@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { userRepository } from '@/domains/repositories';
-
-const parseIdFromRequest = (req: NextRequest): number | null => {
-  const idString = req.nextUrl.pathname.split('/').pop();
-  if (!idString) return null;
-  const accountId = Number(idString);
-  return isNaN(accountId) ? null : accountId;
-};
+import { parseIdFromRequest } from '@/core/utils/getAccountId';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {

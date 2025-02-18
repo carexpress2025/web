@@ -314,7 +314,7 @@ model UserAiGenericResponse {
 model Whatsapp {
   id           Int           @id @default(autoincrement())
   publicId     String        @unique @default(uuid()) @map("public_id")
-  number       String        @unique
+  number       String?        @unique
   session      String
   UserWhatsapp UserWhatsapp?
   createdAt    DateTime      @default(now())
