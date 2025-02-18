@@ -9,7 +9,7 @@
     "studio": "prisma studio",
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
-    "commit": "npx git-cz",
+    "commit": "next lint && git-cz",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run",
     "test:frontend": "vitest run --silent --passWithNoTests",

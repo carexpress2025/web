@@ -1,9 +1,17 @@
 import prisma from '@/core/libs/prisma';
 
 export class WhatsappUserRepository {
-  async createWhatsapp(number: string, session: string) {
+  async createWhatsapp(userId: number, session: string, number?: string) {
     return await prisma.whatsapp.create({
-      data: { number, session },
+      data: {
+        number: number ? number : undefined,
+        session: session,
+        UserWhatsapp: {
+          create: {
+            userId: userId,
+          },
+        },
+      },
     });
   }
 
@@ -52,7 +60,7 @@ export class WhatsappUserRepository {
   }
 
   async getUserWhatsappsByUserId(userId: number) {
-    return await prisma.userWhatsapp.findMany({ where: { userId } });
+    return await prisma.userWhatsapp.findUnique({ where: { userId } });
   }
 
   async updateUserWhatsapp(
